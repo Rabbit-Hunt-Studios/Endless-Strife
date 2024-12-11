@@ -1,0 +1,16 @@
+{
+    "name": "com.crookedhead.tbsf.tutorial",
+    "rootNamespace": "",
+    "references": [
+        "GUID:524ce4c8abeffae4fa82078a2c2391d3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
