@@ -16,7 +16,12 @@ PrefabInstance:
     - target: {fileID: 5103678040068229388, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
       propertyPath: m_Name
-      value: colored_69
+      value: colored_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
@@ -35,6 +40,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -46,16 +56,6 @@ PrefabInstance:
     - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585455905954854484, guid: 65a5fb968fca6574eba0afc56979826a,
@@ -75,13 +75,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7857082151614823283, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
-      propertyPath: MovementCost
-      value: 1
+      propertyPath: TileType
+      value: Plains
       objectReference: {fileID: 0}
     - target: {fileID: 7857082151614823283, guid: 65a5fb968fca6574eba0afc56979826a,
         type: 3}
-      propertyPath: TileType
-      value: Plains
+      propertyPath: MovementCost
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65a5fb968fca6574eba0afc56979826a, type: 3}
