@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3829865748184548698}
   - component: {fileID: 4090121707001187855}
   m_Layer: 0
-  m_Name: Grass
+  m_Name: Tree 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7645372005702169758, guid: 2236e129cb7d82743b9f8cfced55663d,
+  m_Sprite: {fileID: -9037391347323345871, guid: a51ce688931b9a244b9c19f98092399a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
 --- !u!114 &547762286543591150
 MonoBehaviour:
@@ -139,7 +139,7 @@ MonoBehaviour:
   - {fileID: 6503632421273479824}
   IsTaken: 0
   MovementCost: 1
-  TileType: Grass
+  TileType: tree
 --- !u!114 &6503632421273479824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 7196437572322180995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6828697689018240938}
   m_RootOrder: 0
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0066bab3ce80cac4c9d1848c6bda513d, type: 3}
+  m_Sprite: {fileID: 597105559402471680, guid: 5f43408fc55ad884f84914e7edea1abc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
