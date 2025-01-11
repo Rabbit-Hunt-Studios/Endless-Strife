@@ -7,6 +7,7 @@ namespace TbsFramework.Cells
     public class EndlessSquare : Square
      {
         public string TileType;
+        public int DefenceBoost;
 
         Vector3 dimensions = new Vector3(1.6f, 1.6f, 0f);
 

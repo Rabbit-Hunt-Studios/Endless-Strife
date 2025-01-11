@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
 --- !u!114 &547762286543591150
 MonoBehaviour:
@@ -139,6 +139,7 @@ MonoBehaviour:
   IsTaken: 0
   MovementCost: 1
   TileType: cliff
+  DefenceBoost: 0
 --- !u!114 &6503632421273479824
 MonoBehaviour:
   m_ObjectHideFlags: 0
