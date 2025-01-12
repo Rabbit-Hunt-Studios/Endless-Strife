@@ -1,17 +1,16 @@
-using TbsFramework.Cells;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TbsFramework.Cells;
 
-namespace TbsFramework.Cells
+namespace EndlessStrife.Cells 
 {
-    public class EndlessSquare : Square
-     {
-        public string TileType;
-        public int DefenceBoost;
+    public class ESSquare : Square
+    {
+        private Vector3 dimensions = new Vector3(0.16f, 0.16f, 0);
 
-        Vector3 dimensions = new Vector3(1.6f, 1.6f, 0f);
-
-        public override Vector3 GetCellDimensions()
+        public override Vector3 GetCellDimensions() 
         {
             return dimensions;
         }
