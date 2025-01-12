@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TbsFramework.Cells;
+using UnityEngine.Tilemaps;
 
 namespace EndlessStrife.Cells 
 {
     public class ESSquare : Square
     {
+        public string TileType;
+        public int DefenceBoost;
+
         private Vector3 dimensions = new Vector3(0.16f, 0.16f, 0);
 
         public override Vector3 GetCellDimensions() 

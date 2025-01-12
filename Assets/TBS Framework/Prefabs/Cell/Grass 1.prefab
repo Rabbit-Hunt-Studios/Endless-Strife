@@ -113,6 +113,7 @@ MonoBehaviour:
   - {fileID: 3177481416289703625}
   IsTaken: 0
   MovementCost: 1
+  TileType: Grass
 --- !u!61 &-6719464345284115690
 BoxCollider2D:
   m_ObjectHideFlags: 0
