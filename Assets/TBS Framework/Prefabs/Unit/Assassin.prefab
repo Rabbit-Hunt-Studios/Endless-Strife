@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -5086681777337514356, guid: e910fde2ef3a82747962e882fe538cea,
+  m_Sprite: {fileID: -5768801280392524164, guid: 297d5267c0e928f469f6e7b7977f0908,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 4800244382117743741}
   - component: {fileID: 8815304013000916402}
   m_Layer: 0
-  m_Name: SwordMan
+  m_Name: Assassin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,7 +708,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -5086681777337514356, guid: e910fde2ef3a82747962e882fe538cea,
+  m_Sprite: {fileID: -5768801280392524164, guid: 297d5267c0e928f469f6e7b7977f0908,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -769,7 +769,7 @@ MonoBehaviour:
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
-  UnitName: SwordMan
+  UnitName: Assassin
   Offset: {x: 0, y: 0, z: 0}
   isStructure: 0
 --- !u!114 &1921316767616022874
