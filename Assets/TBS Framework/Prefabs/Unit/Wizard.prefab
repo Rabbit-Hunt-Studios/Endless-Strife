@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 8415504388096797480}
   - component: {fileID: -6411700853245729929}
   m_Layer: 0
-  m_Name: SwordsmanCyan
+  m_Name: Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +494,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -5086681777337514356, guid: e910fde2ef3a82747962e882fe538cea,
+  m_Sprite: {fileID: 8656476805869961748, guid: 75bbcda1ea834cf4b96d3a1f7832df48,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
