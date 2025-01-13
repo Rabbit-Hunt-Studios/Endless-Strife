@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4023980884865283904}
   - component: {fileID: 3177481416289703625}
   m_Layer: 0
-  m_Name: Grass 1
+  m_Name: Stone 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7645372005702169758, guid: 2236e129cb7d82743b9f8cfced55663d,
+  m_Sprite: {fileID: 7157912997887894138, guid: 7f03a17441ee9334ab961531f7ae572f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 3177481416289703625}
   IsTaken: 0
   MovementCost: 1
-  TileType: Grass
+  TileType: Stone
   DefenceBoost: 0
 --- !u!61 &-6719464345284115690
 BoxCollider2D:

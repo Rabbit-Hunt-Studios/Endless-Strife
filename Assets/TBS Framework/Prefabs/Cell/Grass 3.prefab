@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6283373201559164390}
-  - component: {fileID: -3763275035001637875}
+  - component: {fileID: 6564860734256157573}
   - component: {fileID: 6772244484188430308}
   - component: {fileID: -6719464345284115690}
   - component: {fileID: 5613503340978225760}
@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4023980884865283904}
   - component: {fileID: 3177481416289703625}
   m_Layer: 0
-  m_Name: Grass 1
+  m_Name: Grass 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &-3763275035001637875
+--- !u!212 &6564860734256157573
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,8 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7645372005702169758, guid: 2236e129cb7d82743b9f8cfced55663d,
-    type: 3}
+  m_Sprite: {fileID: 475435623110610922, guid: 2236e129cb7d82743b9f8cfced55663d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
