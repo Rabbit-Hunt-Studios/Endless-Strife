@@ -403,7 +403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: 5009207349737680233, guid: 163fef313ff728944840218be8ebe1e6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -486,7 +486,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: -6525204554708423462, guid: f35610fd8b8fe4d41a3a1d32183361b2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -577,7 +577,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: -4337846878145560712, guid: f6b319adadaf3644c8824c0dd5c8c076,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -631,15 +631,15 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 4027087742763158571}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 10
+  HitPoints: 200
   AttackRange: 1
-  AttackFactor: 10
-  DefenceFactor: 10
-  movementPoints: 1
+  AttackFactor: 55
+  DefenceFactor: 25
+  movementPoints: 4
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
-  UnitName: SwordMan
+  UnitName: Knight
   Offset: {x: 0, y: 0, z: -0.01}
 --- !u!114 &-2287627929598618808
 MonoBehaviour:

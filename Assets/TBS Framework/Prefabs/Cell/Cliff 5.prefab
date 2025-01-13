@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: 4023980884865283904}
   UnMarkFn:
   - {fileID: 3177481416289703625}
-  IsTaken: 0
+  IsTaken: 1
   MovementCost: 1
   TileType: Cliff
   DefenceBoost: 0
