@@ -4051,6 +4051,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2145875584}
     m_Modifications:
+    - target: {fileID: -6680317982036561316, guid: 3f531d808054b6d4b880b450e3b4f325,
+        type: 3}
+      propertyPath: MoneyPanel
+      value: 
+      objectReference: {fileID: 1108211347}
     - target: {fileID: 3816751572935082963, guid: 3f531d808054b6d4b880b450e3b4f325,
         type: 3}
       propertyPath: m_RootOrder
@@ -4119,6 +4124,11 @@ PrefabInstance:
     - target: {fileID: 8270656166116008124, guid: 3f531d808054b6d4b880b450e3b4f325,
         type: 3}
       propertyPath: MoneyText
+      value: 
+      objectReference: {fileID: 1108211347}
+    - target: {fileID: 8270656166116008124, guid: 3f531d808054b6d4b880b450e3b4f325,
+        type: 3}
+      propertyPath: MoneyPanel
       value: 
       objectReference: {fileID: 1108211347}
     m_RemovedComponents: []
@@ -5011,41 +5021,41 @@ Transform:
   - {fileID: 2141523481}
   - {fileID: 375947890}
   - {fileID: 170323082}
-  - {fileID: 56332198}
   - {fileID: 761507498}
   - {fileID: 76452776}
   - {fileID: 1236588001}
-  - {fileID: 2004965220}
   - {fileID: 1158662927}
-  - {fileID: 1439334281}
   - {fileID: 1795122106}
   - {fileID: 321412740}
-  - {fileID: 1953757979}
   - {fileID: 1499784493}
-  - {fileID: 599145972}
-  - {fileID: 736061446}
+  - {fileID: 1953757979}
   - {fileID: 1131890492}
   - {fileID: 1769730621}
+  - {fileID: 736061446}
   - {fileID: 1653162436}
-  - {fileID: 1652829920}
-  - {fileID: 154112308}
-  - {fileID: 252805160}
-  - {fileID: 939530797}
-  - {fileID: 704956266}
-  - {fileID: 466083423}
-  - {fileID: 1897474402}
-  - {fileID: 1879640175}
-  - {fileID: 753550222}
-  - {fileID: 892674490}
-  - {fileID: 1837451249}
-  - {fileID: 647010508}
-  - {fileID: 1737034028}
-  - {fileID: 1614097200}
-  - {fileID: 194531620}
   - {fileID: 90179144}
-  - {fileID: 1156066244}
+  - {fileID: 1652829920}
   - {fileID: 1445719884}
+  - {fileID: 154112308}
+  - {fileID: 939530797}
+  - {fileID: 1614097200}
+  - {fileID: 704956266}
+  - {fileID: 252805160}
+  - {fileID: 1897474402}
   - {fileID: 894590614}
+  - {fileID: 1879640175}
+  - {fileID: 892674490}
+  - {fileID: 753550222}
+  - {fileID: 2004965220}
+  - {fileID: 647010508}
+  - {fileID: 1837451249}
+  - {fileID: 1737034028}
+  - {fileID: 466083423}
+  - {fileID: 194531620}
+  - {fileID: 599145972}
+  - {fileID: 1156066244}
+  - {fileID: 1439334281}
+  - {fileID: 56332198}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7088,6 +7098,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2145875584}
     m_Modifications:
+    - target: {fileID: -7555589105011237844, guid: a3f3ee13ecc2cc04392a9b451038c81c,
+        type: 3}
+      propertyPath: MoneyPanel
+      value: 
+      objectReference: {fileID: 1108211347}
     - target: {fileID: 3816751572935082963, guid: a3f3ee13ecc2cc04392a9b451038c81c,
         type: 3}
       propertyPath: m_RootOrder
@@ -7156,6 +7171,11 @@ PrefabInstance:
     - target: {fileID: 5547432211749023506, guid: a3f3ee13ecc2cc04392a9b451038c81c,
         type: 3}
       propertyPath: MoneyText
+      value: 
+      objectReference: {fileID: 1108211347}
+    - target: {fileID: 5547432211749023506, guid: a3f3ee13ecc2cc04392a9b451038c81c,
+        type: 3}
+      propertyPath: MoneyPanel
       value: 
       objectReference: {fileID: 1108211347}
     - target: {fileID: 6743085089185934557, guid: a3f3ee13ecc2cc04392a9b451038c81c,

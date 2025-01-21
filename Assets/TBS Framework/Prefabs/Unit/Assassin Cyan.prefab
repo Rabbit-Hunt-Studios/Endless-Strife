@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: -2287627929598618808}
   - component: {fileID: 8415504388096797480}
   - component: {fileID: -6411700853245729929}
+  - component: {fileID: -585194808492350068}
   m_Layer: 0
   m_Name: Assassin Cyan
   m_TagString: Untagged
@@ -557,6 +558,7 @@ MonoBehaviour:
   PlayerNumber: 0
   UnitName: Assassin
   Offset: {x: 0, y: 0, z: -0.01}
+  isStructure: 0
 --- !u!114 &-2287627929598618808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +595,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191c517e72f4f6144b52a5eed6ff2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-585194808492350068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489925965620877045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460ad3f07aed0614fa54b662cddb11ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 350
 --- !u!1 &9115641159205118662
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,13 @@ using UnityEngine.UI;
 public class IncomeAbility : Ability
 {
     public int Amount;
-    public Text MoneyText;
+    public Text MoneyPanel;
 
     public override void OnTurnStart(CellGrid cellGrid)
     {
         var economyController = FindObjectOfType<EconomyController>();
         economyController.UpdateValue(GetComponent<Unit>().PlayerNumber, Amount);
-        MoneyText.text = economyController.GetValue(GetComponent<Unit>().PlayerNumber).ToString();
+        MoneyPanel.text = economyController.GetValue(GetComponent<Unit>().PlayerNumber).ToString();
     }
 }
 
