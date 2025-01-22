@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using TbsFramework.Units;
 using TbsFramework.Cells;
 using EndlessStrife.Cells;
+using System;
 
 public class ESUnit : Unit
 {
@@ -51,6 +52,7 @@ public class ESUnit : Unit
 
     public override bool IsCellTraversable(Cell cell)
     {
+        Debug.Log(cell.OffsetCoord.ToString() + cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure).ToString() + cell.CurrentUnits.Count.ToString() + cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure && u.PlayerNumber != PlayerNumber).ToString());
         return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure && u.PlayerNumber != PlayerNumber));
     }
 

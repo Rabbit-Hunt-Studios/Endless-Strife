@@ -730,6 +730,8 @@ GameObject:
   - component: {fileID: 5357581129505109978}
   - component: {fileID: 8270656166116008124}
   - component: {fileID: -6680317982036561316}
+  - component: {fileID: 7457375308939899885}
+  - component: {fileID: 2483106210144435740}
   m_Layer: 0
   m_Name: Base Cyan
   m_TagString: Untagged
@@ -745,7 +747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6743085089185934557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6345440426897462624}
@@ -793,7 +795,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9967f5acf1b852c4da7bb37e0f20e85f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -852,10 +854,10 @@ MonoBehaviour:
   DefenceFactor: 0
   movementPoints: 0
   MovementAnimationSpeed: 0
-  actionPoints: 1
+  actionPoints: 0
   PlayerNumber: 0
   UnitName: Base
-  Offset: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: -0.001}
   isStructure: 1
 --- !u!114 &8270656166116008124
 MonoBehaviour:
@@ -870,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Amount: 100
-  MoneyText: {fileID: 0}
+  MoneyPanel: {fileID: 0}
 --- !u!114 &-6680317982036561316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +892,31 @@ MonoBehaviour:
   SelectedPrefab: {fileID: 0}
   UnitButton: {fileID: 7550877736854407401}
   UnitPanel: {fileID: 8855120346318336767}
+  MoneyPanel: {fileID: 0}
+--- !u!114 &7457375308939899885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743085089185934557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86d8015449d405479e994aafd4fd0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2483106210144435740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743085089185934557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e0a96cadab3c746a80c6a35e5527be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6953572895868162792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1587,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 493501594240005904, guid: 56ac29611b365e442ae25c5fa5413dac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
