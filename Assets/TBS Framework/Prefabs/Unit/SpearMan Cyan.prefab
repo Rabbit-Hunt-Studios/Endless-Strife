@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: -6411700853245729929}
   - component: {fileID: 3655795997789562022}
   - component: {fileID: 5897291771776341514}
+  - component: {fileID: 1221853556522095647}
   m_Layer: 0
   m_Name: SpearMan Cyan
   m_TagString: Untagged
@@ -619,6 +620,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f8c5c5d2277624bb3af2a092b90224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1221853556522095647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489925965620877045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec5feeff51c29e4c8c20dd15b03ce5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9115641159205118662
