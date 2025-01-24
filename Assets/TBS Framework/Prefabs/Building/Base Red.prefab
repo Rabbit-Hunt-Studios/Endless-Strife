@@ -1309,6 +1309,8 @@ MonoBehaviour:
   - {fileID: 8489925965620877045, guid: f0958f98d0e17444d824db305990d0af, type: 3}
   - {fileID: 8489925965620877045, guid: c88a743e567e0494b89c4802ef001b37, type: 3}
   - {fileID: 8489925965620877045, guid: c6a40a2221fb5ee4bba8e2f672699afb, type: 3}
+  SpecialPrefabs: []
+  Outposts: []
   SelectedPrefab: {fileID: 0}
   UnitButton: {fileID: 3556853546981895798}
   UnitPanel: {fileID: 7553309733861695584}

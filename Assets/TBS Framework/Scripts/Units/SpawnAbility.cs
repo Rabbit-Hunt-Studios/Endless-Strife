@@ -16,6 +16,8 @@ namespace TbsFramework.Units
     public class SpawnAbility : Ability
     {
         public List<GameObject> Prefabs;
+        public List<GameObject> SpecialPrefabs;
+        
         [HideInInspector]
         public GameObject SelectedPrefab;
 
@@ -68,6 +70,30 @@ namespace TbsFramework.Units
                 unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
 
                 unitButton.SetActive(true);
+                UnitButtons.Add(unitButton);
+            }
+
+            for (int i = 0; i < SpecialPrefabs.Count; i++)
+            {
+                var UnitPrefab = SpecialPrefabs[i];
+
+                var unitButton = Instantiate(UnitButton, UnitButton.transform.parent);
+                unitButton.GetComponent<Button>().interactable = UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber);
+                unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(UnitPrefab, cellGrid));
+
+                unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitPrefab.GetComponent<SpriteRenderer>().sprite;
+                unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = UnitPrefab.GetComponent<ESUnit>().UnitName;
+                unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
+
+                if (cellGrid.Units.Exists(u => u.PlayerNumber == cellGrid.CurrentPlayer.PlayerNumber 
+                                            && u.GetComponent<ESUnit>().UnitUnlock == UnitPrefab.GetComponent<ESUnit>().UnitName))
+                {
+                    unitButton.SetActive(true);
+                }
+                else
+                {
+                    unitButton.SetActive(false);
+                }
                 UnitButtons.Add(unitButton);
             }
 
