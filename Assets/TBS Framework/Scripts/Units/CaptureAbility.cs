@@ -12,7 +12,7 @@ namespace TbsFramework.Units
     {
         private Unit capturingStructure;
 
-        public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
+        public override void OnTurnStart(CellGrid cellGrid)
         {
             if (CanPerform(cellGrid))
             {
@@ -25,19 +25,7 @@ namespace TbsFramework.Units
                 if (capturingStructure != null)
                 {
                     capturingStructure.GetComponent<CapturableAbility>().Capture(GetComponent<Unit>().PlayerNumber);
-                    UnitReference.ActionPoints -= 1;
                 }
-            }
-
-            yield return null;
-        }
-
-        public override void OnTurnStart(CellGrid cellGrid)
-        {
-            if (capturingStructure != null && UnitReference.Cell.CurrentUnits.Contains(capturingStructure))
-            {
-                capturingStructure.GetComponent<CapturableAbility>().Capture(UnitReference.PlayerNumber);
-                capturingStructure = null;
             }
         }
 
