@@ -10,6 +10,7 @@ using System;
 public class ESUnit : Unit
 {
     public string UnitName;
+    public string UnitUnlock;
     public Vector3 Offset;
     public bool isStructure;
 
