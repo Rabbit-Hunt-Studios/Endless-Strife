@@ -42,6 +42,23 @@ namespace TbsFramework.Units
                 SpawnedUnit = unitGO.GetComponent<Unit>();
 
                 var player = FindObjectOfType<CellGrid>().Players.Find(p => p.PlayerNumber == GetComponent<Unit>().PlayerNumber);
+                var spriteRenderer = SpawnedUnit.GetComponent<SpriteRenderer>();
+                switch (GetComponent<Unit>().PlayerNumber)
+                {
+                    case 0:
+                        Debug.Log("Player 0");
+                        spriteRenderer.sprite = unitGO.GetComponent<ESUnit>().Player1Sprite;
+                        break;
+                    case 1:
+                        Debug.Log("Player 1");
+                        spriteRenderer.sprite = unitGO.GetComponent<ESUnit>().Player2Sprite;
+                        break;
+                    // Add more cases for additional players
+                    default:
+                        Debug.Log("Default");
+                        spriteRenderer.sprite = unitGO.GetComponent<ESUnit>().DefaultSprite;
+                        break;
+                }
 
                 cellGrid.AddUnit(SpawnedUnit.transform, UnitReference.Cell, cellGrid.CurrentPlayer);
                 SpawnedUnit.OnTurnStart();

@@ -61,22 +61,11 @@ public class ESUnit : Unit
 
     public override void SetColor(Color color)
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        var highlighter = transform.Find("Marker");
+        var spriteRenderer = highlighter.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            switch (PlayerNumber)
-            {
-                case 0:
-                    spriteRenderer.sprite = Player1Sprite;
-                    break;
-                case 1:
-                    spriteRenderer.sprite = Player2Sprite;
-                    break;
-                // Add more cases for additional players
-                default:
-                    spriteRenderer.sprite = DefaultSprite;
-                    break;
-            }
+            spriteRenderer.color = color;
         }
     }
 

@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 2001495703136744582}
   - component: {fileID: -2850811718577333144}
   m_Layer: 0
-  m_Name: SwordsMan Cyan
+  m_Name: SwordsMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +558,13 @@ MonoBehaviour:
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
+  Player1Sprite: {fileID: -5086681777337514356, guid: e910fde2ef3a82747962e882fe538cea,
+    type: 3}
+  Player2Sprite: {fileID: -1871544834201548553, guid: c245fcdc7a8cdf34397f730428208b86,
+    type: 3}
+  DefaultSprite: {fileID: 0}
   UnitName: SwordMan
+  UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}
   isStructure: 0
 --- !u!114 &-2287627929598618808

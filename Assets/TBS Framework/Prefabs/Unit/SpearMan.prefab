@@ -431,11 +431,11 @@ GameObject:
   - component: {fileID: -2287627929598618808}
   - component: {fileID: 8415504388096797480}
   - component: {fileID: -6411700853245729929}
-  - component: {fileID: -4694099709443528543}
-  - component: {fileID: -5994533053152619410}
-  - component: {fileID: -6350542018444176346}
+  - component: {fileID: 3655795997789562022}
+  - component: {fileID: 5897291771776341514}
+  - component: {fileID: 1221853556522095647}
   m_Layer: 0
-  m_Name: Axeman Cyan
+  m_Name: SpearMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 8444944741678155554, guid: 7f5c983992e76f04185ad71bb6c2cfe4,
+  m_Sprite: {fileID: -6223864284355778667, guid: 823a88aed1bbe1747aef9e02e2287a83,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -550,15 +550,21 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 4027087742763158571}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 275
+  HitPoints: 200
   AttackRange: 1
-  AttackFactor: 60
-  DefenceFactor: 20
+  AttackFactor: 50
+  DefenceFactor: 70
   movementPoints: 2
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
-  UnitName: AxeMan
+  Player1Sprite: {fileID: -6223864284355778667, guid: 823a88aed1bbe1747aef9e02e2287a83,
+    type: 3}
+  Player2Sprite: {fileID: -5842252866615871358, guid: 3a630da0835ab904591be3e01c5ea47b,
+    type: 3}
+  DefaultSprite: {fileID: 0}
+  UnitName: SpearMan
+  UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}
   isStructure: 0
 --- !u!114 &-2287627929598618808
@@ -597,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191c517e72f4f6144b52a5eed6ff2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4694099709443528543
+--- !u!114 &3655795997789562022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -609,8 +615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ad3f07aed0614fa54b662cddb11ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 300
---- !u!114 &-5994533053152619410
+  Value: 250
+--- !u!114 &5897291771776341514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f8c5c5d2277624bb3af2a092b90224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6350542018444176346
+--- !u!114 &1221853556522095647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

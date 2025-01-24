@@ -1276,7 +1276,11 @@ MonoBehaviour:
   MovementAnimationSpeed: 0
   actionPoints: 0
   PlayerNumber: 0
+  Player1Sprite: {fileID: 21300000, guid: 9967f5acf1b852c4da7bb37e0f20e85f, type: 3}
+  Player2Sprite: {fileID: 21300000, guid: 763933cffe8fbf84bbb77889e6425bf9, type: 3}
+  DefaultSprite: {fileID: 0}
   UnitName: Base
+  UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.001}
   isStructure: 1
 --- !u!114 &5547432211749023506
@@ -1306,11 +1310,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 8489925965620877045, guid: f0958f98d0e17444d824db305990d0af, type: 3}
-  - {fileID: 8489925965620877045, guid: c88a743e567e0494b89c4802ef001b37, type: 3}
-  - {fileID: 8489925965620877045, guid: c6a40a2221fb5ee4bba8e2f672699afb, type: 3}
-  SpecialPrefabs: []
-  Outposts: []
+  - {fileID: 8489925965620877045, guid: 4d28fbb2ca77005418701ca108dcacd2, type: 3}
+  - {fileID: 8489925965620877045, guid: f76f9a32d082ca740917b241bd14559e, type: 3}
+  SpecialPrefabs:
+  - {fileID: 8489925965620877045, guid: 85d3e928beda32e408fd51c25cc19aa5, type: 3}
+  - {fileID: 8489925965620877045, guid: bddd331efb5785445a31821835c4ab25, type: 3}
+  - {fileID: 8489925965620877045, guid: 303f3a9e827cbaa42a48a5152da7bf49, type: 3}
+  - {fileID: 8489925965620877045, guid: 87c82e60a137e7641be26de4fa9105aa, type: 3}
+  - {fileID: 8489925965620877045, guid: c77450ec2e66a3f45a01d255166a5fad, type: 3}
+  - {fileID: 8489925965620877045, guid: 2a097e39d231f1546b6e25fb29bbf019, type: 3}
   SelectedPrefab: {fileID: 0}
   UnitButton: {fileID: 3556853546981895798}
   UnitPanel: {fileID: 7553309733861695584}

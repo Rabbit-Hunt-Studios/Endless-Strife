@@ -403,7 +403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: -6525204554708423462, guid: f35610fd8b8fe4d41a3a1d32183361b2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -431,11 +431,11 @@ GameObject:
   - component: {fileID: -2287627929598618808}
   - component: {fileID: 8415504388096797480}
   - component: {fileID: -6411700853245729929}
-  - component: {fileID: 4018173395525446163}
-  - component: {fileID: -1198001113166977462}
-  - component: {fileID: 7233137251818067926}
+  - component: {fileID: 8028107185691980476}
+  - component: {fileID: 6296218856377281761}
+  - component: {fileID: -4921504418857727323}
   m_Layer: 0
-  m_Name: Musketeer Cyan
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,8 +496,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: -6090127606422845984, guid: db924ead554067144bf7b5977fcdd5a9,
+  m_SortingOrder: 5
+  m_Sprite: {fileID: -4337846878145560712, guid: f6b319adadaf3644c8824c0dd5c8c076,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -526,7 +526,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -550,15 +550,21 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 4027087742763158571}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 175
-  AttackRange: 4
-  AttackFactor: 60
-  DefenceFactor: 20
-  movementPoints: 2
+  HitPoints: 200
+  AttackRange: 1
+  AttackFactor: 55
+  DefenceFactor: 25
+  movementPoints: 4
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
-  UnitName: Musketeer
+  Player1Sprite: {fileID: -4337846878145560712, guid: f6b319adadaf3644c8824c0dd5c8c076,
+    type: 3}
+  Player2Sprite: {fileID: 5009207349737680233, guid: 163fef313ff728944840218be8ebe1e6,
+    type: 3}
+  DefaultSprite: {fileID: 0}
+  UnitName: Knight
+  UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}
   isStructure: 0
 --- !u!114 &-2287627929598618808
@@ -597,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191c517e72f4f6144b52a5eed6ff2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4018173395525446163
+--- !u!114 &8028107185691980476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -609,8 +615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ad3f07aed0614fa54b662cddb11ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 350
---- !u!114 &-1198001113166977462
+  Value: 150
+--- !u!114 &6296218856377281761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f8c5c5d2277624bb3af2a092b90224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7233137251818067926
+--- !u!114 &-4921504418857727323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
