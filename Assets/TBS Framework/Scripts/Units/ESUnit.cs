@@ -9,6 +9,9 @@ using System;
 
 public class ESUnit : Unit
 {
+    public Sprite Player1Sprite;
+    public Sprite Player2Sprite;
+    public Sprite DefaultSprite;
     public string UnitName;
     public string UnitUnlock;
     public Vector3 Offset;
@@ -53,17 +56,27 @@ public class ESUnit : Unit
 
     public override bool IsCellTraversable(Cell cell)
     {
-        Debug.Log(cell.OffsetCoord.ToString() + cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure).ToString() + cell.CurrentUnits.Count.ToString() + cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure && u.PlayerNumber != PlayerNumber).ToString());
         return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure && u.PlayerNumber != PlayerNumber));
     }
 
     public override void SetColor(Color color)
     {
-        var highlighter = transform.Find("Marker");
-        var spriteRenderer = highlighter.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = color;
+            switch (PlayerNumber)
+            {
+                case 0:
+                    spriteRenderer.sprite = Player1Sprite;
+                    break;
+                case 1:
+                    spriteRenderer.sprite = Player2Sprite;
+                    break;
+                // Add more cases for additional players
+                default:
+                    spriteRenderer.sprite = DefaultSprite;
+                    break;
+            }
         }
     }
 
