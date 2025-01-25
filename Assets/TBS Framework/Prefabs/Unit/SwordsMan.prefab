@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -5086681777337514356, guid: e910fde2ef3a82747962e882fe538cea,
+  m_Sprite: {fileID: 9149156106655959821, guid: 81b1b71114b5779439f0b95822ffd4bd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: -1871544834201548553, guid: c245fcdc7a8cdf34397f730428208b86,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: 9149156106655959821, guid: 81b1b71114b5779439f0b95822ffd4bd,
+    type: 3}
   UnitName: SwordMan
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}

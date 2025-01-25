@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 8656476805869961748, guid: 75bbcda1ea834cf4b96d3a1f7832df48,
+  m_Sprite: {fileID: -7311663357801480774, guid: 89688eff177ad5c4c9e331485535886e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: 6369753244319357967, guid: acb92e5520d59844da2f00200db923b7,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: -7311663357801480774, guid: 89688eff177ad5c4c9e331485535886e,
+    type: 3}
   UnitName: Wizard
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}

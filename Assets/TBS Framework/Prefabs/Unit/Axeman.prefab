@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 8444944741678155554, guid: 7f5c983992e76f04185ad71bb6c2cfe4,
+  m_Sprite: {fileID: 2493916760975777912, guid: 9aa6a0fa1e2d24f4883ff9f5c66c9496,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: 182038098247388808, guid: 23c7819b1dbaa6d45abed0d44e87a1e7,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: 2493916760975777912, guid: 9aa6a0fa1e2d24f4883ff9f5c66c9496,
+    type: 3}
   UnitName: AxeMan
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}

@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -5751841156268482714, guid: ab51406953ee53747a133dee85be050d,
+  m_Sprite: {fileID: -8279185905841022901, guid: 143fb024d715d574db44ed12e30dd17a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: -3702343958198113789, guid: 2fd4d75a0af55f646b2d4c3d13528a7f,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: -8279185905841022901, guid: 143fb024d715d574db44ed12e30dd17a,
+    type: 3}
   UnitName: Archer
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}
