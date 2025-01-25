@@ -5,11 +5,17 @@ using UnityEngine.EventSystems;
 using TbsFramework.Units;
 using TbsFramework.Cells;
 using EndlessStrife.Cells;
+using System;
 
 public class ESUnit : Unit
 {
+    public Sprite Player1Sprite;
+    public Sprite Player2Sprite;
+    public Sprite DefaultSprite;
     public string UnitName;
+    public string UnitUnlock;
     public Vector3 Offset;
+    public bool isStructure;
 
     public override void Initialize()
     {
@@ -46,6 +52,11 @@ public class ESUnit : Unit
         GetComponent<SpriteRenderer>().sortingOrder -= 10;
         transform.Find("Marker").GetComponent<SpriteRenderer>().sortingOrder -= 10;
         base.OnMoveFinished();
+    }
+
+    public override bool IsCellTraversable(Cell cell)
+    {
+        return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as ESUnit).isStructure && u.PlayerNumber != PlayerNumber));
     }
 
     public override void SetColor(Color color)
