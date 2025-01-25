@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -6090127606422845984, guid: db924ead554067144bf7b5977fcdd5a9,
+  m_Sprite: {fileID: -2167167381615035893, guid: b547011732570b548ae9a6fd798017dc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: -421178762237544096, guid: d6c996d1540abd541999b3b32391ce47,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: -2167167381615035893, guid: b547011732570b548ae9a6fd798017dc,
+    type: 3}
   UnitName: Musketeer
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}

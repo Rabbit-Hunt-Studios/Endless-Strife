@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -6223864284355778667, guid: 823a88aed1bbe1747aef9e02e2287a83,
+  m_Sprite: {fileID: -4688106884108018719, guid: 8358a5635dc3b044e9631e967c37c906,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: -5842252866615871358, guid: 3a630da0835ab904591be3e01c5ea47b,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: -4688106884108018719, guid: 8358a5635dc3b044e9631e967c37c906,
+    type: 3}
   UnitName: SpearMan
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}

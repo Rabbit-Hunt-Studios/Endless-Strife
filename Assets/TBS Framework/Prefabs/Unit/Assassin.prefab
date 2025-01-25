@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -5768801280392524164, guid: 297d5267c0e928f469f6e7b7977f0908,
+  m_Sprite: {fileID: 2096580948167513686, guid: c082c52f812163a4bae7a4d62a0fa683,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,7 +562,8 @@ MonoBehaviour:
     type: 3}
   Player2Sprite: {fileID: -6515474711942451929, guid: 792bcb92952da784b9f76da0890e0ee8,
     type: 3}
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: 2096580948167513686, guid: c082c52f812163a4bae7a4d62a0fa683,
+    type: 3}
   UnitName: Assassin
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.01}
