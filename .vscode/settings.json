@@ -20,7 +20,7 @@
         "**/*.ico":true,
         "**/*.jpg":true,
         "**/*.jpeg":true,
-        "**/*.png":true,
+        "**/*.png":false,
         "**/*.psd":true,
         "**/*.tga":true,
         "**/*.tif":true,
