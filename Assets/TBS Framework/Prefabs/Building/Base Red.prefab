@@ -1540,6 +1540,7 @@ MonoBehaviour:
   SelectedPrefab: {fileID: 0}
   UnitButton: {fileID: 3556853546981895798}
   UnitPanel: {fileID: 7553309733861695584}
+  InfoPanel: {fileID: 7370004071583373050}
   MoneyText: {fileID: 4206607599331998827}
 --- !u!114 &751925963825766880
 MonoBehaviour:

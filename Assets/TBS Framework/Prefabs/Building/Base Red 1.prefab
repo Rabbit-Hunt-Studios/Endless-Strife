@@ -1373,6 +1373,7 @@ GameObject:
   - component: {fileID: -7555589105011237844}
   - component: {fileID: 751925963825766880}
   - component: {fileID: 4763830788287985667}
+  - component: {fileID: 76950020424156467}
   m_Layer: 0
   m_Name: Base Red 1
   m_TagString: Untagged
@@ -1542,6 +1543,7 @@ MonoBehaviour:
   SelectedPrefab: {fileID: 0}
   UnitButton: {fileID: 3556853546981895798}
   UnitPanel: {fileID: 7553309733861695584}
+  InfoPanel: {fileID: 7927827306981612753}
   MoneyText: {fileID: 152568482536044410}
 --- !u!114 &751925963825766880
 MonoBehaviour:
@@ -1567,6 +1569,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e0a96cadab3c746a80c6a35e5527be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &76950020424156467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743085089185934557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f416c6bfbb9222641b4ac09f16dd0804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeCost: 500
+  prefabToChange: {fileID: 6743085089185934557, guid: f721042ef0627d34790f163a0c764aca,
+    type: 3}
+  upgradeButton: {fileID: 2723030723538174544}
+  MoneyText: {fileID: 152568482536044410}
+  upgradePanel: {fileID: 7927827306981612753}
 --- !u!1 &7553309733861695584
 GameObject:
   m_ObjectHideFlags: 0

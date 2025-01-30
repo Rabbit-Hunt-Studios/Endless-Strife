@@ -23,6 +23,7 @@ namespace TbsFramework.Units
 
         public GameObject UnitButton;
         public GameObject UnitPanel;
+        public GameObject InfoPanel;
         public Text MoneyText;
 
         public event EventHandler UnitSpawned;
@@ -116,6 +117,8 @@ namespace TbsFramework.Units
             }
 
             UnitPanel.SetActive(true);
+            InfoPanel.SetActive(true);
+            
         }
 
         void ActWrapper(GameObject prefab, CellGrid cellGrid)
@@ -154,6 +157,7 @@ namespace TbsFramework.Units
                 Destroy(button);
             }
             UnitPanel.SetActive(false);
+            InfoPanel.SetActive(false);
         }
 
         public override bool CanPerform(CellGrid cellGrid)

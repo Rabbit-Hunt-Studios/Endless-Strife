@@ -19,6 +19,7 @@ public class UpgradeAbility : Ability
     public Text MoneyText;
     public GameObject upgradePanel;
     public event EventHandler UnitUpgrade;
+    private Unit newUnit;
 
     public override void Display(CellGrid cellGrid)
     {
@@ -40,12 +41,13 @@ public class UpgradeAbility : Ability
             {
                 economyController.UpdateValue(cellGrid.CurrentPlayerNumber, -upgradeCost);
                 MoneyText.text = economyController.GetValue(cellGrid.CurrentPlayerNumber).ToString();
-                var cell = UnitReference.Cell;
 
-                var unitGO = Instantiate(prefabToChange, cell.transform.position, Quaternion.identity);
-                var newUnit = unitGO.GetComponent<Unit>();
+                var unitGO = Instantiate(prefabToChange);
+                newUnit = unitGO.GetComponent<Unit>();
 
-                cellGrid.AddUnit(newUnit.transform, cell, cellGrid.CurrentPlayer);
+                newUnit.transform.SetParent(UnitReference.transform.parent);
+
+                cellGrid.AddUnit(newUnit.transform, UnitReference.Cell, cellGrid.CurrentPlayer);
                 newUnit.OnTurnStart();
 
                  var structureCaptureConditions = cellGrid.GetComponents<StructureCaptureCondition>();
@@ -63,8 +65,19 @@ public class UpgradeAbility : Ability
                     newUnit.GetComponent<Unit>().SetState(new UnitStateMarkedAsFinished(newUnit.GetComponent<Unit>()));
                 }
 
-                UnitReference.gameObject.SetActive(false);
-                Destroy(UnitReference.gameObject, 0.1f);
+                var renderer = UnitReference.gameObject.GetComponent<Renderer>();
+                if (renderer != null)
+                {
+                    renderer.enabled = false;
+                }
+                else
+                {
+                    var renderers = UnitReference.gameObject.GetComponentsInChildren<Renderer>();
+                    foreach (var rend in renderers)
+                    {
+                        rend.enabled = false;
+                    }
+                }
             }
         }
         yield return base.Act(cellGrid, isNetworkInvoked);
@@ -100,5 +113,19 @@ public class UpgradeAbility : Ability
     public override bool CanPerform(CellGrid cellGrid)
     {
         return true;
+    }
+
+    public override void OnTurnEnd(CellGrid cellGrid)
+    {
+        if (newUnit != null)
+        {
+            newUnit.GetComponent<Unit>().SetState(new UnitStateNormal(newUnit.GetComponent<Unit>()));
+            UnitReference.gameObject.SetActive(false);
+        }
+        newUnit = null;
+    }
+    public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
+    {
+        yield return StartCoroutine(Execute(cellGrid, _ => cellGrid.cellGridState = new CellGridStateRemotePlayerTurn(cellGrid), _ => { }, isNetworkInvoked));
     }
 }
