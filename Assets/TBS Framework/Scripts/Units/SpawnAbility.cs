@@ -23,7 +23,7 @@ namespace TbsFramework.Units
 
         public GameObject UnitButton;
         public GameObject UnitPanel;
-        public Text MoneyPanel;
+        public Text MoneyText;
 
         public event EventHandler UnitSpawned;
 
@@ -36,7 +36,7 @@ namespace TbsFramework.Units
             if (!UnitReference.Cell.IsTaken && FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) >= SelectedPrefab.GetComponent<Price>().Value)
             {
                 FindObjectOfType<EconomyController>().UpdateValue(GetComponent<Unit>().PlayerNumber, SelectedPrefab.GetComponent<Price>().Value * (-1));
-                MoneyPanel.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
+                MoneyText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
 
                 var unitGO = Instantiate(SelectedPrefab);
                 SpawnedUnit = unitGO.GetComponent<Unit>();
@@ -74,6 +74,7 @@ namespace TbsFramework.Units
         }
         public override void Display(CellGrid cellGrid)
         {
+            MoneyText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
             for (int i = 0; i < Prefabs.Count; i++)
             {
                 var UnitPrefab = Prefabs[i];
