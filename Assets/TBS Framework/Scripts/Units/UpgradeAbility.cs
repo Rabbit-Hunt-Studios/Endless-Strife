@@ -121,8 +121,13 @@ public class UpgradeAbility : Ability
         {
             newUnit.GetComponent<Unit>().SetState(new UnitStateNormal(newUnit.GetComponent<Unit>()));
             UnitReference.gameObject.SetActive(false);
+            UnitReference.Cell.CurrentUnits.Remove(UnitReference);
         }
         newUnit = null;
+    }
+    public override IDictionary<string, string> Encapsulate()
+    {
+        return new Dictionary<string, string>();
     }
     public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
     {
