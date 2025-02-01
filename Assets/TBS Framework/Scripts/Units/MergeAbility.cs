@@ -16,13 +16,24 @@ namespace TbsFramework.Units
         public HashSet<Unit> availableMerges;
         public GameObject MergeButton;
         public GameObject UnitPanel;
+        private List<Unit> mergedUnits = new List<Unit>();
         private List<GameObject> MergeButtons = new List<GameObject>();
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (UnitReference.ActionPoints > 0 && availableMerges.Contains(unitToMerge))
             {
-                // to be added
+                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints + unitToMerge.GetComponent<ESUnit>().HitPoints) / 2, 0);
+                UnitReference.GetComponent<ESUnit>().AttackFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackFactor + unitToMerge.GetComponent<ESUnit>().AttackFactor) / 2, 0);
+                UnitReference.GetComponent<ESUnit>().DefenceFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().DefenceFactor + unitToMerge.GetComponent<ESUnit>().DefenceFactor) / 2, 0);
+                UnitReference.GetComponent<ESUnit>().MovementPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().MovementPoints + unitToMerge.GetComponent<ESUnit>().MovementPoints) / 2, 0);
+                UnitReference.GetComponent<ESUnit>().AttackRange = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackRange + unitToMerge.GetComponent<ESUnit>().AttackRange) / 2, 0);
+
+                var takenCell = cellGrid.Cells.Find(c => (c.transform.localPosition.x.Equals(unitToMerge.transform.localPosition.x) && c.transform.localPosition.y.Equals(unitToMerge.transform.localPosition.y)));
+                takenCell.IsTaken = false;
+
+                unitToMerge.gameObject.SetActive(false);
+                UnitReference.Cell.CurrentUnits.Remove(unitToMerge);
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
         }
@@ -54,6 +65,7 @@ namespace TbsFramework.Units
             StartCoroutine(Execute(cellGrid,
                     _ => cellGrid.cellGridState = new CellGridStateBlockInput(cellGrid),
                     _ => cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid)));
+            Debug.Log(unitToMerge.GetComponent<ESUnit>().UnitName);
         }
 
         public override void OnAbilitySelected(CellGrid cellGrid)
@@ -88,6 +100,14 @@ namespace TbsFramework.Units
 
             return actionParams;
         }
+        public override void OnTurnEnd(CellGrid cellGrid)
+        {
+            if (unitToMerge != null)
+            {
+                mergedUnits.Add(unitToMerge);
+            }
+            unitToMerge = null;
+        }
 
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked = false)
         {
@@ -105,7 +125,7 @@ namespace TbsFramework.Units
             
             foreach (var unit in unitsFriendly)
             {
-                if(!unit.Equals(UnitReference) && !unit.GetComponent<ESUnit>().isStructure)
+                if(!unit.Equals(UnitReference) && !unit.GetComponent<ESUnit>().isStructure && unit.gameObject.activeSelf)
                 {
                     var otherUnit_x = System.Math.Round(unit.transform.localPosition.x, 2);
                     var otherUnit_y = System.Math.Round(unit.transform.localPosition.y, 2);
@@ -122,7 +142,7 @@ namespace TbsFramework.Units
                     }
                 }
             }
-            Debug.Log("found " + result.Count.ToString() + " adjacent");
+            // Debug.Log("found " + result.Count.ToString() + " adjacent");
             return result;
         }
     }
