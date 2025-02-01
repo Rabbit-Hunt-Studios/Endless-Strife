@@ -132,7 +132,7 @@ namespace TbsFramework.Units
             {
                 return movementPoints;
             }
-            protected set
+            set
             {
                 movementPoints = value;
             }
