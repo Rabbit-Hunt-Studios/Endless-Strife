@@ -16,7 +16,7 @@ public class UpgradeAbility : Ability
     public int upgradeCost;
     public GameObject prefabToChange;
     public GameObject upgradeButton;
-    public Text MoneyText;
+    public Text MoneyAmountText;
     public GameObject upgradePanel;
     public event EventHandler UnitUpgrade;
     private Unit newUnit;
@@ -40,7 +40,7 @@ public class UpgradeAbility : Ability
             if (economyController.GetValue(cellGrid.CurrentPlayerNumber) >= upgradeCost)
             {
                 economyController.UpdateValue(cellGrid.CurrentPlayerNumber, -upgradeCost);
-                MoneyText.text = economyController.GetValue(cellGrid.CurrentPlayerNumber).ToString();
+                MoneyAmountText.text = economyController.GetValue(cellGrid.CurrentPlayerNumber).ToString();
 
                 var unitGO = Instantiate(prefabToChange);
                 newUnit = unitGO.GetComponent<Unit>();
@@ -78,6 +78,7 @@ public class UpgradeAbility : Ability
                         rend.enabled = false;
                     }
                 }
+                UnitReference.Cell.CurrentUnits.Remove(UnitReference);
             }
         }
         yield return base.Act(cellGrid, isNetworkInvoked);
@@ -121,7 +122,6 @@ public class UpgradeAbility : Ability
         {
             newUnit.GetComponent<Unit>().SetState(new UnitStateNormal(newUnit.GetComponent<Unit>()));
             UnitReference.gameObject.SetActive(false);
-            UnitReference.Cell.CurrentUnits.Remove(UnitReference);
         }
         newUnit = null;
     }

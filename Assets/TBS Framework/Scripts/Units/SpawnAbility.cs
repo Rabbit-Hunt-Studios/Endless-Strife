@@ -17,6 +17,7 @@ namespace TbsFramework.Units
     {
         public List<GameObject> Prefabs;
         public List<GameObject> SpecialPrefabs;
+        public int limitUnits;
         
         [HideInInspector]
         public GameObject SelectedPrefab;
@@ -24,7 +25,8 @@ namespace TbsFramework.Units
         public GameObject UnitButton;
         public GameObject UnitPanel;
         public GameObject InfoPanel;
-        public Text MoneyText;
+        public Text MoneyAmountText;
+        public Text limitUnitsNumberText;
 
         public event EventHandler UnitSpawned;
 
@@ -37,7 +39,7 @@ namespace TbsFramework.Units
             if (!UnitReference.Cell.IsTaken && FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) >= SelectedPrefab.GetComponent<Price>().Value)
             {
                 FindObjectOfType<EconomyController>().UpdateValue(GetComponent<Unit>().PlayerNumber, SelectedPrefab.GetComponent<Price>().Value * (-1));
-                MoneyText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
+                MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
 
                 var unitGO = Instantiate(SelectedPrefab);
                 SpawnedUnit = unitGO.GetComponent<Unit>();
@@ -75,13 +77,16 @@ namespace TbsFramework.Units
         }
         public override void Display(CellGrid cellGrid)
         {
-            MoneyText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
+            MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
+            int currentUnitCount = cellGrid.Units.Count(u => u.PlayerNumber == GetComponent<Unit>().PlayerNumber && !(u as ESUnit).isStructure);
+            limitUnitsNumberText.text = $"{currentUnitCount}/{limitUnits}";
+            
             for (int i = 0; i < Prefabs.Count; i++)
             {
                 var UnitPrefab = Prefabs[i];
 
                 var unitButton = Instantiate(UnitButton, UnitButton.transform.parent);
-                unitButton.GetComponent<Button>().interactable = UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber);
+                unitButton.GetComponent<Button>().interactable = UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) && (currentUnitCount < limitUnits);
                 unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(UnitPrefab, cellGrid));
 
                 unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitPrefab.GetComponent<SpriteRenderer>().sprite;
@@ -97,7 +102,7 @@ namespace TbsFramework.Units
                 var UnitPrefab = SpecialPrefabs[i];
 
                 var unitButton = Instantiate(UnitButton, UnitButton.transform.parent);
-                unitButton.GetComponent<Button>().interactable = UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber);
+                unitButton.GetComponent<Button>().interactable = (UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber)) && (currentUnitCount < limitUnits);
                 unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(UnitPrefab, cellGrid));
 
                 unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitPrefab.GetComponent<SpriteRenderer>().sprite;
