@@ -20,6 +20,7 @@ public class UpgradeAbility : Ability
     public GameObject upgradePanel;
     public event EventHandler UnitUpgrade;
     private Unit newUnit;
+    private bool isUpgrading = false;
 
     public override void Display(CellGrid cellGrid)
     {
@@ -34,52 +35,50 @@ public class UpgradeAbility : Ability
 
     public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
     {
-        if (prefabToChange != null)
+        if (prefabToChange != null && !isUpgrading && FindObjectOfType<EconomyController>().GetValue(cellGrid.CurrentPlayerNumber) >= upgradeCost)
         {
+            isUpgrading = true;
             var economyController = FindObjectOfType<EconomyController>();
-            if (economyController.GetValue(cellGrid.CurrentPlayerNumber) >= upgradeCost)
+            economyController.UpdateValue(cellGrid.CurrentPlayerNumber, -upgradeCost);
+            MoneyAmountText.text = economyController.GetValue(cellGrid.CurrentPlayerNumber).ToString();
+
+            var unitGO = Instantiate(prefabToChange);
+            newUnit = unitGO.GetComponent<Unit>();
+
+            newUnit.transform.SetParent(UnitReference.transform.parent);
+
+            cellGrid.AddUnit(newUnit.transform, UnitReference.Cell, cellGrid.CurrentPlayer);
+            newUnit.OnTurnStart();
+
+                var structureCaptureConditions = cellGrid.GetComponents<StructureCaptureCondition>();
+            foreach (var condition in structureCaptureConditions)
             {
-                economyController.UpdateValue(cellGrid.CurrentPlayerNumber, -upgradeCost);
-                MoneyAmountText.text = economyController.GetValue(cellGrid.CurrentPlayerNumber).ToString();
-
-                var unitGO = Instantiate(prefabToChange);
-                newUnit = unitGO.GetComponent<Unit>();
-
-                newUnit.transform.SetParent(UnitReference.transform.parent);
-
-                cellGrid.AddUnit(newUnit.transform, UnitReference.Cell, cellGrid.CurrentPlayer);
-                newUnit.OnTurnStart();
-
-                 var structureCaptureConditions = cellGrid.GetComponents<StructureCaptureCondition>();
-                foreach (var condition in structureCaptureConditions)
+                if (condition.TargetPlayerNumber != cellGrid.CurrentPlayerNumber)
                 {
-                    if (condition.TargetPlayerNumber != cellGrid.CurrentPlayerNumber)
-                    {
-                        condition.StructureToCapture = newUnit;
-                    }
+                    condition.StructureToCapture = newUnit;
                 }
-
-                if (UnitUpgrade != null)
-                {
-                    UnitUpgrade.Invoke(unitGO, EventArgs.Empty);
-                    newUnit.GetComponent<Unit>().SetState(new UnitStateMarkedAsFinished(newUnit.GetComponent<Unit>()));
-                }
-
-                var renderer = UnitReference.gameObject.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    renderer.enabled = false;
-                }
-                else
-                {
-                    var renderers = UnitReference.gameObject.GetComponentsInChildren<Renderer>();
-                    foreach (var rend in renderers)
-                    {
-                        rend.enabled = false;
-                    }
-                }
-                UnitReference.Cell.CurrentUnits.Remove(UnitReference);
             }
+
+            if (UnitUpgrade != null)
+            {
+                UnitUpgrade.Invoke(unitGO, EventArgs.Empty);
+                newUnit.GetComponent<Unit>().SetState(new UnitStateMarkedAsFinished(newUnit.GetComponent<Unit>()));
+            }
+
+            var renderer = UnitReference.gameObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.enabled = false;
+            }
+            else
+            {
+                var renderers = UnitReference.gameObject.GetComponentsInChildren<Renderer>();
+                foreach (var rend in renderers)
+                {
+                    rend.enabled = false;
+                }
+            }
+            UnitReference.Cell.CurrentUnits.Remove(UnitReference);
         }
         yield return base.Act(cellGrid, isNetworkInvoked);
     }
