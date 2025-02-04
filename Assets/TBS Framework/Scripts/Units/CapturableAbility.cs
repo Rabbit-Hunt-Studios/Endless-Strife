@@ -10,6 +10,7 @@ namespace TbsFramework.Units
 
         public void Capture(int playerNumber)
         {
+            Debug.Log("Captured by player " + playerNumber);
             GetComponent<Unit>().PlayerNumber = playerNumber;
 
             var player = FindObjectOfType<CellGrid>().Players.Find(p => p.PlayerNumber == playerNumber);
@@ -17,11 +18,9 @@ namespace TbsFramework.Units
             switch (GetComponent<Unit>().PlayerNumber)
             {
                 case 0:
-                    Debug.Log("Player 0");
                     spriteRenderer.sprite = GetComponent<ESUnit>().Player1Sprite;
                     break;
                 case 1:
-                    Debug.Log("Player 1");
                     spriteRenderer.sprite = GetComponent<ESUnit>().Player2Sprite;
                     break;
                 // Add more cases for additional players
