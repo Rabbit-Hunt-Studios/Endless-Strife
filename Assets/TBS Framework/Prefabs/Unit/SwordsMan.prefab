@@ -1592,6 +1592,8 @@ MonoBehaviour:
   UnitPanel: {fileID: 405977228367547377}
   UnmergeButton: {fileID: 6885922409612675143}
   UnmergePanel: {fileID: 5401336921201720079}
+  EmptyDefault: {fileID: 4781194255351145931, guid: 1fe80247de5b6684bbe39a4d941b2f44,
+    type: 3}
 --- !u!1 &8851629294791686241
 GameObject:
   m_ObjectHideFlags: 0

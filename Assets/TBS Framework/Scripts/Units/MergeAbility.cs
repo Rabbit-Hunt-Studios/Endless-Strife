@@ -18,6 +18,7 @@ namespace TbsFramework.Units
         public GameObject UnitPanel;
         public GameObject UnmergeButton;
         public GameObject UnmergePanel;
+        public Sprite EmptyDefault;
         private List<Unit> mergedUnits = new List<Unit>();
         private List<GameObject> MergeButtons = new List<GameObject>();
 
@@ -64,7 +65,7 @@ namespace TbsFramework.Units
                 {
                     var unitButton = Instantiate(MergeButton, MergeButton.transform.parent);
                     unitButton.GetComponent<Button>().interactable = false;
-                    unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitReference.GetComponent<SpriteRenderer>().sprite;
+                    unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = EmptyDefault;
                     unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = "No units to merge";
 
                     unitButton.SetActive(true);
@@ -83,7 +84,7 @@ namespace TbsFramework.Units
                 else
                 {
                     unmergeButton.GetComponent<Button>().interactable = false;
-                    unmergeButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitReference.GetComponent<SpriteRenderer>().sprite;
+                    unmergeButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = EmptyDefault;
                     unmergeButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = "No units to unmerge";
                 }
                 unmergeButton.SetActive(true);
