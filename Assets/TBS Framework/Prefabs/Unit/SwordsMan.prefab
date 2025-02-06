@@ -1368,6 +1368,7 @@ GameObject:
   - component: {fileID: 2001495703136744582}
   - component: {fileID: -2850811718577333144}
   - component: {fileID: 6549957821873193551}
+  - component: {fileID: 5730400521729771942}
   m_Layer: 0
   m_Name: SwordsMan
   m_TagString: Untagged
@@ -1590,6 +1591,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MergeButton: {fileID: 8851629294791686241}
   UnitPanel: {fileID: 405977228367547377}
+  EmptyDefault: {fileID: 4781194255351145931, guid: 1fe80247de5b6684bbe39a4d941b2f44,
+    type: 3}
+--- !u!114 &5730400521729771942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489925965620877045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460a923e3d71c1f48b3c73540e45a259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   UnmergeButton: {fileID: 6885922409612675143}
   UnmergePanel: {fileID: 5401336921201720079}
   EmptyDefault: {fileID: 4781194255351145931, guid: 1fe80247de5b6684bbe39a4d941b2f44,

@@ -16,10 +16,8 @@ namespace TbsFramework.Units
         public HashSet<Unit> availableMerges;
         public GameObject MergeButton;
         public GameObject UnitPanel;
-        public GameObject UnmergeButton;
-        public GameObject UnmergePanel;
         public Sprite EmptyDefault;
-        private List<Unit> mergedUnits = new List<Unit>();
+        public List<Unit> mergedUnits = new List<Unit>();
         private List<GameObject> MergeButtons = new List<GameObject>();
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
@@ -71,26 +69,6 @@ namespace TbsFramework.Units
                     unitButton.SetActive(true);
                     MergeButtons.Add(unitButton);
                 }
-
-
-                var unmergeButton = Instantiate(UnmergeButton, UnmergeButton.transform.parent);
-                if (mergedUnits.Count > 0)
-                {
-                    var unit = mergedUnits[0];
-                    unmergeButton.GetComponent<Button>().interactable = true;
-                    unmergeButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
-                    unmergeButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = unit.GetComponent<ESUnit>().UnitName;
-                }
-                else
-                {
-                    unmergeButton.GetComponent<Button>().interactable = false;
-                    unmergeButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = EmptyDefault;
-                    unmergeButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = "No units to unmerge";
-                }
-                unmergeButton.SetActive(true);
-                MergeButtons.Add(unmergeButton);
-
-                UnmergePanel.SetActive(true);
                 UnitPanel.SetActive(true);
             }
         }
@@ -119,7 +97,6 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
-            UnmergePanel.SetActive(false);
             UnitPanel.SetActive(false);
         }
 
