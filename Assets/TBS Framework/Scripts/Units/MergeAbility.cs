@@ -43,20 +43,34 @@ namespace TbsFramework.Units
         {
             if (UnitReference.ActionPoints > 0)
             {
-                foreach (var unit in availableMerges)
+                if (availableMerges.Count > 0)
                 {
-                    unit.MarkAsSelected();
+                    foreach (var unit in availableMerges)
+                    {
+                        unit.MarkAsSelected();
 
+                        var unitButton = Instantiate(MergeButton, MergeButton.transform.parent);
+                        unitButton.GetComponent<Button>().interactable = true;
+                        unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(unit, cellGrid));
+
+                        unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
+                        unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = unit.GetComponent<ESUnit>().UnitName;
+
+                        unitButton.SetActive(true);
+                        MergeButtons.Add(unitButton);
+                    }
+                }
+                else
+                {
                     var unitButton = Instantiate(MergeButton, MergeButton.transform.parent);
-                    unitButton.GetComponent<Button>().interactable = true;
-                    unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(unit, cellGrid));
-
-                    unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
-                    unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = unit.GetComponent<ESUnit>().UnitName;
+                    unitButton.GetComponent<Button>().interactable = false;
+                    unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitReference.GetComponent<SpriteRenderer>().sprite;
+                    unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = "No units to merge";
 
                     unitButton.SetActive(true);
                     MergeButtons.Add(unitButton);
                 }
+
 
                 var unmergeButton = Instantiate(UnmergeButton, UnmergeButton.transform.parent);
                 if (mergedUnits.Count > 0)
