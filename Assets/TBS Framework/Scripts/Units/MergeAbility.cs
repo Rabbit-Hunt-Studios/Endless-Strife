@@ -33,8 +33,12 @@ namespace TbsFramework.Units
                 var takenCell = cellGrid.Cells.Find(c => (c.transform.localPosition.x.Equals(unitToMerge.transform.localPosition.x) && c.transform.localPosition.y.Equals(unitToMerge.transform.localPosition.y)));
                 takenCell.IsTaken = false;
 
+                mergedUnits.Add(unitToMerge);
+
                 unitToMerge.gameObject.SetActive(false);
                 UnitReference.Cell.CurrentUnits.Remove(unitToMerge);
+
+                unitToMerge = null;
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
         }
@@ -79,7 +83,7 @@ namespace TbsFramework.Units
             StartCoroutine(Execute(cellGrid,
                     _ => cellGrid.cellGridState = new CellGridStateBlockInput(cellGrid),
                     _ => cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid)));
-            Debug.Log(unitToMerge.GetComponent<ESUnit>().UnitName);
+            // Debug.Log(unitToMerge.GetComponent<ESUnit>().UnitName);
         }
 
         public override void OnAbilitySelected(CellGrid cellGrid)
@@ -116,10 +120,6 @@ namespace TbsFramework.Units
         }
         public override void OnTurnEnd(CellGrid cellGrid)
         {
-            if (unitToMerge != null)
-            {
-                mergedUnits.Add(unitToMerge);
-            }
             unitToMerge = null;
         }
 
