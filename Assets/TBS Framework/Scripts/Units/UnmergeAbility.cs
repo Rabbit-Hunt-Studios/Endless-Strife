@@ -37,7 +37,6 @@ namespace TbsFramework.Units
 
                 UnitReference.GetComponent<ESUnit>().AttackRange -= (int)unitToUnmerge.GetComponent<MergeStats>().AttackRange;
 
-                UnitReference.Cell.CurrentUnits.Add(unitToUnmerge);
                 var tmp = unitToUnmerge.GetComponent<ESUnit>().MovementAnimationSpeed;
                 unitToUnmerge.GetComponent<ESUnit>().MovementAnimationSpeed = 1000;
 
@@ -137,10 +136,23 @@ namespace TbsFramework.Units
             var unit_x = UnitReference.transform.localPosition.x;
             var unit_y = UnitReference.transform.localPosition.y;
 
-            List<UnityEngine.Vector3> directions = new List<UnityEngine.Vector3> { (new UnityEngine.Vector3(unit_x, (unit_y - 0.16f), 0)),
-                                                                                   (new UnityEngine.Vector3(unit_x, (unit_y + 0.16f), 0)),
-                                                                                   (new UnityEngine.Vector3((unit_x - 0.16f), unit_y, 0)),
-                                                                                   (new UnityEngine.Vector3((unit_x + 0.16f), unit_y, 0))};
+            List<UnityEngine.Vector3> directions = new List<UnityEngine.Vector3>();
+
+            if (UnitReference.GetComponent<ESUnit>().PlayerNumber == 0)
+            {
+                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y - 0.16f), 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y + 0.16f), 0));
+                directions.Add(new UnityEngine.Vector3((unit_x - 0.16f), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3((unit_x + 0.16f), unit_y, 0));
+            }
+            else if (UnitReference.GetComponent<ESUnit>().PlayerNumber == 1)
+            {
+                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y + 0.16f), 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y - 0.16f), 0));
+                directions.Add(new UnityEngine.Vector3((unit_x + 0.16f), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3((unit_x - 0.16f), unit_y, 0));
+            }
+
             foreach (var direction in directions)
             {
                 var tmp = cellGrid.Cells.Find(c => c.transform.localPosition.Equals(direction) && !c.IsTaken);

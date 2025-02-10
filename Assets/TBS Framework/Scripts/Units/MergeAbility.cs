@@ -40,7 +40,6 @@ namespace TbsFramework.Units
                 mergedUnits.Add(unitToMerge);
 
                 unitToMerge.gameObject.SetActive(false);
-                UnitReference.Cell.CurrentUnits.Remove(unitToMerge);
 
                 unitToMerge = null;
             }
