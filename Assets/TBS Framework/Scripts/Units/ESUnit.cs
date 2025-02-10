@@ -29,13 +29,13 @@ public class ESUnit : Unit
 
     protected override int Defend(Unit other, int damage)
     {
-        return damage - (Cell as ESSquare).DefenceBoost;
+        return (int)(damage * (100 - DefenceFactor) * 0.01) - (Cell as ESSquare).DefenceBoost;
     }
 
     protected override AttackAction DealDamage(Unit unitToAttack)
     {
         var baseVal = base.DealDamage(unitToAttack);
-        var newDmg = TotalHitPoints == 0 ? 0 : (int)Mathf.Ceil(baseVal.Damage * ((float)HitPoints / TotalHitPoints));
+        var newDmg = TotalHitPoints == 0 ? 0 : (int)Mathf.Ceil(baseVal.Damage);
 
         return new AttackAction(newDmg, baseVal.ActionCost);
     }

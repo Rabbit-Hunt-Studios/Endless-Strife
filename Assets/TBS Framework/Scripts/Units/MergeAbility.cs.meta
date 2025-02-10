@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fc420f77277c33145a6ccea8fedd87ab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MergeButton: {instanceID: 0}
+  - UnitPanel: {instanceID: 0}
+  - UnmergeButton: {instanceID: 0}
+  - UnmergePanel: {instanceID: 0}
+  - EmptyDefault: {fileID: 4781194255351145931, guid: 1fe80247de5b6684bbe39a4d941b2f44,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
