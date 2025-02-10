@@ -25,11 +25,17 @@ namespace TbsFramework.Units
         {
             if (UnitReference.ActionPoints > 0 && unmergeSquare != null && unitToUnmerge != null)
             {
-                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * 2) - unitToUnmerge.GetComponent<ESUnit>().HitPoints, 0);
-                UnitReference.GetComponent<ESUnit>().AttackFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackFactor * 2) - unitToUnmerge.GetComponent<ESUnit>().AttackFactor, 0);
-                UnitReference.GetComponent<ESUnit>().DefenceFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().DefenceFactor * 2) - unitToUnmerge.GetComponent<ESUnit>().DefenceFactor, 0);
-                UnitReference.GetComponent<ESUnit>().MovementPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().MovementPoints * 2) - unitToUnmerge.GetComponent<ESUnit>().MovementPoints, 0);
-                UnitReference.GetComponent<ESUnit>().AttackRange = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackRange * 2) - unitToUnmerge.GetComponent<ESUnit>().AttackRange, 0);
+                UnitReference.GetComponent<ESUnit>().TotalHitPoints -= (int)unitToUnmerge.GetComponent<MergeStats>().HitPoints;
+                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty));
+                unitToUnmerge.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * (1 - unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty)));
+
+                UnitReference.GetComponent<ESUnit>().AttackFactor -= (int)unitToUnmerge.GetComponent<MergeStats>().Attack;
+
+                UnitReference.GetComponent<ESUnit>().DefenceFactor -= (int)unitToUnmerge.GetComponent<MergeStats>().Defence;
+
+                UnitReference.GetComponent<ESUnit>().TotalMovementPoints -= (int)unitToUnmerge.GetComponent<MergeStats>().Movement;
+
+                UnitReference.GetComponent<ESUnit>().AttackRange -= (int)unitToUnmerge.GetComponent<MergeStats>().AttackRange;
 
                 UnitReference.Cell.CurrentUnits.Add(unitToUnmerge);
                 var tmp = unitToUnmerge.GetComponent<ESUnit>().MovementAnimationSpeed;

@@ -1936,6 +1936,7 @@ GameObject:
   - component: {fileID: 6549957821873193551}
   - component: {fileID: 5730400521729771942}
   - component: {fileID: 5324147146862590292}
+  - component: {fileID: 6340508525520338496}
   m_Layer: 0
   m_Name: SwordsMan
   m_TagString: Untagged
@@ -2161,6 +2162,7 @@ MonoBehaviour:
   EmptyDefault: {fileID: 4781194255351145931, guid: 1fe80247de5b6684bbe39a4d941b2f44,
     type: 3}
   mergedUnits: []
+  MaxMerges: 4
 --- !u!114 &5730400521729771942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2202,6 +2204,24 @@ MonoBehaviour:
   StatCard: {fileID: 216886639636186522}
   StatPanel: {fileID: 3388128762890264941}
   UnitNameCard: {fileID: 3319204292533382513}
+--- !u!114 &6340508525520338496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489925965620877045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5531e4ec841454ba8e8300954088f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitPoints: 20
+  Attack: 10
+  Defence: 10
+  AttackRange: 0
+  Movement: 0
+  UnmergePenalty: 0.5
 --- !u!1 &8851629294791686241
 GameObject:
   m_ObjectHideFlags: 0

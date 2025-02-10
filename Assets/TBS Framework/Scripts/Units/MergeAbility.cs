@@ -18,17 +18,21 @@ namespace TbsFramework.Units
         public GameObject UnitPanel;
         public Sprite EmptyDefault;
         public List<Unit> mergedUnits = new List<Unit>();
+        public int MaxMerges;
         private List<GameObject> MergeButtons = new List<GameObject>();
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (UnitReference.ActionPoints > 0 && availableMerges.Contains(unitToMerge))
             {
-                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints + unitToMerge.GetComponent<ESUnit>().HitPoints) / 2, 0);
-                UnitReference.GetComponent<ESUnit>().AttackFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackFactor + unitToMerge.GetComponent<ESUnit>().AttackFactor) / 2, 0);
-                UnitReference.GetComponent<ESUnit>().DefenceFactor = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().DefenceFactor + unitToMerge.GetComponent<ESUnit>().DefenceFactor) / 2, 0);
-                UnitReference.GetComponent<ESUnit>().MovementPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().MovementPoints + unitToMerge.GetComponent<ESUnit>().MovementPoints) / 2, 0);
-                UnitReference.GetComponent<ESUnit>().AttackRange = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().AttackRange + unitToMerge.GetComponent<ESUnit>().AttackRange) / 2, 0);
+                UnitReference.GetComponent<ESUnit>().HitPoints = (int)UnitReference.GetComponent<ESUnit>().HitPoints + unitToMerge.GetComponent<MergeStats>().HitPoints;
+                UnitReference.GetComponent<ESUnit>().AttackFactor = (int)UnitReference.GetComponent<ESUnit>().AttackFactor + unitToMerge.GetComponent<MergeStats>().Attack;
+                UnitReference.GetComponent<ESUnit>().DefenceFactor = (int)UnitReference.GetComponent<ESUnit>().DefenceFactor + unitToMerge.GetComponent<MergeStats>().Defence;
+                UnitReference.GetComponent<ESUnit>().MovementPoints = (int)UnitReference.GetComponent<ESUnit>().MovementPoints + unitToMerge.GetComponent<MergeStats>().Movement;
+                UnitReference.GetComponent<ESUnit>().AttackRange = (int)UnitReference.GetComponent<ESUnit>().AttackRange + unitToMerge.GetComponent<MergeStats>().AttackRange;
+
+                UnitReference.GetComponent<ESUnit>().TotalMovementPoints = (int)UnitReference.GetComponent<ESUnit>().TotalMovementPoints + unitToMerge.GetComponent<MergeStats>().Movement;
+                UnitReference.GetComponent<ESUnit>().TotalHitPoints = (int)UnitReference.GetComponent<ESUnit>().TotalHitPoints + unitToMerge.GetComponent<MergeStats>().HitPoints;
 
                 var takenCell = cellGrid.Cells.Find(c => (c.transform.localPosition.x.Equals(unitToMerge.transform.localPosition.x) && c.transform.localPosition.y.Equals(unitToMerge.transform.localPosition.y)));
                 takenCell.IsTaken = false;
@@ -46,7 +50,7 @@ namespace TbsFramework.Units
         {
             if (UnitReference.ActionPoints > 0)
             {
-                if (availableMerges.Count > 0)
+                if (availableMerges.Count > 0 && mergedUnits.Count < MaxMerges)
                 {
                     foreach (var unit in availableMerges)
                     {
@@ -62,6 +66,16 @@ namespace TbsFramework.Units
                         unitButton.SetActive(true);
                         MergeButtons.Add(unitButton);
                     }
+                }
+                else if (mergedUnits.Count >= MaxMerges)
+                {
+                    var unitButton = Instantiate(MergeButton, MergeButton.transform.parent);
+                    unitButton.GetComponent<Button>().interactable = false;
+                    unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = EmptyDefault;
+                    unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = "Max Merges Reached";
+
+                    unitButton.SetActive(true);
+                    MergeButtons.Add(unitButton);
                 }
                 else
                 {

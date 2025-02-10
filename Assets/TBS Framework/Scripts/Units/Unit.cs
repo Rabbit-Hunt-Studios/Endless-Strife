@@ -95,9 +95,9 @@ namespace TbsFramework.Units
             Buffs.Add((buff, buff.Duration));
         }
 
-        public int TotalHitPoints { get; private set; }
-        public float TotalMovementPoints { get; private set; }
-        public float TotalActionPoints { get; private set; }
+        public int TotalHitPoints { get; set; }
+        public float TotalMovementPoints { get; set; }
+        public float TotalActionPoints { get; set; }
 
         /// <summary>
         /// Cell that the unit is currently occupying.
