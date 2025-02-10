@@ -78,7 +78,7 @@ namespace TbsFramework.Units
         public override void Display(CellGrid cellGrid)
         {
             MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
-            int currentUnitCount = cellGrid.Units.Count(u => u.PlayerNumber == GetComponent<Unit>().PlayerNumber && !(u as ESUnit).isStructure);
+            int currentUnitCount = cellGrid.Units.Count(u => u.PlayerNumber == GetComponent<Unit>().PlayerNumber && !(u as ESUnit).isStructure && u.isActiveAndEnabled);
             limitUnitsNumberText.text = $"{currentUnitCount}/{limitUnits}";
             
             for (int i = 0; i < Prefabs.Count; i++)
