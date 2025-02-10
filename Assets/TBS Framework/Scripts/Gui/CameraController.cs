@@ -10,8 +10,10 @@ namespace TbsFramework.Gui
         public float ScrollSpeed = 15;
         public float ScrollEdge = 0.01f;
         public float ZoomSpeed = 10;
-        public float MinZoom = 5;
-        public float MaxZoom = 20;
+        public float MinZoom = 20;
+        public float MaxZoom = 60;
+        public Vector2 MinPosition;
+        public Vector2 MaxPosition;
 
         void Update()
         {
@@ -21,22 +23,30 @@ namespace TbsFramework.Gui
 
         private void HandleMovement()
         {
-            if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width * (1 - ScrollEdge))
+            Vector3 newPosition = transform.position;
+
+            if (Input.GetKey("d"))
             {
-                transform.Translate(transform.right * Time.deltaTime * ScrollSpeed, Space.World);
+                newPosition += transform.right * Time.deltaTime * ScrollSpeed;
             }
-            else if (Input.GetKey("a") || Input.mousePosition.x <= Screen.width * ScrollEdge)
+            else if (Input.GetKey("a"))
             {
-                transform.Translate(transform.right * Time.deltaTime * -ScrollSpeed, Space.World);
+                newPosition += transform.right * Time.deltaTime * -ScrollSpeed;
             }
-            if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height * (1 - ScrollEdge))
+            if (Input.GetKey("w"))
             {
-                transform.Translate(transform.up * Time.deltaTime * ScrollSpeed, Space.World);
+                newPosition += transform.up * Time.deltaTime * ScrollSpeed;
             }
-            else if (Input.GetKey("s") || Input.mousePosition.y <= Screen.height * ScrollEdge)
+            else if (Input.GetKey("s"))
             {
-                transform.Translate(transform.up * Time.deltaTime * -ScrollSpeed, Space.World);
+                newPosition += transform.up * Time.deltaTime * -ScrollSpeed;
             }
+
+            // Clamp the new position within the defined bounds
+            newPosition.x = Mathf.Clamp(newPosition.x, MinPosition.x, MaxPosition.x);
+            newPosition.y = Mathf.Clamp(newPosition.y, MinPosition.y, MaxPosition.y);
+
+            transform.position = newPosition;
         }
 
         private void HandleZoom()
@@ -44,16 +54,16 @@ namespace TbsFramework.Gui
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0.0f)
             {
-                Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - scroll * ZoomSpeed, MinZoom, MaxZoom);
+                Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - scroll * ZoomSpeed, MinZoom, MaxZoom);
             }
 
             if (Input.GetKey("q"))
             {
-                Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
+                Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
             }
             else if (Input.GetKey("e"))
             {
-                Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
+                Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
             }
         }
     }
