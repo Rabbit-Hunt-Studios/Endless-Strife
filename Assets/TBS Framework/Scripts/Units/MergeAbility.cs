@@ -15,7 +15,7 @@ namespace TbsFramework.Units
         public Unit unitToMerge { get; set; }
         public HashSet<Unit> availableMerges;
         public GameObject MergeButton;
-        public GameObject UnitPanel;
+        public GameObject MergeUI;
         public Sprite EmptyDefault;
         public List<Unit> mergedUnits = new List<Unit>();
         public int MaxMerges;
@@ -86,7 +86,9 @@ namespace TbsFramework.Units
                     unitButton.SetActive(true);
                     MergeButtons.Add(unitButton);
                 }
-                UnitPanel.SetActive(true);
+
+                MergeUI.transform.GetChild(0).GetComponent<Text>().text = " Merges: " + mergedUnits.Count.ToString() + "/" + MaxMerges.ToString();
+                MergeUI.SetActive(true);
             }
         }
 
@@ -114,7 +116,7 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
-            UnitPanel.SetActive(false);
+            MergeUI.SetActive(false);
         }
 
         public override bool CanPerform(CellGrid cellGrid)

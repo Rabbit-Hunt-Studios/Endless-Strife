@@ -706,14 +706,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
   m_ChildAlignment: 0
   m_Spacing: 5
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -1330,6 +1330,7 @@ MonoBehaviour:
   Player1Sprite: {fileID: 21300000, guid: 0b51e0a9b1ea07347bafd5e493484008, type: 3}
   Player2Sprite: {fileID: 21300000, guid: ce3d6aea5ab2c6d4b8377ed5aaba0d94, type: 3}
   DefaultSprite: {fileID: 0}
+  UnitWeaponIcon: {fileID: 0}
   UnitName: Base
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.001}

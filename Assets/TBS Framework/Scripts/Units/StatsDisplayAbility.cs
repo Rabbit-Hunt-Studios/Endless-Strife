@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using TbsFramework.Grid;
 
@@ -15,6 +16,7 @@ public class StatsDisplayAbility : Ability
     public GameObject StatCard;
     public GameObject StatPanel;
     public GameObject UnitNameCard;
+    public GameObject MergedIconList;
     private List<GameObject> StatDisplays = new List<GameObject>();
 
     public override void Display(CellGrid cellGrid)
@@ -65,6 +67,18 @@ public class StatsDisplayAbility : Ability
             moveCard.SetActive(true);
             StatDisplays.Add(moveCard);
 
+            var unit_list = UnitReference.GetComponent<MergeAbility>().mergedUnits;
+            if (unit_list.Count != 0) 
+            {
+                var iconList = Instantiate(MergedIconList, MergedIconList.transform.parent);
+                for(int i = 0; i < unit_list.Count; i++)
+                {   
+                    iconList.transform.GetChild(i).GetComponent<Image>().sprite = unit_list[i].GetComponent<ESUnit>().UnitWeaponIcon;
+                }
+                StatDisplays.Add(iconList);
+                iconList.SetActive(true);
+            }
+
             StatPanel.SetActive(true);
         }
     }
@@ -76,5 +90,6 @@ public class StatsDisplayAbility : Ability
             Destroy(card);
         }
         StatPanel.SetActive(false);
+        MergedIconList.SetActive(false);
     }
 }

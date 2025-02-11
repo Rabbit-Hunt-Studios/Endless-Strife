@@ -26,8 +26,8 @@ namespace TbsFramework.Units
             if (UnitReference.ActionPoints > 0 && unmergeSquare != null && unitToUnmerge != null)
             {
                 UnitReference.GetComponent<ESUnit>().TotalHitPoints -= (int)unitToUnmerge.GetComponent<MergeStats>().HitPoints;
-                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty));
                 unitToUnmerge.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * (1 - unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty)));
+                UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty));
 
                 UnitReference.GetComponent<ESUnit>().AttackFactor -= (int)unitToUnmerge.GetComponent<MergeStats>().Attack;
 
