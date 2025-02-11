@@ -66,5 +66,11 @@ namespace TbsFramework.Gui
                 Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
             }
         }
+
+        public void MoveToTarget(Transform target)
+        {
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+            transform.position = targetPosition;
+        }
     }
 }

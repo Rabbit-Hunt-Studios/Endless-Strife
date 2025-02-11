@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 19698776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7dc499557c656b49932cd86e3f8d4ed, type: 3}
+  m_Script: {fileID: 11500000, guid: a0f1cbb01f3c36f48ab1b2cf1728c1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CellGrid: {fileID: 56272168}
@@ -47644,10 +47644,10 @@ MonoBehaviour:
   ScrollSpeed: 5
   ScrollEdge: 0.05
   ZoomSpeed: 20
-  MinZoom: 20
+  MinZoom: 25
   MaxZoom: 60
-  MinPosition: {x: 1.1, y: 1.2}
-  MaxPosition: {x: 3.84, y: 4.3}
+  MinPosition: {x: 1.1, y: 1}
+  MaxPosition: {x: 2.7, y: 4.4}
 --- !u!20 &1284792594
 Camera:
   m_ObjectHideFlags: 0
@@ -47699,7 +47699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284792592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 1.41, z: -4.1}
+  m_LocalPosition: {x: 1.9, y: 1.41, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
