@@ -26,6 +26,7 @@ public class UpgradeAbility : Ability
     {
         if (upgradeButton != null)
         {
+            upgradeButton.GetComponent<Button>().interactable = FindObjectOfType<EconomyController>().GetValue(cellGrid.CurrentPlayerNumber) >= upgradeCost;
             upgradeButton.GetComponent<Button>().onClick.AddListener(() => ActWrapper(prefabToChange, cellGrid));
             upgradeButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = upgradeCost.ToString();
             upgradeButton.SetActive(true);
