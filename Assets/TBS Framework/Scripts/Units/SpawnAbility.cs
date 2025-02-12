@@ -101,7 +101,7 @@ namespace TbsFramework.Units
                 unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = UnitPrefab.GetComponent<ESUnit>().UnitName;
                 unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
 
-                var hoverScript = unitButton.AddComponent<UnitButtonHover>();
+                var hoverScript = unitButton.AddComponent<BuyButtonHover>();
                 hoverScript.Initialize(UnitPrefab, this);
 
                 unitButton.SetActive(true);
@@ -119,7 +119,7 @@ namespace TbsFramework.Units
                 unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = UnitPrefab.GetComponent<ESUnit>().UnitName;
                 unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
 
-                var hoverScript = unitButton.AddComponent<UnitButtonHover>();
+                var hoverScript = unitButton.AddComponent<BuyButtonHover>();
                 hoverScript.Initialize(UnitPrefab, this);
 
                 if (cellGrid.Units.Exists(u => u.PlayerNumber == cellGrid.CurrentPlayer.PlayerNumber 
@@ -229,6 +229,11 @@ namespace TbsFramework.Units
             UnitButtons.Clear();
             UnitPanel.SetActive(false);
             InfoPanel.SetActive(false);
+
+            if (StatDisplays.Count > 0)
+            {
+                HideStats();
+            }
         }
 
         public override bool CanPerform(CellGrid cellGrid)

@@ -2,7 +2,7 @@ using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UnitButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BuyButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private GameObject unitPrefab;
     private SpawnAbility spawnAbility;
