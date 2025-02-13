@@ -16,8 +16,6 @@ namespace TbsFramework.Units
         public HashSet<Unit> availableMerges;
         public GameObject MergeButton;
         public GameObject MergeUI;
-        public GameObject StatPanel;
-        public GameObject StatCard;
         public Sprite EmptyDefault;
         public List<Unit> mergedUnits = new List<Unit>();
         public int MaxMerges;
@@ -65,8 +63,8 @@ namespace TbsFramework.Units
                         unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
                         unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = unit.GetComponent<ESUnit>().UnitName;
 
-                        var hoverScript = unitButton.AddComponent<MergeButtonHover>();
-                        hoverScript.Initialize(unit, this);
+                        var hoverScript = unitButton.GetComponent<MergeButtonHover>();
+                        hoverScript.unitToMerge = unit;
 
                         unitButton.SetActive(true);
                         MergeButtons.Add(unitButton);
@@ -114,6 +112,15 @@ namespace TbsFramework.Units
 
         public override void CleanUp(CellGrid cellGrid)
         {
+            if (MergeButtons.Count > 0)
+            {
+                var mergeButton = MergeButtons.Find(b => b.GetComponent<MergeButtonHover>().unitToMerge == unitToMerge);
+                if (mergeButton != null)
+                {
+                    mergeButton.GetComponent<MergeButtonHover>().HideMergePreview();
+                }
+            }
+
             foreach (var unit in availableMerges)
             {
                 unit.UnMark();
@@ -122,63 +129,13 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
-            if (StatDisplays.Count > 0)
-            {
-                HideMergePreview();
-            }
+            MergeButtons.Clear();
             MergeUI.SetActive(false);
         }
 
         public override bool CanPerform(CellGrid cellGrid)
         {
             return UnitReference.ActionPoints > 0 && GetAvailableMerges(cellGrid).Count > 0;
-        }
-
-        public void ShowMergePreview(Unit unitToMerge)
-        {
-            var unit = unitToMerge.GetComponent<MergeStats>();
-
-            var healthCard = Instantiate(StatCard, StatCard.transform.parent);
-            healthCard.transform.GetChild(0).GetComponent<Image>().sprite = unitToMerge.GetComponent<StatsDisplayAbility>().HitpointsSprite;;
-            healthCard.transform.GetChild(1).GetComponent<Text>().text = "Health: +" + unit.HitPoints.ToString();
-            healthCard.SetActive(true);
-            StatDisplays.Add(healthCard);
-
-            var attackCard = Instantiate(StatCard, StatCard.transform.parent);
-            attackCard.transform.GetChild(0).GetComponent<Image>().sprite = unitToMerge.GetComponent<StatsDisplayAbility>().AttackSprite;
-            attackCard.transform.GetChild(1).GetComponent<Text>().text = "Attack: +" + unit.Attack.ToString();
-            attackCard.SetActive(true);
-            StatDisplays.Add(attackCard);
-
-            var defenceCard = Instantiate(StatCard, StatCard.transform.parent);
-            defenceCard.transform.GetChild(0).GetComponent<Image>().sprite = unitToMerge.GetComponent<StatsDisplayAbility>().DefenceSprite;
-            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: +" + unit.Defence.ToString();
-            defenceCard.SetActive(true);
-            StatDisplays.Add(defenceCard);
-
-            var rangeCard = Instantiate(StatCard, StatCard.transform.parent);
-            rangeCard.transform.GetChild(0).GetComponent<Image>().sprite = unitToMerge.GetComponent<StatsDisplayAbility>().RangeSprite;
-            rangeCard.transform.GetChild(1).GetComponent<Text>().text = "Range: +" + unit.AttackRange.ToString();
-            rangeCard.SetActive(true);
-            StatDisplays.Add(rangeCard);
-
-            var moveCard = Instantiate(StatCard, StatCard.transform.parent);
-            moveCard.transform.GetChild(0).GetComponent<Image>().sprite = unitToMerge.GetComponent<StatsDisplayAbility>().MovementSprite;
-            moveCard.transform.GetChild(1).GetComponent<Text>().text = "Moves: +" + unit.Movement.ToString();
-            moveCard.SetActive(true);
-            StatDisplays.Add(moveCard);
-
-            StatPanel.SetActive(true);
-        }
-
-        public void HideMergePreview()
-        {
-            foreach (var card in StatDisplays)
-            {
-                Destroy(card);
-            }
-            StatDisplays.Clear();
-            StatPanel.SetActive(false);
         }
 
         public override IDictionary<string, string> Encapsulate()
