@@ -87,6 +87,7 @@ public class StatsDisplayAbility : Ability
         {
             Destroy(card);
         }
+        StatDisplays.Clear();
         StatPanel.SetActive(false);
         MergedIconList.SetActive(false);
     }
