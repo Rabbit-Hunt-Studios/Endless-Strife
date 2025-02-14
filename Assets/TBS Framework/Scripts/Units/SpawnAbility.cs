@@ -27,12 +27,20 @@ namespace TbsFramework.Units
         public GameObject InfoPanel;
         public Text MoneyAmountText;
         public Text limitUnitsNumberText;
+        public GameObject StatPanel;
+        public GameObject StatCard;
+        public GameObject UnitNameCard;
+        public Sprite AttackSprite;
+        public Sprite DefenceSprite;
+        public Sprite RangeSprite;
+        public Sprite MovementSprite;
+        public Sprite HitpointsSprite;
 
         public event EventHandler UnitSpawned;
 
         private Unit SpawnedUnit;
-
         private List<GameObject> UnitButtons = new List<GameObject>();
+        private List<GameObject> StatDisplays = new List<GameObject>();
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
@@ -75,6 +83,7 @@ namespace TbsFramework.Units
 
             yield return base.Act(cellGrid, isNetworkInvoked);
         }
+
         public override void Display(CellGrid cellGrid)
         {
             MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
@@ -88,10 +97,12 @@ namespace TbsFramework.Units
                 var unitButton = Instantiate(UnitButton, UnitButton.transform.parent);
                 unitButton.GetComponent<Button>().interactable = UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) && (currentUnitCount < limitUnits);
                 unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(UnitPrefab, cellGrid));
-
                 unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitPrefab.GetComponent<SpriteRenderer>().sprite;
                 unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = UnitPrefab.GetComponent<ESUnit>().UnitName;
                 unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
+
+                var hoverScript = unitButton.AddComponent<BuyButtonHover>();
+                hoverScript.Initialize(UnitPrefab, this);
 
                 unitButton.SetActive(true);
                 UnitButtons.Add(unitButton);
@@ -104,10 +115,12 @@ namespace TbsFramework.Units
                 var unitButton = Instantiate(UnitButton, UnitButton.transform.parent);
                 unitButton.GetComponent<Button>().interactable = (UnitPrefab.GetComponent<Price>().Value <= FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber)) && (currentUnitCount < limitUnits);
                 unitButton.GetComponentInChildren<Button>().onClick.AddListener(() => ActWrapper(UnitPrefab, cellGrid));
-
                 unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = UnitPrefab.GetComponent<SpriteRenderer>().sprite;
                 unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = UnitPrefab.GetComponent<ESUnit>().UnitName;
                 unitButton.GetComponent<Button>().transform.Find("PriceText").GetComponent<Text>().text = UnitPrefab.GetComponent<Price>().Value.ToString();
+
+                var hoverScript = unitButton.AddComponent<BuyButtonHover>();
+                hoverScript.Initialize(UnitPrefab, this);
 
                 if (cellGrid.Units.Exists(u => u.PlayerNumber == cellGrid.CurrentPlayer.PlayerNumber 
                                             && u.GetComponent<ESUnit>().UnitUnlock == UnitPrefab.GetComponent<ESUnit>().UnitName))
@@ -123,7 +136,59 @@ namespace TbsFramework.Units
 
             UnitPanel.SetActive(true);
             InfoPanel.SetActive(true);
-            
+        }
+
+        public void ShowStats(GameObject unitPrefab)
+        {
+            var unit = unitPrefab.GetComponent<ESUnit>();
+
+            var unitCard = Instantiate(UnitNameCard, UnitNameCard.transform.parent);
+            unitCard.transform.GetChild(0).GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
+            unitCard.transform.GetChild(1).GetComponent<Text>().text = unit.UnitName;
+            unitCard.SetActive(true);
+            StatDisplays.Add(unitCard);
+
+            var healthCard = Instantiate(StatCard, StatCard.transform.parent);
+            healthCard.transform.GetChild(0).GetComponent<Image>().sprite = HitpointsSprite;
+            healthCard.transform.GetChild(1).GetComponent<Text>().text = "Health: " + unit.HitPoints.ToString();
+            healthCard.SetActive(true);
+            StatDisplays.Add(healthCard);
+
+            var attackCard = Instantiate(StatCard, StatCard.transform.parent);
+            attackCard.transform.GetChild(0).GetComponent<Image>().sprite = AttackSprite;
+            attackCard.transform.GetChild(1).GetComponent<Text>().text = "Attack: " + unit.AttackFactor.ToString();
+            attackCard.SetActive(true);
+            StatDisplays.Add(attackCard);
+
+            var defenceCard = Instantiate(StatCard, StatCard.transform.parent);
+            defenceCard.transform.GetChild(0).GetComponent<Image>().sprite = DefenceSprite;
+            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + unit.DefenceFactor.ToString();
+            defenceCard.SetActive(true);
+            StatDisplays.Add(defenceCard);
+
+            var rangeCard = Instantiate(StatCard, StatCard.transform.parent);
+            rangeCard.transform.GetChild(0).GetComponent<Image>().sprite = RangeSprite;
+            rangeCard.transform.GetChild(1).GetComponent<Text>().text = "Range: " + unit.AttackRange.ToString();
+            rangeCard.SetActive(true);
+            StatDisplays.Add(rangeCard);
+
+            var moveCard = Instantiate(StatCard, StatCard.transform.parent);
+            moveCard.transform.GetChild(0).GetComponent<Image>().sprite = MovementSprite;
+            moveCard.transform.GetChild(1).GetComponent<Text>().text = "Moves: " + unit.MovementPoints.ToString();
+            moveCard.SetActive(true);
+            StatDisplays.Add(moveCard);
+
+            StatPanel.SetActive(true);
+        }
+
+        public void HideStats()
+        {
+            foreach (var card in StatDisplays)
+            {
+                Destroy(card);
+            }
+            StatDisplays.Clear();
+            StatPanel.SetActive(false);
         }
 
         void ActWrapper(GameObject prefab, CellGrid cellGrid)
@@ -161,8 +226,14 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
+            UnitButtons.Clear();
             UnitPanel.SetActive(false);
             InfoPanel.SetActive(false);
+
+            if (StatDisplays.Count > 0)
+            {
+                HideStats();
+            }
         }
 
         public override bool CanPerform(CellGrid cellGrid)

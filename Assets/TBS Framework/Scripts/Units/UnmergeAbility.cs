@@ -108,6 +108,7 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
+            UnmergeButtons.Clear();
             UnmergePanel.SetActive(false);
         }
 
