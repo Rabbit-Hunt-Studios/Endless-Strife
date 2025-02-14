@@ -12,6 +12,7 @@ public class ESUnit : Unit
     public Sprite Player1Sprite;
     public Sprite Player2Sprite;
     public Sprite DefaultSprite;
+    public Sprite UnitWeaponIcon;
     public string UnitName;
     public string UnitUnlock;
     public Vector3 Offset;

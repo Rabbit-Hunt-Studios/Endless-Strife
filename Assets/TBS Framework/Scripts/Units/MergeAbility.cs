@@ -15,11 +15,12 @@ namespace TbsFramework.Units
         public Unit unitToMerge { get; set; }
         public HashSet<Unit> availableMerges;
         public GameObject MergeButton;
-        public GameObject UnitPanel;
+        public GameObject MergeUI;
         public Sprite EmptyDefault;
         public List<Unit> mergedUnits = new List<Unit>();
         public int MaxMerges;
         private List<GameObject> MergeButtons = new List<GameObject>();
+        private List<GameObject> StatDisplays = new List<GameObject>();
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
@@ -40,7 +41,6 @@ namespace TbsFramework.Units
                 mergedUnits.Add(unitToMerge);
 
                 unitToMerge.gameObject.SetActive(false);
-                UnitReference.Cell.CurrentUnits.Remove(unitToMerge);
 
                 unitToMerge = null;
             }
@@ -62,6 +62,9 @@ namespace TbsFramework.Units
 
                         unitButton.GetComponent<Button>().transform.Find("UnitImage").GetComponent<Image>().sprite = unit.GetComponent<SpriteRenderer>().sprite;
                         unitButton.GetComponent<Button>().transform.Find("NameText").GetComponent<Text>().text = unit.GetComponent<ESUnit>().UnitName;
+
+                        var hoverScript = unitButton.GetComponent<MergeButtonHover>();
+                        hoverScript.unitToMerge = unit;
 
                         unitButton.SetActive(true);
                         MergeButtons.Add(unitButton);
@@ -87,7 +90,9 @@ namespace TbsFramework.Units
                     unitButton.SetActive(true);
                     MergeButtons.Add(unitButton);
                 }
-                UnitPanel.SetActive(true);
+
+                MergeUI.transform.GetChild(0).GetComponent<Text>().text = " Merges: " + mergedUnits.Count.ToString() + "/" + MaxMerges.ToString();
+                MergeUI.SetActive(true);
             }
         }
 
@@ -107,6 +112,15 @@ namespace TbsFramework.Units
 
         public override void CleanUp(CellGrid cellGrid)
         {
+            if (MergeButtons.Count > 0)
+            {
+                var mergeButton = MergeButtons.Find(b => b.GetComponent<MergeButtonHover>().unitToMerge == unitToMerge);
+                if (mergeButton != null)
+                {
+                    mergeButton.GetComponent<MergeButtonHover>().HideMergePreview();
+                }
+            }
+
             foreach (var unit in availableMerges)
             {
                 unit.UnMark();
@@ -115,7 +129,8 @@ namespace TbsFramework.Units
             {
                 Destroy(button);
             }
-            UnitPanel.SetActive(false);
+            MergeButtons.Clear();
+            MergeUI.SetActive(false);
         }
 
         public override bool CanPerform(CellGrid cellGrid)

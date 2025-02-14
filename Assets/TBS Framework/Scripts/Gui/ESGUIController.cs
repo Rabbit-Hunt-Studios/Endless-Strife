@@ -35,6 +35,9 @@ namespace TbsFramework.Gui
             {
                 EndTurnButton.interactable = CellGrid.CurrentPlayer is HumanPlayer;
             }
+
+            // Move camera to the current player's position
+            MoveCameraToCurrentPlayer();
         }
 
         private void OnGameEnded(object sender, GameEndedArgs e)
@@ -68,6 +71,19 @@ namespace TbsFramework.Gui
         public void EndTurn()
         {
             CellGrid.EndTurn();
+        }
+
+        private void MoveCameraToCurrentPlayer()
+        {
+            var cameraController = Camera.main.GetComponent<CameraController>();
+            if (cameraController != null)
+            {
+                var currentPlayerUnits = CellGrid.GetCurrentPlayerUnits();
+                if (currentPlayerUnits.Count > 0)
+                {
+                    cameraController.MoveToTarget(currentPlayerUnits[0].transform);
+                }
+            }
         }
     }
 }
