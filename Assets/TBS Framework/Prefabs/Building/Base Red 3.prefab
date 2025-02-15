@@ -1640,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1490, y: -275}
+  m_AnchoredPosition: {x: 1490, y: -270}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &676286552540265194
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   limitUnitsNumberText: {fileID: 3804824055382697441}
   StatPanel: {fileID: 5769585414585713658}
   StatCard: {fileID: 2079650086319509393}
-  UnitNameCard: {fileID: 5769585414585713658}
+  UnitNameCard: {fileID: 2462865491626922348}
   AttackSprite: {fileID: -6447425667752118579, guid: 8fcb090eef147fe44aac8fcda4d718a0,
     type: 3}
   DefenceSprite: {fileID: 625480778395568090, guid: 8fcb090eef147fe44aac8fcda4d718a0,
