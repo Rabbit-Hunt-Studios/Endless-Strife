@@ -35,6 +35,39 @@ namespace TbsFramework.Units
                 UnitReference.GetComponent<ESUnit>().TotalMovementPoints = (int)UnitReference.GetComponent<ESUnit>().TotalMovementPoints + unitToMerge.GetComponent<MergeStats>().Movement;
                 UnitReference.GetComponent<ESUnit>().TotalHitPoints = (int)UnitReference.GetComponent<ESUnit>().TotalHitPoints + unitToMerge.GetComponent<MergeStats>().HitPoints;
 
+                if (UnitReference.GetComponent<ESUnit>().DefenceFactor < 0)
+                {
+                    UnitReference.GetComponent<ESUnit>().DefenceFactor = 0;
+                }
+                else if (UnitReference.GetComponent<ESUnit>().DefenceFactor > 50)
+                {
+                    UnitReference.GetComponent<ESUnit>().DefenceFactor = 50;
+                }
+
+                if (UnitReference.GetComponent<ESUnit>().MovementPoints < 0)
+                {
+                    UnitReference.GetComponent<ESUnit>().MovementPoints = 0;
+                }
+                else if (UnitReference.GetComponent<ESUnit>().MovementPoints > 5)
+                {
+                    UnitReference.GetComponent<ESUnit>().MovementPoints = 5;
+                }
+
+                if (UnitReference.GetComponent<ESUnit>().AttackRange < 1)
+                {
+                    UnitReference.GetComponent<ESUnit>().AttackRange = 1;
+                }
+                else if (UnitReference.GetComponent<ESUnit>().AttackRange > 4)
+                {
+                    UnitReference.GetComponent<ESUnit>().AttackRange = 4;
+                }
+
+                if (UnitReference.GetComponent<ESUnit>().TotalMovementPoints < 1)
+                {
+                    UnitReference.GetComponent<ESUnit>().TotalMovementPoints = 1;
+                }
+
+
                 var takenCell = cellGrid.Cells.Find(c => (c.transform.localPosition.x.Equals(unitToMerge.transform.localPosition.x) && c.transform.localPosition.y.Equals(unitToMerge.transform.localPosition.y)));
                 takenCell.IsTaken = false;
 

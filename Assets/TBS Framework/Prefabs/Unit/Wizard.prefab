@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ad3f07aed0614fa54b662cddb11ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 300
+  Value: 375
 --- !u!114 &1373337403790745776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,7 +2951,7 @@ MonoBehaviour:
   Defence: 0
   AttackRange: 1
   Movement: 0
-  UnmergePenalty: 0.5
+  UnmergePenalty: 0.75
 --- !u!1 &8504469634227920573
 GameObject:
   m_ObjectHideFlags: 0

@@ -3255,11 +3255,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 20
-  Attack: 10
-  Defence: 10
+  Attack: 5
+  Defence: 0
   AttackRange: 0
   Movement: 0
-  UnmergePenalty: 0.5
+  UnmergePenalty: 0.75
 --- !u!1 &8851629294791686241
 GameObject:
   m_ObjectHideFlags: 0

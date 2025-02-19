@@ -3268,12 +3268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5531e4ec841454ba8e8300954088f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 40
-  Attack: 5
-  Defence: 5
+  HitPoints: 25
+  Attack: 10
+  Defence: 0
   AttackRange: 0
   Movement: 0
-  UnmergePenalty: 0.5
+  UnmergePenalty: 0.75
 --- !u!1 &8688673100773058011
 GameObject:
   m_ObjectHideFlags: 0

@@ -3255,9 +3255,9 @@ MonoBehaviour:
   cell: {fileID: 0}
   HitPoints: 200
   AttackRange: 3
-  AttackFactor: 50
-  DefenceFactor: 20
-  movementPoints: 3
+  AttackFactor: 55
+  DefenceFactor: 10
+  movementPoints: 2
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
@@ -3418,12 +3418,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5531e4ec841454ba8e8300954088f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 5
+  HitPoints: 0
   Attack: 10
-  Defence: 5
+  Defence: 0
   AttackRange: 1
   Movement: 0
-  UnmergePenalty: 0.5
+  UnmergePenalty: 0.75
 --- !u!1 &8767027395969421358
 GameObject:
   m_ObjectHideFlags: 0
