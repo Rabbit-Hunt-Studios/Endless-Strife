@@ -84,6 +84,10 @@ public class ESUnit : Unit
         {
             base.OnMouseEnter();
         }
+        if (!this.isStructure)
+        {
+            this.GetComponent<StatsDisplayAbility>().create_stat_panel();
+        }
         Cell.MarkAsHighlighted();
     }
 

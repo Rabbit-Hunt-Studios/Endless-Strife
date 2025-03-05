@@ -28,42 +28,30 @@ public class StatsDisplayAbility : Ability
         // MergeButtons.Add(unitButton);
         // UnitPanel.SetActive(true);
         // var StatsText = Instantiate(UnmergeButton, UnmergeButton.transform.parent);
+        destroy_cards();
+        create_stat_panel();
+    }
 
+    public void create_stat_panel()
+    {
         var unitCard = Instantiate(UnitNameCard, UnitNameCard.transform.parent);
         unitCard.transform.GetChild(0).GetComponent<Image>().sprite = UnitReference.GetComponent<SpriteRenderer>().sprite;
         unitCard.transform.GetChild(1).GetComponent<Text>().text = UnitReference.GetComponent<ESUnit>().UnitName;
         unitCard.SetActive(true);
         StatDisplays.Add(unitCard);
 
-        var healthCard = Instantiate(StatCard, StatCard.transform.parent);
-        healthCard.transform.GetChild(0).GetComponent<Image>().sprite = HitpointsSprite;
-        healthCard.transform.GetChild(1).GetComponent<Text>().text = "Health: " + UnitReference.GetComponent<ESUnit>().HitPoints.ToString();
-        healthCard.SetActive(true);
-        StatDisplays.Add(healthCard);
+        Dictionary<Sprite, string> stats = new Dictionary<Sprite, string>();
 
-        var attackCard = Instantiate(StatCard, StatCard.transform.parent);
-        attackCard.transform.GetChild(0).GetComponent<Image>().sprite = AttackSprite;
-        attackCard.transform.GetChild(1).GetComponent<Text>().text = "Attack: " + UnitReference.GetComponent<ESUnit>().AttackFactor.ToString();
-        attackCard.SetActive(true);
-        StatDisplays.Add(attackCard);
+        stats.Add(HitpointsSprite, "Health: " + UnitReference.GetComponent<ESUnit>().HitPoints.ToString());
+        stats.Add(AttackSprite, "Attack: " + UnitReference.GetComponent<ESUnit>().AttackFactor.ToString());
+        stats.Add(DefenceSprite, "Defence: " + UnitReference.GetComponent<ESUnit>().DefenceFactor.ToString());
+        stats.Add(RangeSprite, "Range: " + UnitReference.GetComponent<ESUnit>().AttackRange.ToString());
+        stats.Add(MovementSprite, "Moves: " + UnitReference.GetComponent<ESUnit>().MovementPoints.ToString());
 
-        var defenceCard = Instantiate(StatCard, StatCard.transform.parent);
-        defenceCard.transform.GetChild(0).GetComponent<Image>().sprite = DefenceSprite;
-        defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + UnitReference.GetComponent<ESUnit>().DefenceFactor.ToString();
-        defenceCard.SetActive(true);
-        StatDisplays.Add(defenceCard);
-
-        var rangeCard = Instantiate(StatCard, StatCard.transform.parent);
-        rangeCard.transform.GetChild(0).GetComponent<Image>().sprite = RangeSprite;
-        rangeCard.transform.GetChild(1).GetComponent<Text>().text = "Range: " + UnitReference.GetComponent<ESUnit>().AttackRange.ToString();
-        rangeCard.SetActive(true);
-        StatDisplays.Add(rangeCard);
-
-        var moveCard = Instantiate(StatCard, StatCard.transform.parent);
-        moveCard.transform.GetChild(0).GetComponent<Image>().sprite = MovementSprite;
-        moveCard.transform.GetChild(1).GetComponent<Text>().text = "Moves: " + UnitReference.GetComponent<ESUnit>().MovementPoints.ToString();
-        moveCard.SetActive(true);
-        StatDisplays.Add(moveCard);
+        foreach(KeyValuePair<Sprite, string> ele in stats)
+        {
+            create_card(ele.Key, ele.Value);
+        }
 
         var unit_list = UnitReference.GetComponent<MergeAbility>().mergedUnits;
         if (unit_list.Count != 0) 
@@ -78,10 +66,23 @@ public class StatsDisplayAbility : Ability
         }
 
         StatPanel.SetActive(true);
-    
+    }
+
+    public void create_card(Sprite sprite, string text)
+    {
+        var newCard = Instantiate(StatCard, StatCard.transform.parent);
+        newCard.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+        newCard.transform.GetChild(1).GetComponent<Text>().text = text;
+        newCard.SetActive(true);
+        StatDisplays.Add(newCard);
     }
 
     public override void CleanUp(CellGrid cellGrid)
+    {
+        destroy_cards();
+    }
+
+    public void destroy_cards()
     {
         foreach (var card in StatDisplays)
         {
