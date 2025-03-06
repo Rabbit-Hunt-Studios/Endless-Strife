@@ -88,6 +88,7 @@ public class StatsDisplayAbility : Ability
         {
             Destroy(card);
         }
+        UnitReference.GetComponent<ESUnit>().turn_on_preview();
         StatDisplays.Clear();
         StatPanel.SetActive(false);
         MergedIconList.SetActive(false);
