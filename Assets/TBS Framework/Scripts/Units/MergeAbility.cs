@@ -77,6 +77,8 @@ namespace TbsFramework.Units
 
                 unitToMerge = null;
             }
+
+            Debug.Log($"test {cellGrid.CurrentPlayer.GetComponent<SaveAbility>().playerData.totalMoney}");
             yield return base.Act(cellGrid, isNetworkInvoked);
         }
         public override void Display(CellGrid cellGrid)
