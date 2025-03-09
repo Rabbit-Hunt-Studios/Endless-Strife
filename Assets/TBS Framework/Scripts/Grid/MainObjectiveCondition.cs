@@ -36,6 +36,10 @@ namespace TbsFramework.Grid
 
             if (TargetPlayerTurnCount[currentPlayerNumber] >= CaptureTurns)
             {
+                SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
+                toAdd.totalWins = 1;
+                cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
+                
                 return new GameResult(true, new List<int> { currentPlayerNumber }, new List<int>());
             }
 

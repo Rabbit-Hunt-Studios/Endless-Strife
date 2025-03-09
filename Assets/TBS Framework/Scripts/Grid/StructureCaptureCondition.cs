@@ -13,6 +13,9 @@ namespace TbsFramework.Grid
         {
             if (StructureToCapture.PlayerNumber == TargetPlayerNumber)
             {
+                SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
+                toAdd.totalWins = 1;
+                cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
                 return new GameResult(true, new List<int> { TargetPlayerNumber }, new List<int>());
             }
 

@@ -78,6 +78,11 @@ public class ESUnit : Unit
 
     public override void OnMouseDown()
     {
+        if (!this.isStructure && preview)
+        {
+            this.GetComponent<StatsDisplayAbility>().destroy_cards();
+        }
+        
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             base.OnMouseDown();

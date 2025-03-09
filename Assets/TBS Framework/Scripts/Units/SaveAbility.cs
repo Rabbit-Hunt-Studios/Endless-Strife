@@ -15,6 +15,7 @@ public class SaveAbility : MonoBehaviour
         public int totalMergeCount = 0;
         public float totalPlayTime = 0.0f;
         public int totalUnitsProduced = 0;
+        public int totalWins = 0;
     }
 
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class SaveAbility : MonoBehaviour
         playerData.totalMergeCount += playerValues.totalMergeCount;
         playerData.totalPlayTime += playerValues.totalPlayTime;
         playerData.totalUnitsProduced += playerValues.totalUnitsProduced;
+        playerData.totalWins += playerValues.totalWins;
     }
 
     private void SaveData(PlayerData playerToSave)
