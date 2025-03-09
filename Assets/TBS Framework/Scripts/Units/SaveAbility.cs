@@ -5,50 +5,65 @@ using UnityEngine;
 public class SaveAbility : MonoBehaviour
 {
     public int player;
+    private PlayerData playerData;
+    private string path;
 
     [System.Serializable]
     public class PlayerData
     {
-        public float totalMoney = 0.0f;
+        public int totalMoney = 0;
         public int totalMergeCount = 0;
         public float totalPlayTime = 0.0f;
         public float totalUnitsProduced = 0;
     }
-    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!System.IO.File.Exists("player" + player.ToString() + "Data.json"))
+        path = $"./PlayerData/player{player}_data.json";
+        if (!System.IO.Directory.Exists("./PlayerData"))
+        {
+            System.IO.Directory.CreateDirectory("./PlayerData");
+        }
+        if (!System.IO.File.Exists(path))
         {
             PlayerData newPlayerData = new PlayerData();
-            save_data(newPlayerData);
+            SaveData(newPlayerData);
         }
-        playerData = load_data();
+        playerData = LoadData();
     }
 
     void OnApplicationQuit()
     {
-        save_data(playerData);
+        SaveData(playerData);
     }
 
-    private void save_data(PlayerData player)
+    public void UpdateValues(PlayerData playerValues)
     {
-        string json = JsonUtility.ToJson(player);
-        System.IO.File.WriteAllText("player" + player.ToString() + "Data.json", json);
+        playerData.totalMoney += playerValues.totalMoney;
+        playerData.totalMergeCount += playerValues.totalMergeCount;
+        playerData.totalPlayTime += playerValues.totalPlayTime;
+        playerData.totalUnitsProduced += playerValues.totalUnitsProduced;
     }
 
-    private PlayerData load_data()
+    private void SaveData(PlayerData playerToSave)
     {
-        string json = System.IO.File.ReadAllText("player" + player.ToString() + "Data.json");
+        playerToSave.totalPlayTime = playerToSave.totalPlayTime + Time.time;
+        string json = JsonUtility.ToJson(playerToSave);
+        System.IO.File.WriteAllText(path, json);
+    }
+
+    private PlayerData LoadData()
+    {
+        string json = System.IO.File.ReadAllText(path);
 
         PlayerData loadedPlayer = JsonUtility.FromJson<PlayerData>(json);
 
         // Now you can access the loaded player data
-        float totalMoney = loadedPlayer.totalMoney;
+        float totalPlayTime = loadedPlayer.totalPlayTime;
 
         // Use the loaded data in your game
-        Debug.Log($"JSON Player Money: {totalMoney} ");
+        Debug.Log($"JSON Player playtime: {totalPlayTime} ");
         return loadedPlayer;
     }
 }
