@@ -14,7 +14,7 @@ public class SaveAbility : MonoBehaviour
         public int totalMoney = 0;
         public int totalMergeCount = 0;
         public float totalPlayTime = 0.0f;
-        public float totalUnitsProduced = 0;
+        public int totalUnitsProduced = 0;
     }
 
     // Start is called before the first frame update
