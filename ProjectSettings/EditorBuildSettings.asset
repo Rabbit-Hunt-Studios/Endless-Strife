@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TBS Framework/Examples/Example4/Scenes/SceneMultiplayer.unity
     guid: f6a3dcf614278f24ca872eae1e49660f
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.ml-agents.settings: {fileID: 11400000, guid: 2b1ded189f5facc43993c80ee647e763,
+      type: 2}

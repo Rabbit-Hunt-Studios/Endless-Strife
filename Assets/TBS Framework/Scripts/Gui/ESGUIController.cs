@@ -62,7 +62,7 @@ namespace TbsFramework.Gui
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.M) && !(CellGrid.cellGridState is CellGridStateAITurn))
+            if (Input.GetKeyDown(KeyCode.M) && !(CellGrid.cellGridState is CellGridStateAITurn) && !(CellGrid.cellGridState is CellGridStateRLTurn))
             {
                 EndTurn();//User ends his turn by pressing "m" on keyboard.
             }
