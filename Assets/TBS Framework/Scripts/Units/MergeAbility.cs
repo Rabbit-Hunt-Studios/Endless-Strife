@@ -21,6 +21,18 @@ namespace TbsFramework.Units
         public int MaxMerges;
         private List<GameObject> MergeButtons = new List<GameObject>();
         private List<GameObject> StatDisplays = new List<GameObject>();
+        private Dictionary<string, int> UnitTypes = new Dictionary<string, int>
+        {
+            {"Empty", -1},
+            {"Archer", 0},
+            {"Assassin", 1},
+            {"AxeMan", 2},
+            {"Knight", 3},
+            {"Musketeer", 4},
+            {"SpearMan", 5},
+            {"SwordMan", 6},
+            {"Wizard", 7}
+        };
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
@@ -75,12 +87,24 @@ namespace TbsFramework.Units
 
                 unitToMerge.gameObject.SetActive(false);
 
+                SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
+                toAdd.totalMergeCount = 1;
+                
+                List<int> mappedUnits = new List<int> {UnitTypes[UnitReference.GetComponent<ESUnit>().UnitName]};
+                foreach (var unit in mergedUnits)
+                {
+                    mappedUnits.Add(UnitTypes[unit.GetComponent<ESUnit>().UnitName]);
+                }
+                for (int i = mappedUnits.Count; i < 5; i++)
+                {
+                    mappedUnits.Add(UnitTypes["Empty"]);
+                }
+
+                toAdd.mergeCombinations.Add(mappedUnits, 1);
+                cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
+
                 unitToMerge = null;
             }
-
-            SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
-            toAdd.totalMergeCount = 1;
-            cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
             
             yield return base.Act(cellGrid, isNetworkInvoked);
         }

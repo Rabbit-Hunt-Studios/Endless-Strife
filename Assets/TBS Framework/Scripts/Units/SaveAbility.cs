@@ -16,6 +16,7 @@ public class SaveAbility : MonoBehaviour
         public float totalPlayTime = 0.0f;
         public int totalUnitsProduced = 0;
         public int totalWins = 0;
+        public Dictionary<List<int>, int> mergeCombinations = new Dictionary<List<int>, int>();
     }
 
     // Start is called before the first frame update
@@ -46,6 +47,17 @@ public class SaveAbility : MonoBehaviour
         playerData.totalPlayTime += playerValues.totalPlayTime;
         playerData.totalUnitsProduced += playerValues.totalUnitsProduced;
         playerData.totalWins += playerValues.totalWins;
+        foreach (KeyValuePair<List<int>, int> entry in playerValues.mergeCombinations)
+        {
+            if (playerData.mergeCombinations.ContainsKey(entry.Key))
+            {
+                playerData.mergeCombinations[entry.Key] = playerData.mergeCombinations[entry.Key] + 1;
+            }
+            else
+            {
+                playerData.mergeCombinations[entry.Key] = 1;
+            }
+        }
     }
 
     private void SaveData(PlayerData playerToSave)
