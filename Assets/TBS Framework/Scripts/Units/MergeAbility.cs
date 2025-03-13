@@ -90,14 +90,14 @@ namespace TbsFramework.Units
                 SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
                 toAdd.totalMergeCount = 1;
                 
-                List<int> mappedUnits = new List<int> {UnitTypes[UnitReference.GetComponent<ESUnit>().UnitName]};
+                string mappedUnits = UnitTypes[UnitReference.GetComponent<ESUnit>().UnitName].ToString();
                 foreach (var unit in mergedUnits)
                 {
-                    mappedUnits.Add(UnitTypes[unit.GetComponent<ESUnit>().UnitName]);
+                    mappedUnits = mappedUnits + $",{UnitTypes[unit.GetComponent<ESUnit>().UnitName]}";
                 }
-                for (int i = mappedUnits.Count; i < 5; i++)
+                for (int i = mergedUnits.Count; i < 4; i++)
                 {
-                    mappedUnits.Add(UnitTypes["Empty"]);
+                    mappedUnits = mappedUnits + $",{UnitTypes["Empty"]}";
                 }
 
                 toAdd.mergeCombinations.Add(mappedUnits, 1);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class SaveAbility : MonoBehaviour
@@ -16,7 +17,7 @@ public class SaveAbility : MonoBehaviour
         public float totalPlayTime = 0.0f;
         public int totalUnitsProduced = 0;
         public int totalWins = 0;
-        public Dictionary<List<int>, int> mergeCombinations = new Dictionary<List<int>, int>();
+        public Dictionary<string, int> mergeCombinations = new Dictionary<string, int>();
     }
 
     // Start is called before the first frame update
@@ -47,7 +48,7 @@ public class SaveAbility : MonoBehaviour
         playerData.totalPlayTime += playerValues.totalPlayTime;
         playerData.totalUnitsProduced += playerValues.totalUnitsProduced;
         playerData.totalWins += playerValues.totalWins;
-        foreach (KeyValuePair<List<int>, int> entry in playerValues.mergeCombinations)
+        foreach (KeyValuePair<string, int> entry in playerValues.mergeCombinations)
         {
             if (playerData.mergeCombinations.ContainsKey(entry.Key))
             {
@@ -57,13 +58,14 @@ public class SaveAbility : MonoBehaviour
             {
                 playerData.mergeCombinations[entry.Key] = 1;
             }
+            Debug.Log($"merge count: {playerData.mergeCombinations[entry.Key]}");
         }
     }
 
     private void SaveData(PlayerData playerToSave)
     {
         playerToSave.totalPlayTime = playerToSave.totalPlayTime + Time.time;
-        string json = JsonUtility.ToJson(playerToSave);
+        string json = JsonConvert.SerializeObject(playerToSave, Formatting.Indented);
         System.IO.File.WriteAllText(path, json);
     }
 
@@ -71,7 +73,7 @@ public class SaveAbility : MonoBehaviour
     {
         string json = System.IO.File.ReadAllText(path);
 
-        PlayerData loadedPlayer = JsonUtility.FromJson<PlayerData>(json);
+        PlayerData loadedPlayer = JsonConvert.DeserializeObject<PlayerData>(json);
 
         // Now you can access the loaded player data
         float totalPlayTime = loadedPlayer.totalPlayTime;
