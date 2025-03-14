@@ -708,11 +708,12 @@ namespace TbsFramework.Players
             // 0: No action / Skip
             // 1: Move to position
             // 2: Attack unit
-            // 3: Merge units
-            // 4: Unmerge units
-            // 5: Spawn unit
-            // 6: Upgrade base
-            return 5; // Adjust based on your actual action types
+            // 3: Capture structure
+            // 4: Spawn unit
+            // 5: Upgrade base
+            // 6: Merge units
+            // 7: Unmerge units
+            return 6; // Adjust based on your actual action types
         }
         
         private float GetPlayerResources(Player player)

@@ -38,7 +38,8 @@ namespace TbsFramework.Players.AI.Actions
             }
 
             var enemyUnits = cellGrid.GetEnemyUnits(player);
-            var isEnemyinRange = enemyUnits.Select(u => unit.IsUnitAttackable(u, unit.Cell))
+            ESUnit esUnit = unit.GetComponent<ESUnit>();
+            var isEnemyinRange = enemyUnits.Select(u => unit.IsUnitAttackable(u, unit.Cell) && !esUnit.isStructure)
                                            .Aggregate((result, next) => result || next);
 
             return isEnemyinRange && unit.ActionPoints > 0;

@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 3666698496461993276}
   - component: {fileID: 8026036697100609038}
   - component: {fileID: 5301707802847536436}
+  - component: {fileID: 4768544902923671345}
   - component: {fileID: 7167488374483700308}
   - component: {fileID: 1556759359837574728}
   - component: {fileID: 4249591918148525002}
@@ -717,6 +718,8 @@ GameObject:
   - component: {fileID: 6780159546543618091}
   - component: {fileID: 2705742135287110996}
   - component: {fileID: 5103355166746467003}
+  - component: {fileID: 3446632654813700178}
+  - component: {fileID: 4330968143009185439}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -763,6 +766,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldMoveAllTheWay: 1
+--- !u!114 &4768544902923671345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432700630610154542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc57f0032fdfac4c8a8528e4d9aedaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7167488374483700308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +867,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcb0f908bfbd81040b2c55fe49d56389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 1
+--- !u!114 &3446632654813700178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432700630610154542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae4399665cf054489093b83ab94104f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 1
+--- !u!114 &4330968143009185439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432700630610154542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375bdece08a0f0d49a057d0a19ee742d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1

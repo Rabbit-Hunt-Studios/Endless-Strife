@@ -140,7 +140,7 @@ namespace TbsFramework.Players.AI.Actions
         
         public override int GetActionIndex()
         {
-            return 3; // Unique ID for spawn action
+            return 4; // Unique ID for spawn action
         }
         
         #region Helper Methods

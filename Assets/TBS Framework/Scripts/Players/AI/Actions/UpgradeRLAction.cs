@@ -77,7 +77,7 @@ namespace TbsFramework.Players.AI.Actions
         
         public override int GetActionIndex()
         {
-            return 4; // Unique ID for upgrade action
+            return 5; // Unique ID for upgrade action
         }
         
         #region Helper Methods
