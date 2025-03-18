@@ -6,7 +6,8 @@ using UnityEngine;
 public class SaveAbility : MonoBehaviour
 {
     public int player;
-    private PlayerData playerData;
+    public PlayerData playerData { get; private set; }
+    public bool inGame;
     private string path;
 
     [System.Serializable]
@@ -41,6 +42,11 @@ public class SaveAbility : MonoBehaviour
         SaveData(playerData);
     }
 
+    void OnDestroy()
+    {
+        SaveData(playerData);
+    }
+
     public void UpdateValues(PlayerData playerValues)
     {
         playerData.totalMoney += playerValues.totalMoney;
@@ -64,9 +70,12 @@ public class SaveAbility : MonoBehaviour
 
     private void SaveData(PlayerData playerToSave)
     {
-        playerToSave.totalPlayTime = playerToSave.totalPlayTime + Time.time;
-        string json = JsonConvert.SerializeObject(playerToSave, Formatting.Indented);
-        System.IO.File.WriteAllText(path, json);
+        if (inGame)
+        {
+            playerToSave.totalPlayTime = playerToSave.totalPlayTime + Time.time;
+            string json = JsonConvert.SerializeObject(playerToSave, Formatting.Indented);
+            System.IO.File.WriteAllText(path, json);
+        }
     }
 
     private PlayerData LoadData()

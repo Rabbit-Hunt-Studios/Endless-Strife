@@ -10,8 +10,18 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMap");
     }
 
+    public void PlayGameAI()
+    {
+        Debug.Log("load scene with AI player");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void StatsPage()
+    {
+        SceneManager.LoadScene("PlayerStats");
     }
 }
