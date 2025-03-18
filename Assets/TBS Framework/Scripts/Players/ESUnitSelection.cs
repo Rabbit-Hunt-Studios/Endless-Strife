@@ -5,9 +5,9 @@ using TbsFramework.Grid;
 using TbsFramework.Players.AI;
 using TbsFramework.Units;
 
-namespace TbsFramework.Example4
+namespace TbsFramework.Players
 {
-    public class RLUnitSelection : UnitSelection
+    public class ESUnitSelection : UnitSelection
     {
         private HashSet<Unit> alreadySelected = new HashSet<Unit>();
         public override IEnumerable<Unit> SelectNext(Func<List<Unit>> getUnits, CellGrid cellGrid)

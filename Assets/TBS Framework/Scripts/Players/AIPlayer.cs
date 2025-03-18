@@ -24,7 +24,7 @@ namespace TbsFramework.Players
         {
             StopAllCoroutines();
         }
-        private IEnumerator PlayCoroutine(CellGrid cellGrid)
+        protected IEnumerator PlayCoroutine(CellGrid cellGrid)
         {
             var UnitsOrdered = GetComponent<UnitSelection>().SelectNext(() => cellGrid.GetCurrentPlayerUnits(), cellGrid);
 

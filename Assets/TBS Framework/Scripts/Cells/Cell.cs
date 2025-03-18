@@ -37,7 +37,7 @@ namespace TbsFramework.Cells
         /// </summary>
         public float MovementCost = 1;
 
-        public List<Unit> CurrentUnits { get; private set; } = new List<Unit>();
+        public List<Unit> CurrentUnits { get; set; } = new List<Unit>();
 
         /// <summary>
         /// CellClicked event is invoked when user clicks on the cell. 

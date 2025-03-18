@@ -65,7 +65,7 @@ namespace TbsFramework.Players
             base.Initialize(cellGrid);
             cellGrid.GameEnded += OnGameEnded;
             cellGrid.TurnEnded += OnTurnEnded;
-            cellGrid.LevelLoadingDone += OnLevelLoadingDone;  // Subscribe to LevelLoadingDone event
+            cellGrid.LevelLoadingDone += OnLevelLoadingDone;
             
             // Initialize tracking structures
             unitHP = new Dictionary<Unit, float>();
@@ -782,10 +782,6 @@ namespace TbsFramework.Players
         
         private int GetUnitType(ESUnit unit)
         {
-            // Return a numeric type identifier for the unit
-            // You may need to customize this based on your game's unit types
-            
-            // Fallback to using unit's name to determine type
             string unitName = unit.name.ToLower();
             
             if (unitName.Contains("swordman"))
@@ -807,7 +803,6 @@ namespace TbsFramework.Players
             else if (unit.isStructure)
                 return 0;
                 
-            // Default type
             return 0;
         }
         

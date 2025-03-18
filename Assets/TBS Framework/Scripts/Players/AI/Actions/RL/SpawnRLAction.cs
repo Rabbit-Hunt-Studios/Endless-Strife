@@ -31,6 +31,7 @@ namespace TbsFramework.Players.AI.Actions
             var spawnAbility = unit.GetComponent<SpawnAbility>();
             if (spawnAbility == null)
             {
+                Debug.Log("Unit doesn't have SpawnAbility");
                 return false;
             }
             
@@ -44,6 +45,7 @@ namespace TbsFramework.Players.AI.Actions
             
             if (currentUnitCount >= spawnAbility.limitUnits)
             {
+                Debug.Log("Unit limit reached");
                 return false;
             }
             
@@ -66,6 +68,7 @@ namespace TbsFramework.Players.AI.Actions
             
             if (!canAffordAny)
             {
+                Debug.Log("Can't afford any units");
                 return false;
             }
             
@@ -74,6 +77,7 @@ namespace TbsFramework.Players.AI.Actions
             
             if (prefabScores.Count == 0)
             {
+                Debug.Log("No affordable units to spawn");
                 return false;
             }
             
@@ -83,10 +87,11 @@ namespace TbsFramework.Players.AI.Actions
             // Only spawn if score is above threshold (adjust as needed)
             if (bestScore > 0.5f)
             {
+                Debug.Log($"Selected unit to spawn: {bestPrefab.GetComponent<ESUnit>().UnitName}");
                 SelectedPrefab = bestPrefab;
                 return true;
             }
-            
+            Debug.Log("No units to spawn");
             return false;
         }
         
@@ -152,6 +157,7 @@ namespace TbsFramework.Players.AI.Actions
             CellGrid cellGrid,
             int playerMoney)
         {
+            Debug.Log("Evaluating unit prefabs");
             List<(GameObject prefab, float value)> scores = new List<(GameObject prefab, float value)>();
             
             foreach (var prefab in prefabs)
