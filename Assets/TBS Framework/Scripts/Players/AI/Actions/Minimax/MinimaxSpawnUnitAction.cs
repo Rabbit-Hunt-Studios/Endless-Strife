@@ -129,7 +129,11 @@ namespace TbsFramework.Players.AI.Actions
                     affordableUnits.Add(prefab);
                 }
             }
-            
+            Debug.Log("Affordable units: " + affordableUnits.Count);
+            foreach (var unit in affordableUnits)
+            {
+                Debug.Log(affordableUnits.IndexOf(unit) + " : " + unit.GetComponent<ESUnit>().UnitName);
+            }
             return affordableUnits;
         }
         
@@ -151,7 +155,7 @@ namespace TbsFramework.Players.AI.Actions
             foreach (var unitPrefab in units)
             {
                 float score = EvaluateUnitPrefab(unitPrefab, baseUnit, player, cellGrid, currentUnitCount);
-                
+                Debug.Log($"Score for {unitPrefab.GetComponent<ESUnit>().UnitName}: {score}");
                 if (score > bestScore)
                 {
                     bestScore = score;
@@ -172,49 +176,54 @@ namespace TbsFramework.Players.AI.Actions
             
             // Basic unit stats evaluation
             score += unitStats.AttackFactor * 0.5f;
-            score += unitStats.DefenceFactor * 0.5f;
+            score += unitStats.DefenceFactor * 0.4f;
             score += unitStats.HitPoints * 0.1f;
-            score += unitStats.MovementPoints * 0.3f;
+            score += unitStats.MovementPoints * 0.5f;
             
             // Value for ranged units
             if (unitStats.AttackRange > 1)
-                score += 2.0f;
-                
+            {
+                score += unitStats.AttackRange;
+            }   
             // Economy consideration - don't spend all money
             float moneyRatio = (float)cost / playerMoney;
             if (moneyRatio > 0.7f)
+            {
                 score -= (moneyRatio - 0.7f) * 10;
-                
+            }   
             // Unit diversity - check what types we already have
             if (GetUnitTypeCount(GetUnitType(unitStats), player.PlayerNumber, cellGrid) == 0)
+            {
                 score += 2.0f; // Bonus for new unit types
-                
+            }   
             // Consider game state - more units early game, stronger units late game
-            if (cellGrid.Turns[player.PlayerNumber, 0] < 5 && cost < 10)
+            if (cellGrid.Turns[player.PlayerNumber, 0] < 5 && cost < 250)
+            {
                 score += 1.0f; // Cheap units early game
-            else if (cellGrid.Turns[player.PlayerNumber, 0] > 10 && unitStats.AttackFactor + unitStats.DefenceFactor > 20)
+            }
+            else if (cellGrid.Turns[player.PlayerNumber, 0] > 10 && unitStats.AttackFactor + unitStats.DefenceFactor >= 80)
+            {
                 score += 1.5f; // Strong units late game
-                
+            }    
             // If we're near unit limit, prioritize quality over quantity
             if (currentUnitCount > spawnAbility.limitUnits * 0.8f)
-                score += (unitStats.AttackFactor + unitStats.DefenceFactor) * 0.2f;
-                
+            {
+                score += (unitStats.AttackFactor + unitStats.DefenceFactor + unitStats.AttackRange) * 0.5f;
+            }    
             // Use custom evaluators if any
             if (unitEvaluators != null && unitEvaluators.Length > 0)
             {
                 foreach (var evaluator in unitEvaluators)
                 {
-                    // We'd need a way to evaluate prefabs with the evaluators
-                    // This would require extending the evaluator interface
+                    score += evaluator.Evaluate(prefab.GetComponent<Unit>(), baseUnit, player, cellGrid);
                 }
             }
             
             // Consider position to objective - if we need units for capturing
             if (!IsControllingObjective(player.PlayerNumber, cellGrid) && unitStats.MovementPoints >= 3)
+            {
                 score += 1.5f;
-                
-            // Value for cost ratio
-            score /= Mathf.Max(1, cost / 5.0f);
+            }
             
             return score;
         }
