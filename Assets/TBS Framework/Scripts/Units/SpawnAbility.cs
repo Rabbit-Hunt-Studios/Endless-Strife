@@ -79,6 +79,10 @@ namespace TbsFramework.Units
                     UnitSpawned.Invoke(unitGO, EventArgs.Empty);
                     SpawnedUnit.GetComponent<Unit>().SetState(new UnitStateMarkedAsFinished(SpawnedUnit.GetComponent<Unit>()));
                 }
+
+                SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
+                toAdd.totalUnitsProduced = 1;
+                cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
             }
 
             yield return base.Act(cellGrid, isNetworkInvoked);
