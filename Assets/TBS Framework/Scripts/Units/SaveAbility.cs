@@ -18,6 +18,7 @@ public class SaveAbility : MonoBehaviour
         public float totalPlayTime = 0.0f;
         public int totalUnitsProduced = 0;
         public int totalWins = 0;
+        public List<int> turnsPerSession = new List<int>();
         public Dictionary<string, int> mergeCombinations = new Dictionary<string, int>();
     }
 
@@ -31,8 +32,11 @@ public class SaveAbility : MonoBehaviour
         }
         if (!System.IO.File.Exists(path))
         {
+            bool tmp = inGame;
+            inGame = true;
             PlayerData newPlayerData = new PlayerData();
             SaveData(newPlayerData);
+            inGame = tmp;
         }
         playerData = LoadData();
     }
@@ -54,6 +58,10 @@ public class SaveAbility : MonoBehaviour
         playerData.totalPlayTime += playerValues.totalPlayTime;
         playerData.totalUnitsProduced += playerValues.totalUnitsProduced;
         playerData.totalWins += playerValues.totalWins;
+        if (playerValues.turnsPerSession.Count > 0)
+        {
+            playerData.turnsPerSession.Add(playerValues.turnsPerSession[0]);
+        }
         foreach (KeyValuePair<string, int> entry in playerValues.mergeCombinations)
         {
             if (playerData.mergeCombinations.ContainsKey(entry.Key))

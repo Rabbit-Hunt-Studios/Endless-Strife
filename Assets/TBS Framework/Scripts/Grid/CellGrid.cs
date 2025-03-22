@@ -291,6 +291,13 @@ namespace TbsFramework.Grid
             bool isGameFinished = CheckGameFinished();
             if (isGameFinished)
             {
+                SaveAbility.PlayerData player_0 = new SaveAbility.PlayerData();
+                player_0.turnsPerSession.Add(Turns[0, 0]);
+                Players[0].GetComponent<SaveAbility>().UpdateValues(player_0);
+
+                SaveAbility.PlayerData player_1 = new SaveAbility.PlayerData();
+                player_1.turnsPerSession.Add(Turns[1, 0]);
+                Players[1].GetComponent<SaveAbility>().UpdateValues(player_1);
                 return;
             }
 
