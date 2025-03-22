@@ -216,7 +216,8 @@ namespace TbsFramework.Players.AI.Actions
             // Extra verification to ensure the destination is movable to
             if (!unit.IsCellMovableTo(_executionDestination))
             {
-                UnityEngine.Debug.LogError($"Cannot move to destination {_executionDestination.OffsetCoord}!");
+                UnityEngine.Debug.LogWarning($"Cannot move to destination {_executionDestination.OffsetCoord}! Cell is taken.");
+                _executionDestination = unit.Cell;
                 yield break;
             }
             
