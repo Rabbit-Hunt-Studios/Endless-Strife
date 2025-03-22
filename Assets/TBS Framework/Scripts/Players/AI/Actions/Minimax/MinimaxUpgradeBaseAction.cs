@@ -39,7 +39,6 @@ namespace TbsFramework.Players.AI.Actions
         
         public override void Precalculate(Player player, Unit unit, CellGrid cellGrid)
         {
-            // No additional precalculation needed
         }
         
         public override IEnumerator Execute(Player player, Unit unit, CellGrid cellGrid)
@@ -58,7 +57,6 @@ namespace TbsFramework.Players.AI.Actions
         
         public override void CleanUp(Player player, Unit unit, CellGrid cellGrid)
         {
-            // Nothing to clean up
         }
         
         public override void ShowDebugInfo(Player player, Unit unit, CellGrid cellGrid)
@@ -83,7 +81,7 @@ namespace TbsFramework.Players.AI.Actions
             if (state.Resources.ContainsKey(unit.PlayerNumber))
             {
                 // This is a proxy for the long-term advantage of increased income
-                state.Resources[unit.PlayerNumber] += 10; // Represent future income advantage
+                state.Resources[unit.PlayerNumber] += unit.GetComponent<IncomeAbility>().Amount; // Represent future income advantage
             }
         }
         
@@ -91,62 +89,21 @@ namespace TbsFramework.Players.AI.Actions
         {
             // ROI (Return on Investment) calculation
             int upgradeCost = upgradeAbility.upgradeCost;
-            int currentIncome = 0;
-            int projectedIncome = 0;
-            
-            // Get current income
-            var incomeAbility = unit.GetComponent<IncomeAbility>();
-            if (incomeAbility != null)
-            {
-                currentIncome = incomeAbility.Amount;
-            }
-            
-            // Get projected income from upgraded prefab
-            if (upgradeAbility.prefabToChange != null)
-            {
-                var upgradedIncomeAbility = upgradeAbility.prefabToChange.GetComponent<IncomeAbility>();
-                if (upgradedIncomeAbility != null)
-                {
-                    projectedIncome = upgradedIncomeAbility.Amount;
-                }
-            }
-            
-            int incomeIncrease = projectedIncome - currentIncome;
-            Debug.Log($"Upgrade Cost: {upgradeCost} : Income increase: {incomeIncrease}");
-            // Calculate turns to break even
-            float turnsToBreakEven = incomeIncrease > 0 ? (float)upgradeCost / incomeIncrease : float.MaxValue;
-            
-            // Basic economic analysis
-            // 1. Is it affordable without depleting resources?
+  
             if (upgradeCost > playerMoney * 0.7f)
+            {
                 return false; // Too expensive relative to current funds
-            
-            if (spawnAbility.limitUnits == cellGrid.GetPlayerUnits(player).Count(u => !u.GetComponent<ESUnit>().isStructure) && cellGrid.Turns[player.PlayerNumber, 0] > 5 + ((unit.name.Any(char.IsDigit) ? int.Parse(unit.name.Last(char.IsDigit).ToString()) : 0) * 5))
+            }
+            if (playerMoney > upgradeCost * 3)
+            {
+                return true; // Very affordable
+            }
+            if (spawnAbility.limitUnits == cellGrid.GetPlayerUnits(player).Count(u => !u.GetComponent<ESUnit>().isStructure) && 
+                cellGrid.Turns[player.PlayerNumber, 0] > 5 + ((unit.name.Any(char.IsDigit) ? int.Parse(unit.name.Last(char.IsDigit).ToString()) : 0) * 5))
+            {
                 return true; 
-                
-            // Is the ROI reasonable?
-            if (turnsToBreakEven > 10 && cellGrid.Turns[player.PlayerNumber, 0] < 5)
-                return false; // Not worth it early game with long ROI
-                
-            if (turnsToBreakEven > 15)
-                return false; // Generally not worth it with very long ROI
-                
-            // Game phase considerations
-            if (cellGrid.Turns[player.PlayerNumber, 0] < 3) // Very early game
-            {
-                // Early upgrade can be good for economy
-                return turnsToBreakEven <= 7;
             }
-            else if (cellGrid.Turns[player.PlayerNumber, 0] < 10) // Mid game
-            {
-                // More selective in mid-game
-                return turnsToBreakEven <= 5 && playerMoney > upgradeCost * 1.5f;
-            }
-            else // Late game
-            {
-                // Late game - only if very good ROI or excess resources
-                return turnsToBreakEven <= 3 || playerMoney > upgradeCost * 3;
-            }
+            return false;
         }
         public override int GetActionIndex()
         {

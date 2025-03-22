@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
-  maxTurnsToGetThere: 5
+  maxTurnsToGetThere: 4
 --- !u!114 &2705742135287110996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
-  maxTurnsToGetThere: 5
+  maxTurnsToGetThere: 4
 --- !u!114 &1917342561791109101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
-  maxTurnsToGetThere: 5
+  maxTurnsToGetThere: 4
 --- !u!114 &1595301671208325936
 MonoBehaviour:
   m_ObjectHideFlags: 0
