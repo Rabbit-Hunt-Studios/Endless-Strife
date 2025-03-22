@@ -17,8 +17,10 @@ public class IncomeAbility : Ability
     {
         var economyController = FindObjectOfType<EconomyController>();
         economyController.UpdateValue(GetComponent<Unit>().PlayerNumber, Amount);
-
-        StartCoroutine(UpdateValues(cellGrid));
+        if (this.isActiveAndEnabled)
+        {
+            StartCoroutine(UpdateValues(cellGrid));
+        }
     }
 
     private IEnumerator UpdateValues(CellGrid cellGrid)

@@ -8,6 +8,7 @@ namespace TbsFramework.Players.AI.Evaluators
 {
     public class ObjectiveProximityCellEvaluator : CellEvaluator
     {
+        public int maxTurnsToGetThere = 3;
         public override float Evaluate(Cell cellToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
             Cell objectiveCell = null;
@@ -44,7 +45,7 @@ namespace TbsFramework.Players.AI.Evaluators
             }
             var distance = Mathf.Ceil(pathCost / evaluatingUnit.MovementPoints);
 
-            return distance > 3 ? -1 : distance / 3;
+            return distance > maxTurnsToGetThere ? -1 : distance / maxTurnsToGetThere;
         }
     }
 }

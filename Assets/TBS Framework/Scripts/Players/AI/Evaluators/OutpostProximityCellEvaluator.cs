@@ -8,6 +8,7 @@ namespace TbsFramework.Players.AI.Evaluators
 {
     public class OutpostProximityCellEvaluator : CellEvaluator
     {
+        public int maxTurnsToGetThere = 3;
         public override float Evaluate(Cell cellToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
             float bestScore = 0;
@@ -31,7 +32,7 @@ namespace TbsFramework.Players.AI.Evaluators
                                 return -1;
                             }
                             var distance = Mathf.Ceil(pathCost / evaluatingUnit.MovementPoints);
-                            float score = distance > 3 ? -1 : distance / 3;
+                            float score = distance > maxTurnsToGetThere ? -1 : distance / maxTurnsToGetThere;
                             
                             if (score > bestScore)
                                 bestScore = score;
