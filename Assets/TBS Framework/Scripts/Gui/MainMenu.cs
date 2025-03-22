@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainMap");
+        SceneManager.LoadScene("MainMap" + Random.Range(0,3).ToString());
     }
 
     public void PlayGameAI()

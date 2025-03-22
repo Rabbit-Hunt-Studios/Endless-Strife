@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerStats.unity
     guid: b611aab20b6aa00499a19166adaf8670
   - enabled: 1
-    path: Assets/Scenes/MainMap.unity
+    path: Assets/Scenes/MainMap0.unity
     guid: b81d1f2d1c2fb394eaf1d0da7c31afb9
+  - enabled: 1
+    path: Assets/Scenes/MainMap1.unity
+    guid: 70a4309b6c4fd2c4bba62b47d8a9d085
+  - enabled: 1
+    path: Assets/Scenes/MainMap2.unity
+    guid: a678bbc8abd268c428cbfc6d15832af8
   m_configObjects: {}
