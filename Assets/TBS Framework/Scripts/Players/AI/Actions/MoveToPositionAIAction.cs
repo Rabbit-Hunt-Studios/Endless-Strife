@@ -93,7 +93,7 @@ namespace TbsFramework.Players.AI.Actions
                 return weightedScore;
             }).DefaultIfEmpty(0f).Aggregate((result, next) => result + next))).OrderByDescending(x => x.value);
 
-            var (topCell, maxValue) = cellScores.Where(o => unit.IsCellMovableTo(o.cell))
+            var (topCell, maxValue) = cellScores.Where(o => unit.IsCellMovableTo(o.cell) && !o.cell.IsTaken)
                                                 .First();
 
             var currentCellVal = cellScoresDict[unit.Cell];
