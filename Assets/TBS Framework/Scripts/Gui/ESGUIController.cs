@@ -11,6 +11,8 @@ namespace TbsFramework.Gui
     {
         public CellGrid CellGrid;
         public Button EndTurnButton;
+        public GameObject EndScreen;
+        public GameObject WinText;
 
         void Awake()
         {
@@ -42,10 +44,16 @@ namespace TbsFramework.Gui
 
         private void OnGameEnded(object sender, GameEndedArgs e)
         {
-            Debug.Log(string.Format("Player{0} wins!", e.gameResult.WinningPlayers[0]));
+            string playerWin = string.Format("Player {0} wins!", e.gameResult.WinningPlayers[0]);
+            Debug.Log(playerWin);
             if (EndTurnButton != null)
             {
                 EndTurnButton.interactable = false;
+            }
+            if (EndScreen != null)
+            {
+                WinText.GetComponent<Text>().text = playerWin;
+                EndScreen.SetActive(true);
             }
         }
 
