@@ -2669,6 +2669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+  maxTurnsToGetThere: 3
 --- !u!114 &1680488069665276435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,6 +2683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+  maxTurnsToGetThere: 3
 --- !u!114 &4486666427375723609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3241,7 +3243,7 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 4027087742763158571}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 200
+  HitPoints: 150
   AttackRange: 1
   AttackFactor: 50
   DefenceFactor: 40
