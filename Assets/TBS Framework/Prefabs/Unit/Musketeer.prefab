@@ -3435,11 +3435,11 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 4027087742763158571}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 175
-  AttackRange: 4
-  AttackFactor: 60
-  DefenceFactor: 20
-  movementPoints: 2
+  HitPoints: 125
+  AttackRange: 3
+  AttackFactor: 65
+  DefenceFactor: 10
+  movementPoints: 3
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
@@ -3600,12 +3600,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5531e4ec841454ba8e8300954088f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 5
-  Attack: 15
+  HitPoints: 0
+  Attack: 20
   Defence: 0
   AttackRange: 2
   Movement: 0
-  UnmergePenalty: 0.5
+  UnmergePenalty: 0.75
 --- !u!1 &8664852110348007419
 GameObject:
   m_ObjectHideFlags: 0
