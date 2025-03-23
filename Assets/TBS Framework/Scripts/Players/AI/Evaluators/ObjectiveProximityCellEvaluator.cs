@@ -18,6 +18,8 @@ namespace TbsFramework.Players.AI.Evaluators
                 {
                     foreach (var unit in cell.CurrentUnits)
                     {
+                        if (unit == null || !unit.isActiveAndEnabled)
+                            continue;
                         ESUnit esUnit = unit.GetComponent<ESUnit>();
                         if (esUnit != null && 
                             esUnit.isStructure &&

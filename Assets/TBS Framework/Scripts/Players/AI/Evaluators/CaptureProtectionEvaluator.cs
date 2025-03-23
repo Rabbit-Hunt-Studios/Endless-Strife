@@ -20,8 +20,8 @@ namespace TbsFramework.Example4
                     continue;
                 }
 
-                var capturable = neighbour.CurrentUnits.Where(u => u.GetComponent<CapturableAbility>() != null).FirstOrDefault();
-                var capturing = neighbour.CurrentUnits.Where(u => u.GetComponent<CapturableAbility>() == null).FirstOrDefault();
+                var capturable = neighbour.CurrentUnits.Where(u => u != null && u.GetComponent<CapturableAbility>() != null).FirstOrDefault();
+                var capturing = neighbour.CurrentUnits.Where(u => u != null && u.GetComponent<CapturableAbility>() == null).FirstOrDefault();
 
                 if (capturable == null || capturing == null || capturable.PlayerNumber != currentPlayer.PlayerNumber || capturing.PlayerNumber == currentPlayer.PlayerNumber)
                 {

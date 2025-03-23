@@ -57720,11 +57720,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNumber: 1
   DebugMode: 1
-  maxDepth: 2
+  maxDepth: 5
   useAlphaBetaPruning: 1
   unitHealthWeight: 2
-  unitCountWeight: 5
-  unitPositionWeight: 1
+  unitCountWeight: 3
+  unitPositionWeight: 5
   resourcesWeight: 0.5
   structureControlWeight: 10
   objectiveControlWeight: 20

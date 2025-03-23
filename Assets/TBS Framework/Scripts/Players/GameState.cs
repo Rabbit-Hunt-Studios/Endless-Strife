@@ -91,6 +91,8 @@ namespace TbsFramework.Players.AI
                     
                     foreach (var unit in cell.CurrentUnits)
                     {
+                        if (unit == null || !unit.isActiveAndEnabled)
+                            continue;
                         if (unit is ESUnit esUnit && esUnit.isStructure)
                         {
                             if (esUnit.UnitName.Contains("Base"))

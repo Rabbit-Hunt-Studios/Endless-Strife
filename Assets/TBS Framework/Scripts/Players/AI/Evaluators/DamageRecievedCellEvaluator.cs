@@ -21,6 +21,9 @@ namespace TbsFramework.Players.AI.Evaluators
             var enemyUnits = cellGrid.GetEnemyUnits(currentPlayer);
             foreach (var unit in enemyUnits)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
+                    
                 var cellsInAttackRange = cellGrid.Cells.Where(c => evaluatingUnit.IsCellMovableTo(c) && unit.Cell.GetDistance(c) <= unit.MovementPoints + unit.AttackRange);
                 var damage = unit.DryAttack(evaluatingUnit);
                 foreach (var cellInAttackRange in cellsInAttackRange)

@@ -9,11 +9,13 @@ public class CaptureCellEvaluator : CellEvaluator
 {
     public override float Evaluate(Cell cellToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
     {
-        var capturable = cellToEvaluate.CurrentUnits.Select(u => u.GetComponent<CapturableAbility>())
+        var capturable = cellToEvaluate.CurrentUnits.Where(u => u != null && u.gameObject != null)
+                                                                .Select(u => u.GetComponent<CapturableAbility>())
                                                                 .OfType<CapturableAbility>()
                                                                 .ToList();
 
-        var capturing = cellToEvaluate.CurrentUnits.Select(u => u.GetComponent<CaptureAbility>())
+        var capturing = cellToEvaluate.CurrentUnits.Where(u => u != null && u.gameObject != null)
+                                                                .Select(u => u.GetComponent<CaptureAbility>())
                                                                 .OfType<CaptureAbility>()
                                                                 .ToList();
         var isCapturable = false;

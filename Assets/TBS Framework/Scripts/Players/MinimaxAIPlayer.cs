@@ -250,6 +250,10 @@ namespace TbsFramework.Players
             Dictionary<Unit, List<MinimaxAIAction>> unitActions = new Dictionary<Unit, List<MinimaxAIAction>>();
             foreach (var unit in units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                {
+                    continue;
+                }
                 Debug.Log($"Getting possible actions for unit {unit.name}");
                 List<MinimaxAIAction> possibleActions = new List<MinimaxAIAction>();
                 var actions = unit.GetComponentsInChildren<MinimaxAIAction>();
@@ -356,6 +360,8 @@ namespace TbsFramework.Players
             
             foreach (var unit in state.Units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
                 float unitValue = unit.HitPoints * unitHealthWeight;
                 
                 // // Add value for merged units
@@ -432,6 +438,9 @@ namespace TbsFramework.Players
             // Calculate positional advantage
             foreach (var unit in state.Units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
+                    
                 if (unit is ESUnit esUnit && esUnit.isStructure)
                     continue;
                 

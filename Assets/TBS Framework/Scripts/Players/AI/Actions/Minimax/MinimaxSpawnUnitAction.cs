@@ -243,7 +243,9 @@ namespace TbsFramework.Players.AI.Actions
                 if (cell.CurrentUnits.Count > 0)
                 {
                     foreach (var unit in cell.CurrentUnits)
-                    {
+                    {   
+                        if (unit == null || !unit.isActiveAndEnabled)
+                            continue;
                         if (unit.GetComponent<ESUnit>() != null && 
                             unit.PlayerNumber == playerNumber && 
                             unit.GetComponent<ESUnit>().UnitName.Contains("Objective"))
