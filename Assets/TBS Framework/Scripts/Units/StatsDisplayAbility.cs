@@ -18,6 +18,7 @@ public class StatsDisplayAbility : Ability
     public GameObject UnitNameCard;
     public GameObject MergedIconList;
     private List<GameObject> StatDisplays = new List<GameObject>();
+    private bool destroy = true;
 
     public override void Display(CellGrid cellGrid)
     {
@@ -30,10 +31,15 @@ public class StatsDisplayAbility : Ability
         // var StatsText = Instantiate(UnmergeButton, UnmergeButton.transform.parent);
         destroy_cards();
         create_stat_panel();
+        destroy = false;
     }
 
     public void create_stat_panel()
     {
+        if (StatDisplays.Count != 0)
+        {
+            return;
+        }
         var unitCard = Instantiate(UnitNameCard, UnitNameCard.transform.parent);
         unitCard.transform.GetChild(0).GetComponent<Image>().sprite = UnitReference.GetComponent<SpriteRenderer>().sprite;
         unitCard.transform.GetChild(1).GetComponent<Text>().text = UnitReference.GetComponent<ESUnit>().UnitName;
@@ -79,16 +85,20 @@ public class StatsDisplayAbility : Ability
 
     public override void CleanUp(CellGrid cellGrid)
     {
+        destroy = true;
         destroy_cards();
     }
 
     public void destroy_cards()
     {
+        if (!destroy)
+        {
+            return;
+        }
         foreach (var card in StatDisplays)
         {
             Destroy(card);
         }
-        UnitReference.GetComponent<ESUnit>().turn_on_preview();
         StatDisplays.Clear();
         StatPanel.SetActive(false);
         MergedIconList.SetActive(false);
