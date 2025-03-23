@@ -47098,11 +47098,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1265699784}
-  - component: {fileID: 1265699786}
   - component: {fileID: 1265699785}
-  - component: {fileID: 1265699787}
+  - component: {fileID: 1265699786}
   m_Layer: 0
-  m_Name: Player_0_AI
+  m_Name: Player_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47131,32 +47130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265699783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b644dcfdb7605ed468f50a1d3ad9dbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1265699786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265699783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b421bed54913f48a006328cbac78d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 41187f0ac7b81114ca3f839ca4a8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 0
-  DebugMode: 0
-  maxDepth: 3
-  useAlphaBetaPruning: 1
-  unitHealthWeight: 2
-  unitCountWeight: 5
-  unitPositionWeight: 1
-  resourcesWeight: 0.5
-  structureControlWeight: 10
-  objectiveControlWeight: 20
---- !u!114 &1265699787
+--- !u!114 &1265699786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47169,7 +47147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
-  inGame: 0
+  inGame: 1
 --- !u!4 &1266202295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6283373201559164390, guid: 5e34c7947d877f14595c3ff75233dc71,
@@ -57704,9 +57682,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1568275373}
-  - component: {fileID: 1568275374}
   - component: {fileID: 1568275375}
   - component: {fileID: 1568275376}
+  - component: {fileID: 1568275374}
   m_Layer: 0
   m_Name: Player_1_AI
   m_TagString: Untagged
@@ -57737,7 +57715,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1568275372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b421bed54913f48a006328cbac78d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 89c4a85f8b37ad24c99babda2dc7c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
@@ -57750,6 +57728,27 @@ MonoBehaviour:
   resourcesWeight: 0.5
   structureControlWeight: 10
   objectiveControlWeight: 20
+  learningRate: 0.001
+  discountFactor: 0.99
+  explorationRate: 0.1
+  batchSize: 32
+  replayBufferCapacity: 10000
+  hiddenLayerSize: 256
+  isTraining: 1
+  loadModelOnStart: 0
+  modelFilename: rl_minimax_model.json
+  debugMode: 0
+  damageDealtRewardWeight: 0.5
+  unitKillRewardWeight: 3
+  outpostCaptureRewardWeight: 5
+  objectiveCaptureRewardWeight: 10
+  baseCaptureRewardWeight: 50
+  objectiveControlTurnRewardWeight: 2
+  baseUpgradeRewardWeight: 15
+  unitProductionRewardWeight: 2
+  winRewardWeight: 100
+  loseRewardWeight: -100
+  totalReward: 0
 --- !u!114 &1568275375
 MonoBehaviour:
   m_ObjectHideFlags: 0

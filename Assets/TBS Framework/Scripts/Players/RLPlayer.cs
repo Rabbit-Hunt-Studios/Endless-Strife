@@ -384,9 +384,6 @@ namespace TbsFramework.Players
                     state.Add(unit.DefenceFactor);
                     state.Add(unit.MovementPoints);
                     
-                    // // Merged units info
-                    // var mergedUnitsInfo = EncodeMergedUnits(unit);
-                    // state.AddRange(mergedUnitsInfo);
                 }
                 else
                 {
@@ -438,30 +435,6 @@ namespace TbsFramework.Players
             
             return state.ToArray();
         }
-        
-        // private float[] EncodeMergedUnits(Unit unit)
-        // {
-        //     float[] encoding = new float[5]; // One for merge count and up to 4 unit types
-            
-        //     // Get merged units
-        //     List<Unit> mergedUnits = GetMergedUnits(unit);
-        //     encoding[0] = mergedUnits.Count;
-            
-        //     // Encode up to 4 merged unit types
-        //     for (int i = 0; i < 4; i++)
-        //     {
-        //         if (i < mergedUnits.Count)
-        //         {
-        //             encoding[i + 1] = GetUnitType(mergedUnits[i]);
-        //         }
-        //         else
-        //         {
-        //             encoding[i + 1] = 0;
-        //         }
-        //     }
-            
-        //     return encoding;
-        // }
         
         private float CalculateActionReward(
             ESUnit unit, 
@@ -694,11 +667,10 @@ namespace TbsFramework.Players
             //   2 for position
             //   2 for structure info (type & owner)
             //   7 for basic unit info
-            //   5 for merged unit info (count + 4 types) not add for now
             // 7 for unit count and type distribution info
             
             int cellCount = cellGrid.Cells.Count;
-            return 5 + (cellCount * (2 + 2 + 7)) + 7; //+5 for merged units
+            return 5 + (cellCount * (2 + 2 + 7)) + 7;
         }
         
         private int CalculateActionSize(CellGrid cellGrid)
@@ -711,8 +683,6 @@ namespace TbsFramework.Players
             // 3: Capture structure
             // 4: Spawn unit
             // 5: Upgrade base
-            // 6: Merge units
-            // 7: Unmerge units
             return 6; // Adjust based on your actual action types
         }
         
@@ -805,18 +775,6 @@ namespace TbsFramework.Players
                 
             return 0;
         }
-        
-        // private List<Unit> GetMergedUnits(Unit unit)
-        // {
-        //     // Implement based on your merge system
-        //     var mergedUnitsComponent = unit.GetComponent<MergedUnits>();
-        //     if (mergedUnitsComponent != null)
-        //     {
-        //         return mergedUnitsComponent.GetMergedUnits();
-        //     }
-            
-        //     return new List<Unit>();
-        // }
         
         private bool IsControllingObjective(CellGrid cellGrid)
         {

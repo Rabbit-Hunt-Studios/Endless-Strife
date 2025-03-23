@@ -8,6 +8,7 @@ namespace TbsFramework.Players.AI.Evaluators
 {
     public class ObjectiveProximityCellEvaluator : CellEvaluator
     {
+        public string objectiveName = "Objective";
         public int maxTurnsToGetThere = 3;
         public override float Evaluate(Cell cellToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
@@ -23,7 +24,7 @@ namespace TbsFramework.Players.AI.Evaluators
                         ESUnit esUnit = unit.GetComponent<ESUnit>();
                         if (esUnit != null && 
                             esUnit.isStructure &&
-                            esUnit.UnitName.Contains("Objective") &&
+                            esUnit.UnitName.Contains(objectiveName) &&
                             unit.PlayerNumber != currentPlayer.PlayerNumber)
                         {
                             objectiveCell = cell;

@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 1247866296595177108}
   - component: {fileID: 1361950098630468100}
   - component: {fileID: 943864896715517782}
+  - component: {fileID: 6027319327850264418}
   - component: {fileID: 5369373810065878814}
   - component: {fileID: 8096839196242140123}
   m_Layer: 0
@@ -574,7 +575,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1.2
+  objectiveName: Objective
   maxTurnsToGetThere: 6
+--- !u!114 &6027319327850264418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684610516077995516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320247917d99a66488eeb871b789c54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 1.2
+  objectiveName: Base
+  maxTurnsToGetThere: 5
 --- !u!114 &5369373810065878814
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -86,8 +86,8 @@ namespace TbsFramework.Players.AI.Actions
                 e.Precalculate(unit, player, cellGrid);
                 stopWatch.Stop();
 
-                executionTime["precalculate"].Add(e.GetType().Name, stopWatch.ElapsedMilliseconds);
-                executionTime["evaluate"].Add(e.GetType().Name, 0);
+                executionTime["precalculate"][e.GetType().Name] = stopWatch.ElapsedMilliseconds;
+                executionTime["evaluate"][e.GetType().Name] = 0;
 
                 stopWatch.Reset();
             }
