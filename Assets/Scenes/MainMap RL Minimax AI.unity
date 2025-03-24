@@ -57735,8 +57735,8 @@ MonoBehaviour:
   replayBufferCapacity: 10000
   hiddenLayerSize: 256
   isTraining: 1
-  loadModelOnStart: 0
-  modelFilename: rl_minimax_model.json
+  loadModelOnStart: 1
+  modelFilename: rl_minimax_model_0.json
   debugMode: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
