@@ -440,7 +440,7 @@ namespace TbsFramework.Players
             {
                 if (unit == null || !unit.isActiveAndEnabled)
                     continue;
-                    
+
                 if (unit is ESUnit esUnit && esUnit.isStructure)
                     continue;
                 
@@ -463,11 +463,5 @@ namespace TbsFramework.Players
             
             return score;
         }
-    }
-    
-    public class MinimaxAIActionPlan
-    {
-        public Unit Unit;
-        public MinimaxAIAction Action;
     }
 }
