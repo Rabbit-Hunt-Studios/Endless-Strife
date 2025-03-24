@@ -100,10 +100,13 @@ namespace TbsFramework.Players.AI.Actions
         
         public override IEnumerator Execute(Player player, Unit unit, CellGrid cellGrid)
         {
-            unit.GetComponent<AttackAbility>().UnitToAttack = Target;
-            unit.GetComponent<AttackAbility>().UnitToAttackID = Target.UnitID;
-            yield return StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(cellGrid));
-            yield return new WaitForSeconds(0.5f);
+            if (Target != null)
+            {
+                unit.GetComponent<AttackAbility>().UnitToAttack = Target;
+                unit.GetComponent<AttackAbility>().UnitToAttackID = Target.UnitID;
+                yield return StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(cellGrid));
+                yield return new WaitForSeconds(0.5f);
+            }
         }
         
         public override void CleanUp(Player player, Unit unit, CellGrid cellGrid)

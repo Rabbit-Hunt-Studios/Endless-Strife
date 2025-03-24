@@ -123,6 +123,8 @@ namespace TbsFramework.Players
             // Track initial state
             foreach (var unit in cellGrid.Units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
                 ESUnit esUnit = unit as ESUnit;
                 
                 // Initialize tracking for base units
@@ -181,9 +183,6 @@ namespace TbsFramework.Players
                     {
                         Debug.Log($"Executing planned action: {action.GetType().Name} for unit: {unit.name}");
                     }
-                    
-                    // Execute the selected action
-                    action.InitializeAction(this, unit, cellGrid);
                     
                     // Record unit state before action
                     Dictionary<Unit, float> preActionUnitHP = new Dictionary<Unit, float>();
@@ -578,6 +577,8 @@ namespace TbsFramework.Players
             {
                 foreach (var unit in cell.CurrentUnits)
                 {
+                    if (unit == null || !unit.isActiveAndEnabled)
+                        continue;
                     ESUnit esUnit = unit as ESUnit;
                     if (esUnit != null && esUnit.UnitName.Contains("Objective"))
                     {
@@ -964,6 +965,8 @@ namespace TbsFramework.Players
             
             foreach (var unit in cellGrid.Units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
                 var esUnit = unit.GetComponent<ESUnit>();
                 if (esUnit != null && !esUnit.isStructure)
                 {
@@ -1234,6 +1237,8 @@ namespace TbsFramework.Players
             var units = cell.CurrentUnits;
             foreach (var unit in units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
                 var esUnit = unit.GetComponent<ESUnit>();
                 if (esUnit != null && esUnit.isActiveAndEnabled && esUnit.isStructure)
                 {
@@ -1255,6 +1260,8 @@ namespace TbsFramework.Players
             var units = cell.CurrentUnits;
             foreach (var unit in units)
             {
+                if (unit == null || !unit.isActiveAndEnabled)
+                    continue;
                 if (unit is ESUnit esUnit && esUnit.isStructure)
                 {
                     return unit.PlayerNumber;
@@ -1299,6 +1306,8 @@ namespace TbsFramework.Players
                 {
                     foreach (var unit in cell.CurrentUnits)
                     {
+                        if (unit == null || !unit.isActiveAndEnabled)
+                            continue;
                         ESUnit esUnit = unit.GetComponent<ESUnit>();
                         if (esUnit != null && esUnit.UnitName.Contains("Objective") && esUnit.PlayerNumber == PlayerNumber)
                         {
@@ -1330,6 +1339,8 @@ namespace TbsFramework.Players
                 {
                     foreach (var unit in cell.CurrentUnits)
                     {
+                        if (unit == null || !unit.isActiveAndEnabled)
+                            continue;
                         ESUnit esUnit = unit.GetComponent<ESUnit>();
                         if (esUnit != null && 
                             esUnit.UnitName.Contains("Base") && 

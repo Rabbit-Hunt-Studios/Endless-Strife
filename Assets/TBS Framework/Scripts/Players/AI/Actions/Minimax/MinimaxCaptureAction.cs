@@ -18,7 +18,8 @@ public class  MinimaxCaptureAction : MinimaxAIAction
             return false;
         }
 
-        var capturable = unit.Cell.CurrentUnits.Select(u => u.GetComponent<CapturableAbility>())
+        var capturable = unit.Cell.CurrentUnits.Where(u => u != null && u.gameObject != null)
+                                                                .Select(u => u.GetComponent<CapturableAbility>())
                                                                 .OfType<CapturableAbility>()
                                                                 .ToList();
 

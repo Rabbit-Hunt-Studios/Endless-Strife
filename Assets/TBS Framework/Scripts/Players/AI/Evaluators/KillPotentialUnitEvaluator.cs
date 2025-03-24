@@ -10,7 +10,7 @@ namespace TbsFramework.Players.AI.Evaluators
     {
         public override float Evaluate(Unit unitToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
-            if (unitToEvaluate.PlayerNumber == currentPlayer.PlayerNumber || unitToEvaluate.PlayerNumber == -1)
+            if (unitToEvaluate.PlayerNumber == currentPlayer.PlayerNumber || unitToEvaluate.PlayerNumber == -1 || unitToEvaluate.TotalHitPoints <= 0)
                 return 0; // Not an enemy
                 
             // Basic factors for damage calculation
