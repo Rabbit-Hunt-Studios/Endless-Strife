@@ -17,7 +17,6 @@ public class ESUnit : Unit
     public string UnitUnlock;
     public Vector3 Offset;
     public bool isStructure;
-    private bool preview = true;
 
     public override void Initialize()
     {
@@ -71,47 +70,40 @@ public class ESUnit : Unit
         }
     }
 
-    public void turn_on_preview()
-    {
-        preview = true;
-    }
-
     public override void OnMouseDown()
     {
-        if (!this.isStructure && preview)
+        if (!this.isStructure)
         {
             this.GetComponent<StatsDisplayAbility>().destroy_cards();
         }
-        
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             base.OnMouseDown();
         }
-        preview = false;
     }
 
     public override void OnMouseEnter()
     {
+        if (!this.isStructure)
+        {
+            this.GetComponent<StatsDisplayAbility>().create_stat_panel();
+        }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             base.OnMouseEnter();
-        }
-        if (!this.isStructure && preview)
-        {
-            this.GetComponent<StatsDisplayAbility>().create_stat_panel();
         }
         Cell.MarkAsHighlighted();
     }
 
     public override void OnMouseExit()
     {
+        if (!this.isStructure)
+        {
+            this.GetComponent<StatsDisplayAbility>().destroy_cards();
+        }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             base.OnMouseExit();
-        }
-        if (!this.isStructure && preview)
-        {
-            this.GetComponent<StatsDisplayAbility>().destroy_cards();
         }
         Cell.UnMark();
     }
