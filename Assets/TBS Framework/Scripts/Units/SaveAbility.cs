@@ -64,7 +64,7 @@ public class SaveAbility : MonoBehaviour
             {
                 playerData.mergeCombinations[entry.Key] = 1;
             }
-            Debug.Log($"merge count: {playerData.mergeCombinations[entry.Key]}");
+            // Debug.Log($"merge count: {playerData.mergeCombinations[entry.Key]}");
         }
     }
 
