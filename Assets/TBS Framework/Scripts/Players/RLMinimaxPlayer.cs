@@ -964,7 +964,6 @@ namespace TbsFramework.Players
             
             // Game turn information
             state.Add(cellGrid.CurrentPlayerNumber);
-            currentTurn++;
             state.Add(currentTurn);
             
             // Add objective control information
