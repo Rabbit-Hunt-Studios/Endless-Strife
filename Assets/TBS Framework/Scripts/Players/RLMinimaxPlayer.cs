@@ -1316,7 +1316,10 @@ namespace TbsFramework.Players
             stateEvaluationCache.Clear();
             currentEpisodeReward = 0f;
             structuresCapturedThisGame = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+            if (isTraining)
+            {    
+                SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+            }
         }
         
         private void ExportWeightHistogram(int gameNumber)
