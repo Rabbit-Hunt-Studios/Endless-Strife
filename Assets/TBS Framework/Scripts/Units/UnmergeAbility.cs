@@ -20,11 +20,14 @@ namespace TbsFramework.Units
         public GameObject UnmergePanel;
         public Sprite EmptyDefault;
         private List<GameObject> UnmergeButtons = new List<GameObject>();
+        private AudioController audioController;
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (UnitReference.ActionPoints > 0 && unmergeSquare != null && unitToUnmerge != null)
             {
+                audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+                audioController.PlaySFX(audioController.ButtonClick);
                 UnitReference.GetComponent<ESUnit>().TotalHitPoints -= (int)unitToUnmerge.GetComponent<MergeStats>().HitPoints;
                 unitToUnmerge.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * (1 - unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty)));
                 UnitReference.GetComponent<ESUnit>().HitPoints = (int)System.Math.Round((float)(UnitReference.GetComponent<ESUnit>().HitPoints * unitToUnmerge.GetComponent<MergeStats>().UnmergePenalty));

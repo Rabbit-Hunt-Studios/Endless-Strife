@@ -14,9 +14,12 @@ public class MergeButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public GameObject StatCard;
     private List<GameObject> StatDisplays = new List<GameObject>();
     public Unit unitToMerge;
+    private AudioController audioController;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+        audioController.PlaySFX(audioController.ButtonHover);
         ShowMergePreview();
     }
 

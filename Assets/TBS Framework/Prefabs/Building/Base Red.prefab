@@ -2821,6 +2821,7 @@ MonoBehaviour:
   UnitUnlock: 
   Offset: {x: 0, y: 0, z: -0.001}
   isStructure: 1
+  SelectedAttackSound: 4
 --- !u!114 &5547432211749023506
 MonoBehaviour:
   m_ObjectHideFlags: 0

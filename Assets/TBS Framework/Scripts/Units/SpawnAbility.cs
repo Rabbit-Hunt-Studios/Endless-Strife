@@ -41,11 +41,14 @@ namespace TbsFramework.Units
         private Unit SpawnedUnit;
         private List<GameObject> UnitButtons = new List<GameObject>();
         private List<GameObject> StatDisplays = new List<GameObject>();
+        private AudioController audioController;
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (!UnitReference.Cell.IsTaken && FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) >= SelectedPrefab.GetComponent<Price>().Value)
             {
+                audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+                audioController.PlaySFX(audioController.ButtonClick);
                 FindObjectOfType<EconomyController>().UpdateValue(GetComponent<Unit>().PlayerNumber, SelectedPrefab.GetComponent<Price>().Value * (-1));
                 MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
 

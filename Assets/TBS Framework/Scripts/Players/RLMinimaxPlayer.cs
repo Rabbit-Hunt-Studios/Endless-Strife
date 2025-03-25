@@ -383,7 +383,6 @@ namespace TbsFramework.Players
                     Debug.Log($"  - {action.Action.GetType().Name} for {action.Unit.name}");
                 }
             }
-            
             return bestPlan;
         }
         
@@ -1223,8 +1222,7 @@ namespace TbsFramework.Players
             // 3: Capture structure
             // 4: Spawn unit
             // 5: Upgrade base
-            // 6: Merge units
-            return 7; // Adjust based on your actual action types
+            return 6; // Adjust based on your actual action types
         }
         
         private int GetStructureType(Cell cell)

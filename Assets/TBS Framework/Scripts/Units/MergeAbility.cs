@@ -33,11 +33,14 @@ namespace TbsFramework.Units
             {"SwordMan", 6},
             {"Wizard", 7}
         };
+        private AudioController audioController;
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (UnitReference.ActionPoints > 0 && availableMerges.Contains(unitToMerge))
             {
+                audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+                audioController.PlaySFX(audioController.ButtonClick);
                 UnitReference.GetComponent<ESUnit>().HitPoints = (int)UnitReference.GetComponent<ESUnit>().HitPoints + unitToMerge.GetComponent<MergeStats>().HitPoints;
                 UnitReference.GetComponent<ESUnit>().AttackFactor = (int)UnitReference.GetComponent<ESUnit>().AttackFactor + unitToMerge.GetComponent<MergeStats>().Attack;
                 UnitReference.GetComponent<ESUnit>().DefenceFactor = (int)UnitReference.GetComponent<ESUnit>().DefenceFactor + unitToMerge.GetComponent<MergeStats>().Defence;
