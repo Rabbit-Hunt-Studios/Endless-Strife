@@ -933,6 +933,7 @@ namespace TbsFramework.Players
                 
                 // Unit information
                 ESUnit unit = cell.CurrentUnits
+                    .Where(u => u.isActiveAndEnabled && u != null)
                     .Select(u => u.GetComponent<ESUnit>())
                     .OfType<ESUnit>()
                     .FirstOrDefault();
