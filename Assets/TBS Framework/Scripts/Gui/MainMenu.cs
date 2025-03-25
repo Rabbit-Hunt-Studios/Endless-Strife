@@ -7,13 +7,13 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        // SceneManager.LoadScene("MainMap" + Random.Range(0,3).ToString());
-        SceneManager.LoadScene("MainMapTest");
+        SceneManager.LoadScene("MainMap" + Random.Range(0,3).ToString());
     }
 
     public void PlayGameAI()
     {
-        Debug.Log("load scene with AI player");
+        // Debug.Log("load scene with AI player");
+        SceneManager.LoadScene("SelectDifficulty");
     }
 
     public void QuitGame()
