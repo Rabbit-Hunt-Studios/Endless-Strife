@@ -47346,8 +47346,11 @@ MonoBehaviour:
   hiddenLayerSize: 256
   isTraining: 1
   loadModelOnStart: 1
-  modelFilename: rl_minimax_model_0.json
+  modelFilename: rl_minimax_model.json
   debugMode: 0
+  collectTrainingData: 1
+  saveMetricsInterval: 10
+  exportWeightHistograms: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
   outpostCaptureRewardWeight: 5
@@ -57969,9 +57972,12 @@ MonoBehaviour:
   replayBufferCapacity: 10000
   hiddenLayerSize: 256
   isTraining: 1
-  loadModelOnStart: 0
-  modelFilename: rl_minimax_model_1.json
+  loadModelOnStart: 1
+  modelFilename: rl_minimax_model.json
   debugMode: 0
+  collectTrainingData: 1
+  saveMetricsInterval: 10
+  exportWeightHistograms: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
   outpostCaptureRewardWeight: 5

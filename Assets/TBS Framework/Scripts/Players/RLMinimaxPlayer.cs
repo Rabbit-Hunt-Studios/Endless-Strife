@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
@@ -9,6 +10,7 @@ using TbsFramework.Players.AI;
 using TbsFramework.Players.AI.Actions;
 using TbsFramework.Units;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TbsFramework.Players
 {
@@ -43,6 +45,12 @@ namespace TbsFramework.Players
         public string modelFilename = "rl_minimax_model.json";
         public bool debugMode = false;
         
+        // Visualization and data collection
+        [Header("Data Collection")]
+        public bool collectTrainingData = true;
+        public int saveMetricsInterval = 10; // Save metrics every X games
+        public bool exportWeightHistograms = true;
+        
         // Reward weights
         [Header("Reward Weights")]
         public float damageDealtRewardWeight = 0.5f;
@@ -60,6 +68,7 @@ namespace TbsFramework.Players
         private NeuralNetwork policyNetwork;
         private ReplayBuffer replayBuffer;
         private float[] RLcurrentState;
+        private TrainingMetrics metrics;
         
         // Minimax system
         private Dictionary<string, float> stateEvaluationCache = new Dictionary<string, float>();
@@ -70,9 +79,11 @@ namespace TbsFramework.Players
         private HashSet<ESUnit> capturedStructures;
         private int objectiveControlTurns = 0;
         public float totalReward = 0f;
+        private float currentEpisodeReward = 0f;
         private Dictionary<ESUnit, int> baseUpgradeLevels = new Dictionary<ESUnit, int>();
         private Dictionary<ESUnit, List<ESUnit>> spawnedUnits = new Dictionary<ESUnit, List<ESUnit>>();
         private int currentTurn = 0;
+        private int structuresCapturedThisGame = 0;
         
         // References
         private EconomyController economyController;
@@ -91,10 +102,17 @@ namespace TbsFramework.Players
             spawnedUnits = new Dictionary<ESUnit, List<ESUnit>>();
             
             economyController = UnityEngine.Object.FindObjectOfType<EconomyController>();
+            
+            // Initialize training metrics
+            metrics = new TrainingMetrics();
         }
         
         private void OnLevelLoadingDone(object sender, EventArgs e)
         {
+            currentTurn = 0;
+            currentEpisodeReward = 0f;
+            structuresCapturedThisGame = 0;
+            
             var cellGrid = sender as CellGrid;
             enemyPlayerNumber = cellGrid.Players.First(p => p.PlayerNumber != PlayerNumber).PlayerNumber;
             
@@ -133,6 +151,9 @@ namespace TbsFramework.Players
                     baseUpgradeLevels[esUnit] = 0;
                     spawnedUnits[esUnit] = new List<ESUnit>();
                 }
+                
+                // Track initial health
+                unitHP[unit] = unit.HitPoints;
             }
             
             if (debugMode)
@@ -145,10 +166,38 @@ namespace TbsFramework.Players
         {
             // Update objective control tracking
             var cellGrid = sender as CellGrid;
+            
             if (IsControllingObjective(cellGrid))
             {
                 objectiveControlTurns++;
             }
+            
+            currentTurn++;
+            
+            if (collectTrainingData)
+            {
+                // Record strategic metrics at the end of each turn
+                int unitDiff = CountPlayerUnits(cellGrid, PlayerNumber) - CountPlayerUnits(cellGrid, enemyPlayerNumber);
+                float resourceDiff = 0;
+                if (economyController != null)
+                {
+                    resourceDiff = economyController.GetValue(PlayerNumber) - economyController.GetValue(enemyPlayerNumber);
+                }
+                
+                metrics.RecordStrategicMetrics(
+                    objectiveControlTurns,
+                    unitDiff,
+                    resourceDiff,
+                    structuresCapturedThisGame
+                );
+            }
+        }
+        
+        private int CountPlayerUnits(CellGrid cellGrid, int playerNumber)
+        {
+            return cellGrid.Units.Count(u => u.PlayerNumber == playerNumber && 
+                                      u.isActiveAndEnabled && 
+                                      !(u is ESUnit esUnit && esUnit.isStructure));
         }
         
         public override void Play(CellGrid cellGrid)
@@ -166,7 +215,7 @@ namespace TbsFramework.Players
         
         private IEnumerator PlayRLMinimaxCoroutine(CellGrid cellGrid)
         {
-            float episodeReward = 0f;
+            float turnReward = 0f;
             
             if (currentTurnPlan != null && currentTurnPlan.Count > 0)
             {
@@ -174,6 +223,10 @@ namespace TbsFramework.Players
                 {
                     Unit unit = actionPlan.Unit;
                     MinimaxAIAction action = actionPlan.Action;
+                    
+                    if (unit == null || !unit.isActiveAndEnabled)
+                        continue;
+                        
                     ESUnit esUnit = unit as ESUnit;
                     
                     unit.MarkAsSelected();
@@ -188,7 +241,8 @@ namespace TbsFramework.Players
                     Dictionary<Unit, float> preActionUnitHP = new Dictionary<Unit, float>();
                     foreach (var u in cellGrid.Units)
                     {
-                        preActionUnitHP[u] = u.HitPoints;
+                        if (u != null && u.isActiveAndEnabled)
+                            preActionUnitHP[u] = u.HitPoints;
                     }
                     
                     // Record structure state before action
@@ -217,8 +271,15 @@ namespace TbsFramework.Players
                         unitDestinationCell
                     );
                     
-                    episodeReward += actionReward;
+                    turnReward += actionReward;
                     totalReward += actionReward;
+                    currentEpisodeReward += actionReward;
+                    
+                    // Update metrics for this action
+                    if (collectTrainingData)
+                    {
+                        metrics.RecordAction(action.GetActionIndex(), actionReward);
+                    }
                     
                     // Record for RL system
                     if (isTraining)
@@ -258,7 +319,17 @@ namespace TbsFramework.Players
             
             if (debugMode)
             {
-                Debug.Log($"Player {PlayerNumber} - Turn complete, Episode reward: {episodeReward:F2}, Total reward: {totalReward:F2}");
+                Debug.Log($"Player {PlayerNumber} - Turn complete, Turn reward: {turnReward:F2}, Episode reward: {currentEpisodeReward:F2}, Total reward: {totalReward:F2}");
+            }
+            
+            // Update training metrics
+            if (collectTrainingData)
+            {
+                metrics.RecordEpisodeMetrics(
+                    turnReward,  // Reward for this turn/episode
+                    totalReward, // Cumulative reward
+                    explorationRate // Current exploration rate
+                );
             }
             
             cellGrid.EndTurn();
@@ -324,6 +395,13 @@ namespace TbsFramework.Players
             {
                 RLcurrentState = GetStateRepresentation(cellGrid);
                 float[] actionValues = policyNetwork.Predict(RLcurrentState);
+                
+                if (collectTrainingData)
+                {
+                    // Record the Q-values for visualization
+                    metrics.averageQValues.Add(actionValues.Average());
+                    metrics.actionCounts.Add(actionValues.Length);
+                }
                 
                 // Define a scoring function for plans based on RL policy
                 float GetPlanScore(List<MinimaxAIActionPlan> plan)
@@ -932,7 +1010,7 @@ namespace TbsFramework.Players
                 
                 // Unit information
                 ESUnit unit = cell.CurrentUnits
-                    .Where(u => u.isActiveAndEnabled && u != null)
+                    .Where(u => u != null && u.gameObject != null && u.isActiveAndEnabled)
                     .Select(u => u.GetComponent<ESUnit>())
                     .OfType<ESUnit>()
                     .FirstOrDefault();
@@ -1038,9 +1116,10 @@ namespace TbsFramework.Players
             if (action is MinimaxMoveToPositionAIAction moveAction && unitDestinationCell != null)
             {
                 // Check if the unit captured a structure
-                if (unitDestinationCell.CurrentUnits.Select(u => u.GetComponent<ESUnit>()).Any(u => u != null && u.isStructure && u.PlayerNumber != unit.PlayerNumber))
+                if (unitDestinationCell.CurrentUnits.Where(u => u != null && u.gameObject != null).Select(u => u.GetComponent<ESUnit>()).Any(u => u != null && u.isStructure && u.PlayerNumber != unit.PlayerNumber))
                 {
                     var structureUnit = unitDestinationCell.CurrentUnits
+                        .Where(u => u != null && u.gameObject != null)
                         .Select(u => u.GetComponent<ESUnit>())
                         .FirstOrDefault(u => u != null && u.isStructure);
                         
@@ -1051,6 +1130,7 @@ namespace TbsFramework.Players
                     {
                         // Add to captured structures
                         capturedStructures.Add(structureUnit);
+                        structuresCapturedThisGame++;
                         
                         // Assign reward based on structure type
                         if (structureUnit.UnitName.Contains("Outpost"))
@@ -1129,6 +1209,9 @@ namespace TbsFramework.Players
             // Get batch of experiences
             var batch = replayBuffer.SampleBatch(batchSize);
             
+            float totalLoss = 0f;
+            float totalTDError = 0f;
+            
             // Q-learning update
             foreach (var experience in batch)
             {
@@ -1153,11 +1236,27 @@ namespace TbsFramework.Players
                     targetQ = reward + discountFactor * nextQ.Max();
                 }
                 
+                // Calculate TD error
+                float tdError = Mathf.Abs(targetQ - currentQ[action]);
+                
                 // Update Q-value for taken action
                 currentQ[action] = targetQ;
                 
                 // Train network
-                policyNetwork.Train(state, currentQ, learningRate);
+                var result = policyNetwork.Train(state, currentQ, learningRate);
+                totalLoss += result.Loss;
+                totalTDError += result.TDError;
+                
+                if (collectTrainingData)
+                {
+                    metrics.RecordTrainingStep(result.Loss, result.TDError, result.QValues);
+                }
+            }
+            
+            // Update metrics
+            if (debugMode)
+            {
+                Debug.Log($"Training batch - Avg Loss: {totalLoss/batch.Count:F4}, Avg TD Error: {totalTDError/batch.Count:F4}");
             }
             
             // Decrease exploration rate over time
@@ -1170,14 +1269,38 @@ namespace TbsFramework.Players
             
             // Calculate final game reward
             var cellGrid = sender as CellGrid;
-            float finalReward = IsWinner(this, cellGrid) ? winRewardWeight : loseRewardWeight;
+            bool isWinner = IsWinner(this, cellGrid);
+            float finalReward = isWinner ? winRewardWeight : loseRewardWeight;
             totalReward += finalReward;
+            currentEpisodeReward += finalReward;
             
             if (debugMode)
             {
                 Debug.Log($"Game ended: Player {PlayerNumber} " + 
-                          $"{(IsWinner(this, cellGrid) ? "won" : "lost")}, " +
+                          $"{(isWinner ? "won" : "lost")}, " +
                           $"Final reward: {finalReward}, Total reward: {totalReward:F2}");
+            }
+            
+            // Update metrics
+            if (collectTrainingData)
+            {
+                // Record game outcome
+                metrics.RecordGameResult(isWinner, currentTurn);
+                
+                // Save metrics periodically
+                if (metrics.gamesPlayed % saveMetricsInterval == 0)
+                {
+                    metrics.SaveMetricsToCSV(PlayerNumber.ToString());
+                    
+                    // Export experience samples
+                    replayBuffer.ExportSampleToCSV($"experiences_game{metrics.gamesPlayed}.csv");
+                    
+                    // Export weight histograms if enabled
+                    if (exportWeightHistograms && policyNetwork != null)
+                    {
+                        ExportWeightHistogram(metrics.gamesPlayed);
+                    }
+                }
             }
             
             // Save the trained model if in training mode
@@ -1190,8 +1313,55 @@ namespace TbsFramework.Players
                 }
             }
             
-            // Clear caches
+            // Clear caches and reset for next game
             stateEvaluationCache.Clear();
+            currentEpisodeReward = 0f;
+            structuresCapturedThisGame = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+        }
+        
+        private void ExportWeightHistogram(int gameNumber)
+        {
+            // Get weight statistics
+            WeightStats stats = policyNetwork.GetWeightStats();
+            
+            // Create a histogram of weights
+            int bucketCount = 20;
+            float bucketWidth = (stats.maxWeight - stats.minWeight) / bucketCount;
+            int[] histogram = new int[bucketCount];
+            
+            // Export the histogram data
+            string basePath = Path.Combine(Application.persistentDataPath, "RL_Training_Data", metrics.sessionId);
+            string filePath = Path.Combine(basePath, $"weights_game{gameNumber}.csv");
+            Directory.CreateDirectory(basePath);
+            
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Statistic,Value");
+                writer.WriteLine($"MinWeight,{stats.minWeight}");
+                writer.WriteLine($"MaxWeight,{stats.maxWeight}");
+                writer.WriteLine($"MeanWeight,{stats.meanWeight}");
+                writer.WriteLine($"StdDevWeight,{stats.stdDevWeight}");
+                writer.WriteLine($"WeightCount,{stats.count}");
+                
+                // Export learning metrics
+                writer.WriteLine();
+                writer.WriteLine("LearningMetric,Value");
+                writer.WriteLine($"ExplorationRate,{explorationRate}");
+                writer.WriteLine($"AverageLoss,{policyNetwork.AverageLoss}");
+                writer.WriteLine($"RecentAverageLoss,{policyNetwork.RecentAverageLoss}");
+                
+                // Add weight histogram
+                writer.WriteLine();
+                writer.WriteLine("BucketMin,BucketMax,Count");
+                
+                for (int i = 0; i < bucketCount; i++)
+                {
+                    float min = stats.minWeight + i * bucketWidth;
+                    float max = min + bucketWidth;
+                    writer.WriteLine($"{min},{max},{histogram[i]}");
+                }
+            }
         }
         
         #region Helper Methods

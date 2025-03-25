@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class NeuralNetwork
@@ -14,6 +15,18 @@ public class NeuralNetwork
     private float[] bias1;
     private float[] bias2;
     
+    // Metrics tracking
+    private float totalLoss = 0f;
+    private int trainingSteps = 0;
+    private List<float> recentLosses = new List<float>(100); // Track last 100 losses
+    
+    // Public property for input size
+    public int InputSize => inputSize;
+    
+    // Public access to training metrics
+    public float AverageLoss => trainingSteps > 0 ? totalLoss / trainingSteps : 0f;
+    public float RecentAverageLoss => recentLosses.Count > 0 ? recentLosses.Average() : 0f;
+    
     [Serializable]
     private class ModelData
     {
@@ -24,6 +37,7 @@ public class NeuralNetwork
         public float[][] weights2Flat;
         public float[] bias1;
         public float[] bias2;
+        public int trainingSteps;
     }
     
     public NeuralNetwork(int inputSize, int outputSize, int hiddenSize = 128)
@@ -105,7 +119,7 @@ public class NeuralNetwork
         return output;
     }
     
-    public void Train(float[] input, float[] target, float learningRate)
+    public TrainingResult Train(float[] input, float[] target, float learningRate)
     {
         // Forward pass
         float[] hidden = new float[hiddenSize];
@@ -134,13 +148,21 @@ public class NeuralNetwork
             }
         }
         
+        // Calculate loss
+        float loss = 0;
+        float maxTDError = 0;
+        
         // Backward pass
         // Calculate output layer errors
         float[] outputErrors = new float[outputSize];
         for (int i = 0; i < outputSize; i++)
         {
             outputErrors[i] = target[i] - output[i];
+            float error = Math.Abs(outputErrors[i]);
+            loss += error * error; // MSE loss
+            maxTDError = Mathf.Max(maxTDError, error);
         }
+        loss /= outputSize; // Average loss
         
         // Calculate hidden layer errors
         float[] hiddenErrors = new float[hiddenSize];
@@ -176,11 +198,27 @@ public class NeuralNetwork
                 weights1[i, j] += learningRate * hiddenErrors[i] * input[j];
             }
         }
+        
+        // Update metrics
+        trainingSteps++;
+        totalLoss += loss;
+        
+        // Track recent losses
+        if (recentLosses.Count >= 100)
+            recentLosses.RemoveAt(0);
+        recentLosses.Add(loss);
+        
+        return new TrainingResult
+        {
+            Loss = loss,
+            TDError = maxTDError,
+            QValues = output
+        };
     }
     
     public void SaveModel(string filename)
     {
-        string path = Path.Combine("./", filename);
+        string path = Path.Combine("./RL/Model", filename);
         
         ModelData data = new ModelData
         {
@@ -190,7 +228,8 @@ public class NeuralNetwork
             bias1 = this.bias1,
             bias2 = this.bias2,
             weights1Flat = new float[hiddenSize][],
-            weights2Flat = new float[outputSize][]
+            weights2Flat = new float[outputSize][],
+            trainingSteps = this.trainingSteps
         };
         
         // Flatten 2D arrays for serialization
@@ -215,12 +254,16 @@ public class NeuralNetwork
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(path, json);
         
+        // Also save a versioned backup
+        string backupPath = Path.Combine("./RL/Model", $"{Path.GetFileNameWithoutExtension(filename)}_v{trainingSteps}.json");
+        File.WriteAllText(backupPath, json);
+        
         Debug.Log("Model saved to " + path);
     }
     
     public void LoadModel(string filename)
     {
-        string path = Path.Combine("./", filename);
+        string path = Path.Combine("./RL/Model", filename);
         
         if (File.Exists(path))
         {
@@ -232,6 +275,7 @@ public class NeuralNetwork
             this.hiddenSize = data.hiddenSize;
             this.bias1 = data.bias1;
             this.bias2 = data.bias2;
+            this.trainingSteps = data.trainingSteps;
             
             this.weights1 = new float[hiddenSize, inputSize];
             this.weights2 = new float[outputSize, hiddenSize];
@@ -253,11 +297,70 @@ public class NeuralNetwork
                 }
             }
             
-            Debug.Log("Model loaded from " + path);
+            Debug.Log($"Model loaded from {path}, with {trainingSteps} prior training steps");
         }
         else
         {
             throw new System.Exception($"Model file not found at {path}");
         }
     }
+    
+    // Get weight statistics for visualization
+    public WeightStats GetWeightStats()
+    {
+        WeightStats stats = new WeightStats();
+        
+        // Process first layer weights
+        for (int i = 0; i < hiddenSize; i++)
+        {
+            for (int j = 0; j < inputSize; j++)
+            {
+                float w = weights1[i, j];
+                stats.minWeight = Mathf.Min(stats.minWeight, w);
+                stats.maxWeight = Mathf.Max(stats.maxWeight, w);
+                stats.sumWeight += w;
+                stats.sumSquaredWeight += w * w;
+                stats.count++;
+            }
+        }
+        
+        // Process second layer weights
+        for (int i = 0; i < outputSize; i++)
+        {
+            for (int j = 0; j < hiddenSize; j++)
+            {
+                float w = weights2[i, j];
+                stats.minWeight = Mathf.Min(stats.minWeight, w);
+                stats.maxWeight = Mathf.Max(stats.maxWeight, w);
+                stats.sumWeight += w;
+                stats.sumSquaredWeight += w * w;
+                stats.count++;
+            }
+        }
+        
+        // Calculate mean and standard deviation
+        stats.meanWeight = stats.count > 0 ? stats.sumWeight / stats.count : 0;
+        float variance = stats.count > 0 ? (stats.sumSquaredWeight / stats.count) - (stats.meanWeight * stats.meanWeight) : 0;
+        stats.stdDevWeight = Mathf.Sqrt(variance);
+        
+        return stats;
+    }
+}
+
+public class TrainingResult
+{
+    public float Loss;
+    public float TDError;
+    public float[] QValues;
+}
+
+public class WeightStats
+{
+    public float minWeight = float.MaxValue;
+    public float maxWeight = float.MinValue;
+    public float sumWeight = 0;
+    public float sumSquaredWeight = 0;
+    public int count = 0;
+    public float meanWeight = 0;
+    public float stdDevWeight = 0;
 }
