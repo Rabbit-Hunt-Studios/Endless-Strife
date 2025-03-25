@@ -26,6 +26,7 @@ public class UpgradeAbility : Ability
     private Unit newUnit;
     private bool isUpgrading = false;
     private List<GameObject> StatDisplays = new List<GameObject>();
+    private AudioController audioController;
 
     public override void Display(CellGrid cellGrid)
     {
@@ -45,6 +46,8 @@ public class UpgradeAbility : Ability
     {
         if (prefabToChange != null && !isUpgrading && FindObjectOfType<EconomyController>().GetValue(cellGrid.CurrentPlayerNumber) >= upgradeCost)
         {
+            audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+            audioController.PlaySFX(audioController.ButtonClick);
             isUpgrading = true;
             var economyController = FindObjectOfType<EconomyController>();
             economyController.UpdateValue(cellGrid.CurrentPlayerNumber, -upgradeCost);

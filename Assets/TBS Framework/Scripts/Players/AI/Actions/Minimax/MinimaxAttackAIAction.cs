@@ -193,8 +193,10 @@ namespace TbsFramework.Players.AI.Actions
             }
             
             if (stateUnit == null || stateTarget == null)
+            {
                 return;
-            
+            }
+
             // Simulate the attack - a simplified damage calculation
             if (unit.GetComponent<AttackAbility>() != null)
             {
