@@ -22,7 +22,7 @@ namespace TbsFramework.Units
                     .FirstOrDefault()
                     ?.GetComponent<Unit>();
 
-                if (capturingStructure != null)
+                if (capturingStructure != null && capturingStructure.gameObject != null)
                 {
                     capturingStructure.GetComponent<CapturableAbility>().Capture(GetComponent<Unit>().PlayerNumber);
                 }
@@ -32,6 +32,7 @@ namespace TbsFramework.Units
         public override bool CanPerform(CellGrid cellGrid)
         {
             var capturable = GetComponent<Unit>().Cell.CurrentUnits
+                .Where(u => u != null && u.gameObject != null)
                 .Select(u => u.GetComponent<CapturableAbility>())
                 .OfType<CapturableAbility>()
                 .ToList();

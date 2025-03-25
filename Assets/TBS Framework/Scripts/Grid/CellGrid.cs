@@ -93,6 +93,8 @@ namespace TbsFramework.Grid
         public List<Player> Players { get; private set; }
         public List<Cell> Cells { get; private set; }
         public List<Unit> Units { get; private set; }
+
+        public int [,] Turns { get; private set; }
         private Func<List<Unit>> PlayableUnits = () => new List<Unit>();
 
         private void Start()
@@ -166,6 +168,8 @@ namespace TbsFramework.Grid
             {
                 Debug.LogError("No IUnitGenerator script attached to cell grid");
             }
+
+            Turns = new int[Players.Count, 2];
 
             if (LevelLoadingDone != null)
                 LevelLoadingDone.Invoke(this, EventArgs.Empty);
@@ -282,6 +286,7 @@ namespace TbsFramework.Grid
         /// </summary>
         private void EndTurnExecute(bool isNetworkInvoked=false)
         {
+            Turns[CurrentPlayerNumber, 0] += 1;
             cellGridState = new CellGridStateBlockInput(this);
             bool isGameFinished = CheckGameFinished();
             if (isGameFinished)
