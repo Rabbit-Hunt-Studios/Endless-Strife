@@ -3,6 +3,7 @@ using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Units;
+using UnityEngine;
 
 namespace TbsFramework.Players.AI.Evaluators
 {
@@ -12,6 +13,8 @@ namespace TbsFramework.Players.AI.Evaluators
 
         public override void Precalculate(Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
+            AudioController audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+            audioController.SFXSource.mute = true; 
             totalDamagePerCell = new Dictionary<Cell, float>();
             foreach (var cell in cellGrid.Cells)
             {
@@ -31,6 +34,7 @@ namespace TbsFramework.Players.AI.Evaluators
                     totalDamagePerCell[cellInAttackRange] += damage;
                 }
             }
+            audioController.SFXSource.mute = false;
         }
 
         public override float Evaluate(Cell cellToEvaluate, Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
