@@ -98,7 +98,7 @@ namespace TbsFramework.Units
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
             unmergeSquare = GetAvailableSpace(cellGrid);
-            Debug.Log(UnitReference.GetComponent<MergeAbility>().mergedUnits.Count);
+            // Debug.Log(UnitReference.GetComponent<MergeAbility>().mergedUnits.Count);
             unitToUnmerge = UnitReference.GetComponent<MergeAbility>().mergedUnits.Count == 0 ? null : UnitReference.GetComponent<MergeAbility>().mergedUnits.LastOrDefault();
         }
 
@@ -141,26 +141,29 @@ namespace TbsFramework.Units
 
             if (UnitReference.GetComponent<ESUnit>().PlayerNumber == 0)
             {
-                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y - 0.16f), 0));
-                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y + 0.16f), 0));
-                directions.Add(new UnityEngine.Vector3((unit_x - 0.16f), unit_y, 0));
-                directions.Add(new UnityEngine.Vector3((unit_x + 0.16f), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (float) System.Math.Round((unit_y - 0.16f), 2), 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (float) System.Math.Round((unit_y + 0.16f), 2), 0));
+                directions.Add(new UnityEngine.Vector3((float) System.Math.Round((unit_x - 0.16f), 2), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3((float) System.Math.Round((unit_x + 0.16f), 2), unit_y, 0));
             }
             else if (UnitReference.GetComponent<ESUnit>().PlayerNumber == 1)
             {
-                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y + 0.16f), 0));
-                directions.Add(new UnityEngine.Vector3(unit_x, (unit_y - 0.16f), 0));
-                directions.Add(new UnityEngine.Vector3((unit_x + 0.16f), unit_y, 0));
-                directions.Add(new UnityEngine.Vector3((unit_x - 0.16f), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (float) System.Math.Round((unit_y + 0.16f), 2), 0));
+                directions.Add(new UnityEngine.Vector3(unit_x, (float) System.Math.Round((unit_y - 0.16f), 2), 0));
+                directions.Add(new UnityEngine.Vector3((float) System.Math.Round((unit_x + 0.16f), 2), unit_y, 0));
+                directions.Add(new UnityEngine.Vector3((float) System.Math.Round((unit_x - 0.16f), 2), unit_y, 0));
             }
 
+            int count = 0;
             foreach (var direction in directions)
             {
                 var tmp = cellGrid.Cells.Find(c => c.transform.localPosition.Equals(direction) && !c.IsTaken);
                 if (tmp != null)
                 {
+                    // Debug.Log($"direction {count.ToString()}");
                     return tmp;
                 }
+                count++;
             }
             Debug.Log("No squares found");
             return null;

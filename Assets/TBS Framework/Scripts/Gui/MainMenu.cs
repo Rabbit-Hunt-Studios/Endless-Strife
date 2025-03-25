@@ -12,7 +12,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGameAI()
     {
-        Debug.Log("load scene with AI player");
+        // Debug.Log("load scene with AI player");
+        SceneManager.LoadScene("SelectDifficulty");
     }
 
     public void QuitGame()
