@@ -11,6 +11,7 @@ using TbsFramework.Players.AI.Actions;
 using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json;
 
 namespace TbsFramework.Players
 {
@@ -82,7 +83,6 @@ namespace TbsFramework.Players
         private float currentEpisodeReward = 0f;
         private Dictionary<ESUnit, int> baseUpgradeLevels = new Dictionary<ESUnit, int>();
         private Dictionary<ESUnit, List<ESUnit>> spawnedUnits = new Dictionary<ESUnit, List<ESUnit>>();
-        private int currentTurn = 0;
         private int structuresCapturedThisGame = 0;
         
         // References
@@ -103,13 +103,32 @@ namespace TbsFramework.Players
             
             economyController = UnityEngine.Object.FindObjectOfType<EconomyController>();
             
-            // Initialize training metrics
-            metrics = new TrainingMetrics();
+            // Try to load existing metrics
+            string metricsPath = Path.Combine(Application.persistentDataPath, $"training_metrics_{PlayerNumber}.json");
+            if (File.Exists(metricsPath))
+            {
+                Debug.LogWarning($"Loading training metrics from {metricsPath}");
+                try
+                {
+                    string metricsJson = File.ReadAllText(metricsPath);
+                    metrics = JsonConvert.DeserializeObject<TrainingMetrics>(metricsJson);
+                    Debug.Log($"Loaded training metrics from {metricsPath}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"Failed to load training metrics: {ex.Message}");
+                    metrics = new TrainingMetrics();
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"No training metrics found at {metricsPath}");
+                metrics = new TrainingMetrics();
+            }
         }
         
         private void OnLevelLoadingDone(object sender, EventArgs e)
         {
-            currentTurn = 0;
             currentEpisodeReward = 0f;
             structuresCapturedThisGame = 0;
             
@@ -132,12 +151,12 @@ namespace TbsFramework.Players
                 }
                 catch (System.Exception ex)
                 {
-                    Debug.LogWarning($"Could not load model: {ex.Message}. Using new model.");
+                    Debug.LogWarning($"Could not load model: {modelFilename} {ex.Message}. Using new model.");
                 }
             }
             
             replayBuffer = new ReplayBuffer(replayBufferCapacity);
-            
+
             // Track initial state
             foreach (var unit in cellGrid.Units)
             {
@@ -171,8 +190,6 @@ namespace TbsFramework.Players
             {
                 objectiveControlTurns++;
             }
-            
-            currentTurn++;
             
             if (collectTrainingData)
             {
@@ -289,7 +306,7 @@ namespace TbsFramework.Players
                         
                         // Store experience in replay buffer
                         replayBuffer.AddExperience(RLcurrentState, action.GetActionIndex(), actionReward, newState, cellGrid.GameFinished);
-                        
+
                         // Learn from batch of experiences
                         if (replayBuffer.Size() > batchSize)
                         {
@@ -885,7 +902,7 @@ namespace TbsFramework.Players
             
             // Add basic game state info
             rlState.Add(state.CurrentPlayerNumber);
-            rlState.Add(currentTurn);
+            rlState.Add(state.CellGrid.Turns[state.CurrentPlayerNumber, 0]);
             
             // Add objective control information
             int objectiveControlTurnsForPlayer = 0;
@@ -964,7 +981,7 @@ namespace TbsFramework.Players
             
             // Game turn information
             state.Add(cellGrid.CurrentPlayerNumber);
-            state.Add(currentTurn);
+            state.Add(cellGrid.Turns[cellGrid.CurrentPlayerNumber, 0]);
             
             // Add objective control information
             state.Add(objectiveControlTurns);
@@ -1210,7 +1227,7 @@ namespace TbsFramework.Players
             
             float totalLoss = 0f;
             float totalTDError = 0f;
-            
+
             // Q-learning update
             foreach (var experience in batch)
             {
@@ -1284,8 +1301,9 @@ namespace TbsFramework.Players
             if (collectTrainingData)
             {
                 // Record game outcome
-                metrics.RecordGameResult(isWinner, currentTurn);
-                
+                metrics.RecordGameResult(isWinner, cellGrid.Turns[PlayerNumber, 0]);
+                Debug.Log($"Game {metrics.gamesPlayed} - Player {PlayerNumber} " + 
+                          $"{(isWinner ? "won" : "lost")} in {cellGrid.Turns[PlayerNumber, 0]} turns" + ", Win count: " + metrics.winsCount);
                 // Save metrics periodically
                 if (metrics.gamesPlayed % saveMetricsInterval == 0)
                 {
@@ -1310,6 +1328,14 @@ namespace TbsFramework.Players
                 {
                     Debug.Log($"Model saved to {modelFilename}");
                 }
+                // Save metrics
+                string metricsJson = JsonConvert.SerializeObject(metrics, Formatting.Indented);
+                File.WriteAllText(Path.Combine(Application.persistentDataPath, $"training_metrics_{PlayerNumber}.json"), metricsJson);
+                
+                if (debugMode)
+                {
+                    Debug.Log("Saved metrics to persistent storage");
+                }
             }
             
             // Clear caches and reset for next game
@@ -1318,7 +1344,8 @@ namespace TbsFramework.Players
             structuresCapturedThisGame = 0;
             if (isTraining)
             {    
-                SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+                // Reload the scene
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         
