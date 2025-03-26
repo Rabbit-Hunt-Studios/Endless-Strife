@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class NeuralNetwork
 {
@@ -33,8 +34,8 @@ public class NeuralNetwork
         public int inputSize;
         public int outputSize;
         public int hiddenSize;
-        public float[][] weights1Flat;
-        public float[][] weights2Flat;
+        public float[,] weights1Flat;
+        public float[,] weights2Flat;
         public float[] bias1;
         public float[] bias2;
         public int trainingSteps;
@@ -77,6 +78,7 @@ public class NeuralNetwork
             for (int j = 0; j < hiddenSize; j++)
             {
                 weights2[i, j] = (float)((random.NextDouble() * 2 - 1) * w2Scale);
+                
             }
             bias2[i] = 0;
         }
@@ -186,6 +188,7 @@ public class NeuralNetwork
             for (int j = 0; j < hiddenSize; j++)
             {
                 weights2[i, j] += learningRate * outputErrors[i] * hidden[j];
+                Debug.Log($"weights2[{i}, {j}]: " + weights2[i, j]);
             }
         }
         
@@ -218,7 +221,7 @@ public class NeuralNetwork
     
     public void SaveModel(string filename)
     {
-        string path = Path.Combine("./RL/Model", filename);
+        string path = Path.Combine(".\\RL\\Model", filename);
         
         ModelData data = new ModelData
         {
@@ -227,35 +230,20 @@ public class NeuralNetwork
             hiddenSize = this.hiddenSize,
             bias1 = this.bias1,
             bias2 = this.bias2,
-            weights1Flat = new float[hiddenSize][],
-            weights2Flat = new float[outputSize][],
+            weights1Flat = this.weights1,
+            weights2Flat = this.weights2,
             trainingSteps = this.trainingSteps
         };
         
-        // Flatten 2D arrays for serialization
-        for (int i = 0; i < hiddenSize; i++)
-        {
-            data.weights1Flat[i] = new float[inputSize];
-            for (int j = 0; j < inputSize; j++)
-            {
-                data.weights1Flat[i][j] = weights1[i, j];
-            }
-        }
-        
-        for (int i = 0; i < outputSize; i++)
-        {
-            data.weights2Flat[i] = new float[hiddenSize];
-            for (int j = 0; j < hiddenSize; j++)
-            {
-                data.weights2Flat[i][j] = weights2[i, j];
-            }
-        }
-        
-        string json = JsonUtility.ToJson(data);
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+        // Check if file exists and delete it before writing
+        if (File.Exists(path))
+            File.Delete(path);
         File.WriteAllText(path, json);
         
         // Also save a versioned backup
-        string backupPath = Path.Combine("./RL/Model", $"{Path.GetFileNameWithoutExtension(filename)}_v{trainingSteps}.json");
+        string backupPath = Path.Combine(".\\RL\\Model", $"{Path.GetFileNameWithoutExtension(filename)}_v{trainingSteps}.json");
         File.WriteAllText(backupPath, json);
         
         Debug.Log("Model saved to " + path);
@@ -263,12 +251,12 @@ public class NeuralNetwork
     
     public void LoadModel(string filename)
     {
-        string path = Path.Combine("./RL/Model", filename);
+        string path = Path.Combine(".\\RL\\Model", filename);
         
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            ModelData data = JsonUtility.FromJson<ModelData>(json);
+            ModelData data =JsonConvert.DeserializeObject<ModelData>(json);
             
             this.inputSize = data.inputSize;
             this.outputSize = data.outputSize;
@@ -279,21 +267,20 @@ public class NeuralNetwork
             
             this.weights1 = new float[hiddenSize, inputSize];
             this.weights2 = new float[outputSize, hiddenSize];
-            
             // Convert flat arrays back to 2D
             for (int i = 0; i < hiddenSize; i++)
             {
                 for (int j = 0; j < inputSize; j++)
                 {
-                    weights1[i, j] = data.weights1Flat[i][j];
+                    weights1[i, j] = data.weights1Flat[i,j];
                 }
             }
-            
+
             for (int i = 0; i < outputSize; i++)
             {
                 for (int j = 0; j < hiddenSize; j++)
                 {
-                    weights2[i, j] = data.weights2Flat[i][j];
+                    weights2[i, j] = data.weights2Flat[i,j];
                 }
             }
             

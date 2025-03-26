@@ -111,7 +111,7 @@ namespace TbsFramework.Players
         // Save metrics to CSV
         public void SaveMetricsToCSV(string playerNumber)
         {
-            string basePath = Path.Combine("./RL/Data", $"RL_Training_Data_{playerNumber}");
+            string basePath = Path.Combine(".\\RL\\Data", $"RL_Training_Data_{playerNumber}");
             Directory.CreateDirectory(basePath);
             
             // Save overall metrics

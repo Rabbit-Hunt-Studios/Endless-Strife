@@ -47341,15 +47341,15 @@ MonoBehaviour:
   learningRate: 0.001
   discountFactor: 0.99
   explorationRate: 0.1
-  batchSize: 32
+  batchSize: 16
   replayBufferCapacity: 10000
   hiddenLayerSize: 256
   isTraining: 1
   loadModelOnStart: 1
-  modelFilename: rl_minimax_model.json
+  modelFilename: rl_minimax_model_0.json
   debugMode: 0
   collectTrainingData: 1
-  saveMetricsInterval: 10
+  saveMetricsInterval: 5
   exportWeightHistograms: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
@@ -57968,15 +57968,15 @@ MonoBehaviour:
   learningRate: 0.001
   discountFactor: 0.99
   explorationRate: 0.1
-  batchSize: 32
+  batchSize: 16
   replayBufferCapacity: 10000
   hiddenLayerSize: 256
   isTraining: 1
   loadModelOnStart: 1
-  modelFilename: rl_minimax_model.json
+  modelFilename: rl_minimax_model_1.json
   debugMode: 0
   collectTrainingData: 1
-  saveMetricsInterval: 10
+  saveMetricsInterval: 5
   exportWeightHistograms: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
