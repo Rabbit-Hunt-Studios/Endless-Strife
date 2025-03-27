@@ -1,0 +1,1116 @@
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 9:02:41 PM
+Games Played: 10
+Wins: 10 (100.0%)
+Total Turns: 188
+Average Game Length: 18.8 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 9:15:12 PM
+Games Played: 20
+Wins: 18 (90.0%)
+Total Turns: 373
+Average Game Length: 18.7 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 9:28:20 PM
+Games Played: 30
+Wins: 26 (86.7%)
+Total Turns: 563
+Average Game Length: 18.8 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 9:40:57 PM
+Games Played: 40
+Wins: 36 (90.0%)
+Total Turns: 748
+Average Game Length: 18.7 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 9:54:13 PM
+Games Played: 50
+Wins: 46 (92.0%)
+Total Turns: 932
+Average Game Length: 18.6 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 10:07:16 PM
+Games Played: 60
+Wins: 56 (93.3%)
+Total Turns: 1119
+Average Game Length: 18.7 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 10:20:10 PM
+Games Played: 70
+Wins: 66 (94.3%)
+Total Turns: 1302
+Average Game Length: 18.6 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 10:33:35 PM
+Games Played: 80
+Wins: 75 (93.8%)
+Total Turns: 1490
+Average Game Length: 18.6 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 10:47:18 PM
+Games Played: 90
+Wins: 84 (93.3%)
+Total Turns: 1690
+Average Game Length: 18.8 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 11:00:49 PM
+Games Played: 100
+Wins: 92 (92.0%)
+Total Turns: 1886
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 11:14:45 PM
+Games Played: 110
+Wins: 101 (91.8%)
+Total Turns: 2082
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 11:28:39 PM
+Games Played: 120
+Wins: 109 (90.8%)
+Total Turns: 2277
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 11:41:24 PM
+Games Played: 130
+Wins: 119 (91.5%)
+Total Turns: 2456
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/26/2025 11:54:38 PM
+Games Played: 140
+Wins: 127 (90.7%)
+Total Turns: 2645
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 12:07:05 AM
+Games Played: 150
+Wins: 136 (90.7%)
+Total Turns: 2831
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 12:21:06 AM
+Games Played: 160
+Wins: 144 (90.0%)
+Total Turns: 3034
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 12:33:08 AM
+Games Played: 170
+Wins: 154 (90.6%)
+Total Turns: 3209
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 12:47:04 AM
+Games Played: 180
+Wins: 163 (90.6%)
+Total Turns: 3411
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 1:00:13 AM
+Games Played: 190
+Wins: 171 (90.0%)
+Total Turns: 3596
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 1:14:19 AM
+Games Played: 200
+Wins: 178 (89.0%)
+Total Turns: 3795
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 1:27:20 AM
+Games Played: 210
+Wins: 188 (89.5%)
+Total Turns: 3986
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 1:40:06 AM
+Games Played: 220
+Wins: 198 (90.0%)
+Total Turns: 4168
+Average Game Length: 18.9 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 1:53:50 AM
+Games Played: 230
+Wins: 206 (89.6%)
+Total Turns: 4363
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 2:08:34 AM
+Games Played: 240
+Wins: 214 (89.2%)
+Total Turns: 4570
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 2:21:13 AM
+Games Played: 250
+Wins: 224 (89.6%)
+Total Turns: 4756
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 2:33:19 AM
+Games Played: 260
+Wins: 234 (90.0%)
+Total Turns: 4934
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 2:45:58 AM
+Games Played: 270
+Wins: 244 (90.4%)
+Total Turns: 5120
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 2:58:37 AM
+Games Played: 280
+Wins: 252 (90.0%)
+Total Turns: 5310
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 3:12:24 AM
+Games Played: 290
+Wins: 262 (90.3%)
+Total Turns: 5509
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 3:26:23 AM
+Games Played: 300
+Wins: 271 (90.3%)
+Total Turns: 5703
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 3:39:15 AM
+Games Played: 310
+Wins: 280 (90.3%)
+Total Turns: 5894
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 3:52:17 AM
+Games Played: 320
+Wins: 289 (90.3%)
+Total Turns: 6084
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 4:05:24 AM
+Games Played: 330
+Wins: 299 (90.6%)
+Total Turns: 6275
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 4:18:08 AM
+Games Played: 340
+Wins: 309 (90.9%)
+Total Turns: 6457
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 4:31:12 AM
+Games Played: 350
+Wins: 317 (90.6%)
+Total Turns: 6649
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 4:45:55 AM
+Games Played: 360
+Wins: 324 (90.0%)
+Total Turns: 6863
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 4:59:47 AM
+Games Played: 370
+Wins: 332 (89.7%)
+Total Turns: 7059
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 5:13:19 AM
+Games Played: 380
+Wins: 340 (89.5%)
+Total Turns: 7255
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 5:27:20 AM
+Games Played: 390
+Wins: 350 (89.7%)
+Total Turns: 7452
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 5:41:00 AM
+Games Played: 400
+Wins: 359 (89.8%)
+Total Turns: 7644
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 5:52:58 AM
+Games Played: 410
+Wins: 368 (89.8%)
+Total Turns: 7818
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 6:05:22 AM
+Games Played: 420
+Wins: 376 (89.5%)
+Total Turns: 8008
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 6:18:32 AM
+Games Played: 430
+Wins: 384 (89.3%)
+Total Turns: 8194
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 6:30:50 AM
+Games Played: 440
+Wins: 394 (89.5%)
+Total Turns: 8374
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 6:43:52 AM
+Games Played: 450
+Wins: 404 (89.8%)
+Total Turns: 8565
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 6:57:28 AM
+Games Played: 460
+Wins: 411 (89.3%)
+Total Turns: 8758
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 7:10:14 AM
+Games Played: 470
+Wins: 421 (89.6%)
+Total Turns: 8949
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 7:24:13 AM
+Games Played: 480
+Wins: 430 (89.6%)
+Total Turns: 9151
+Average Game Length: 19.1 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 7:36:15 AM
+Games Played: 490
+Wins: 440 (89.8%)
+Total Turns: 9322
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 7:49:23 AM
+Games Played: 500
+Wins: 450 (90.0%)
+Total Turns: 9511
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 8:03:04 AM
+Games Played: 510
+Wins: 458 (89.8%)
+Total Turns: 9711
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 8:15:32 AM
+Games Played: 520
+Wins: 468 (90.0%)
+Total Turns: 9887
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 8:29:01 AM
+Games Played: 530
+Wins: 475 (89.6%)
+Total Turns: 10084
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 8:42:57 AM
+Games Played: 540
+Wins: 485 (89.8%)
+Total Turns: 10281
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 8:55:46 AM
+Games Played: 550
+Wins: 494 (89.8%)
+Total Turns: 10467
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 9:07:05 AM
+Games Played: 560
+Wins: 503 (89.8%)
+Total Turns: 10638
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 9:20:45 AM
+Games Played: 570
+Wins: 513 (90.0%)
+Total Turns: 10834
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 9:33:59 AM
+Games Played: 580
+Wins: 523 (90.2%)
+Total Turns: 11021
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 9:47:03 AM
+Games Played: 590
+Wins: 530 (89.8%)
+Total Turns: 11205
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 9:59:06 AM
+Games Played: 600
+Wins: 537 (89.5%)
+Total Turns: 11384
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 10:12:14 AM
+Games Played: 610
+Wins: 547 (89.7%)
+Total Turns: 11572
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
+Session ID: session_20250326_204905
+Start Time: 3/26/2025 8:49:05 PM
+End Time: 3/27/2025 10:24:57 AM
+Games Played: 620
+Wins: 555 (89.5%)
+Total Turns: 11750
+Average Game Length: 19.0 turns
+Average Episode Reward: 0.00
+Final Exploration Rate: 0.1000
+
+Action Distribution:
+  Skip/NoAction: 0 times, Avg Reward: 0.00
+  Move: 0 times, Avg Reward: 0.00
+  Attack: 0 times, Avg Reward: 0.00
+  Capture: 0 times, Avg Reward: 0.00
+  SpawnUnit: 0 times, Avg Reward: 0.00
+  UpgradeBase: 0 times, Avg Reward: 0.00
+--------------------------------------------------
