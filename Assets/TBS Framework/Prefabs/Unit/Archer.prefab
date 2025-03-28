@@ -598,7 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weight: 1.2
   objectiveName: Objective
-  maxTurnsToGetThere: 6
+  maxTurnsToGetThere: 7
 --- !u!114 &8902619624452455104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weight: 1.2
   objectiveName: Base
-  maxTurnsToGetThere: 5
+  maxTurnsToGetThere: 6
 --- !u!114 &4493372799900954665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1.1
-  maxTurnsToGetThere: 4
+  maxTurnsToGetThere: 6
 --- !u!114 &3837330328018758920
 MonoBehaviour:
   m_ObjectHideFlags: 0
