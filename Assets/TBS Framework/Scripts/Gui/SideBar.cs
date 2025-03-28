@@ -34,7 +34,7 @@ public class SideBar : MonoBehaviour
 
     public void Guide()
     {
-        Debug.Log("show guide");
+        Application.OpenURL("https://drive.google.com/file/d/1vo72gL_AL4oh22-GF1KK5jsaNSWhTkxV/view");
     }
 
     public void Back()

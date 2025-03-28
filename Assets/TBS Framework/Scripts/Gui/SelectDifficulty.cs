@@ -9,7 +9,7 @@ public class SelectDifficulty : MonoBehaviour
     public void PlayGame(int difficulty)
     {
         PlayerPrefs.SetInt("MinimaxDepth", difficulty);
-        SceneManager.LoadScene("MainMap RL Minimax AI");
+        SceneManager.LoadScene("MainMap" + Random.Range(0,7).ToString() + " AI");
     }
     public void BackButton()
     {

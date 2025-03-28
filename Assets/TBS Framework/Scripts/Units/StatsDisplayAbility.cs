@@ -50,7 +50,7 @@ public class StatsDisplayAbility : Ability
 
         stats.Add(HitpointsSprite, "Health: " + UnitReference.GetComponent<ESUnit>().HitPoints.ToString());
         stats.Add(AttackSprite, "Attack: " + UnitReference.GetComponent<ESUnit>().AttackFactor.ToString());
-        stats.Add(DefenceSprite, "Defence: " + UnitReference.GetComponent<ESUnit>().DefenceFactor.ToString());
+        stats.Add(DefenceSprite, "Defence: " + UnitReference.GetComponent<ESUnit>().DefenceFactor.ToString() + " %");
         stats.Add(RangeSprite, "Range: " + UnitReference.GetComponent<ESUnit>().AttackRange.ToString());
         stats.Add(MovementSprite, "Moves: " + UnitReference.GetComponent<ESUnit>().MovementPoints.ToString());
 

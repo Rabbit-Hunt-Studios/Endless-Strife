@@ -35818,9 +35818,9 @@ MonoBehaviour:
   loadModelOnStart: 1
   modelFilename: rl_minimax_model_0.json
   debugMode: 0
-  collectTrainingData: 1
+  collectTrainingData: 0
   saveMetricsInterval: 10
-  exportWeightHistograms: 1
+  exportWeightHistograms: 0
   damageDealtRewardWeight: 0.5
   unitKillRewardWeight: 3
   outpostCaptureRewardWeight: 5

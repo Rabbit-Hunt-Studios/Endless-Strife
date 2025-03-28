@@ -169,7 +169,7 @@ namespace TbsFramework.Units
 
             var defenceCard = Instantiate(StatCard, StatCard.transform.parent);
             defenceCard.transform.GetChild(0).GetComponent<Image>().sprite = DefenceSprite;
-            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + unit.DefenceFactor.ToString();
+            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + unit.DefenceFactor.ToString() + " %";
             defenceCard.SetActive(true);
             StatDisplays.Add(defenceCard);
 

@@ -30,6 +30,39 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMap2.unity
     guid: d330f92c32fca7249941b93228f89a6e
   - enabled: 1
+    path: Assets/Scenes/MainMap3.unity
+    guid: 95e482cf98d83064783798fba9b95eac
+  - enabled: 1
+    path: Assets/Scenes/MainMap4.unity
+    guid: 3075f52cf064f894285e7917a4bbe860
+  - enabled: 1
+    path: Assets/Scenes/MainMap5.unity
+    guid: 264a8bf56db3693409c3059c94f8b66f
+  - enabled: 1
+    path: Assets/Scenes/MainMap6.unity
+    guid: c0a90bb63ec932e4aa66075e2c383ff0
+  - enabled: 1
+    path: Assets/Scenes/MainMap0 AI.unity
+    guid: 0d3504cec856c924eaa5e7a552a4864f
+  - enabled: 1
+    path: Assets/Scenes/MainMap1 AI.unity
+    guid: 045f6729043420d48a47f85e24a343a7
+  - enabled: 1
+    path: Assets/Scenes/MainMap2 AI.unity
+    guid: cb14b9a6118a92a40b0aa3220b04f120
+  - enabled: 1
+    path: Assets/Scenes/MainMap3 AI.unity
+    guid: d0aacb5ccbe4cc44fad4f498c52343d4
+  - enabled: 1
+    path: Assets/Scenes/MainMap4 AI.unity
+    guid: a720658da49dfd74dacb1bd12f94b473
+  - enabled: 1
+    path: Assets/Scenes/MainMap5 AI.unity
+    guid: bad4cc32a47bbaa4ca5ce6fc1aae76fd
+  - enabled: 1
+    path: Assets/Scenes/MainMap6 AI.unity
+    guid: 5035a3ce9f95ad345a068e56b8c09076
+  - enabled: 0
     path: Assets/Scenes/MainMap RL Minimax AI.unity
     guid: 6784b20882b3be742973da1b3b903102
   m_configObjects: {}
