@@ -22,7 +22,29 @@ public class AudioController : MonoBehaviour
     {
         MusicSource.clip = BGMusic;
         MusicSource.loop = true;
+
+        if (PlayerPrefs.HasKey("BGMVolume")) {
+            // Debug.Log(PlayerPrefs.GetInt("BGMVolume"));
+            // Debug.Log((float) PlayerPrefs.GetInt("BGMVolume") / 100);
+            MusicSource.volume = (float) PlayerPrefs.GetInt("BGMVolume") / 100;
+        }
+        if (PlayerPrefs.HasKey("SFXVolume")) {
+            SFXSource.volume = (float) PlayerPrefs.GetInt("SFXVolume") / 100;
+        }
+
         MusicSource.Play();
+    }
+
+    public void Update()
+    {
+        if (PlayerPrefs.HasKey("BGMVolume") && PlayerPrefs.GetInt("changeVolume") == 1) {
+            MusicSource.volume = (float) PlayerPrefs.GetInt("BGMVolume") / 100;
+            PlayerPrefs.SetInt("changeVolume", 0);
+        }
+        if (PlayerPrefs.HasKey("SFXVolume") && PlayerPrefs.GetInt("changeVolume") == 1) {
+            SFXSource.volume = (float) PlayerPrefs.GetInt("SFXVolume") / 100;
+            PlayerPrefs.SetInt("changeVolume", 0);
+        }
     }
 
     public void PlaySFX(AudioClip clip)
