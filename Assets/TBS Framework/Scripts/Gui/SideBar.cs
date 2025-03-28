@@ -9,13 +9,16 @@ public class SideBar : MonoBehaviour
     public Slider bgmSlider;
     public Slider sfxSlider;
 
-    public void start()
+    public void Start()
     {
-        if (PlayerPrefs.HasKey("BGMVolume")) {
-            bgmSlider.value = PlayerPrefs.GetInt("BGMVolume");
-        }
-        if (PlayerPrefs.HasKey("SFXVolume")) {
-            bgmSlider.value = PlayerPrefs.GetInt("SFXVolume");
+        if (bgmSlider != null)
+        {
+            if (PlayerPrefs.HasKey("BGMVolume")) {
+            bgmSlider.value = (float) PlayerPrefs.GetInt("BGMVolume");
+            }
+            if (PlayerPrefs.HasKey("SFXVolume")) {
+                sfxSlider.value = (float) PlayerPrefs.GetInt("SFXVolume");
+            }
         }
     }
 
@@ -27,7 +30,6 @@ public class SideBar : MonoBehaviour
     public void ChangeVolume(Slider slider)
     {
         PlayerPrefs.SetInt(slider.name, (int) slider.value);
-        PlayerPrefs.SetInt("changeVolume", 1);
     }
 
     public void Guide()
