@@ -7,7 +7,7 @@ public class EndScreen : MonoBehaviour
 {
     public void PlayAgain()
     {
-        SceneManager.LoadScene("MainMap");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMenu()

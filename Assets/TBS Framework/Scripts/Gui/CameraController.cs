@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TbsFramework.Gui
 {
@@ -19,6 +20,7 @@ namespace TbsFramework.Gui
         {
             HandleMovement();
             HandleZoom();
+            Exit();
         }
 
         private void HandleMovement()
@@ -64,6 +66,14 @@ namespace TbsFramework.Gui
             else if (Input.GetKey("e"))
             {
                 Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + ZoomSpeed * Time.deltaTime, MinZoom, MaxZoom);
+            }
+        }
+
+        private void Exit()
+        {
+            if (Input.GetKey("escape"))
+            {
+                SceneManager.LoadScene("MainMenu");
             }
         }
 
