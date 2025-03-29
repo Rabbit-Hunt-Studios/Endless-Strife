@@ -74,3 +74,6 @@ crashlytics-build.properties
 # Assets that are a work in progress and not final
 **/[Aa]ssetTesting/**
 **/[Aa]ssetTesting.meta
+
+# Local player data
+**/PlayerData/**

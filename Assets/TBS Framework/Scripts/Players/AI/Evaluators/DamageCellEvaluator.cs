@@ -3,6 +3,7 @@ using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Units;
+using UnityEngine;
 
 namespace TbsFramework.Players.AI.Evaluators
 {
@@ -34,6 +35,8 @@ namespace TbsFramework.Players.AI.Evaluators
 
         public override void Precalculate(Unit evaluatingUnit, Player currentPlayer, CellGrid cellGrid)
         {
+            AudioController audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+            audioController.SFXSource.mute = true; 
             damage = new Dictionary<Unit, float>();
             maxPossibleDamage = 0f;
 
@@ -48,6 +51,7 @@ namespace TbsFramework.Players.AI.Evaluators
                     maxPossibleDamage = realDamage;
                 }
             }
+            audioController.SFXSource.mute = false;
         }
     }
 }

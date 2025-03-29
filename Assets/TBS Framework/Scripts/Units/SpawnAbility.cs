@@ -41,11 +41,14 @@ namespace TbsFramework.Units
         private Unit SpawnedUnit;
         private List<GameObject> UnitButtons = new List<GameObject>();
         private List<GameObject> StatDisplays = new List<GameObject>();
+        private AudioController audioController;
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (!UnitReference.Cell.IsTaken && FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber) >= SelectedPrefab.GetComponent<Price>().Value)
             {
+                audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+                audioController.PlaySFX(audioController.ButtonClick);
                 FindObjectOfType<EconomyController>().UpdateValue(GetComponent<Unit>().PlayerNumber, SelectedPrefab.GetComponent<Price>().Value * (-1));
                 MoneyAmountText.text = FindObjectOfType<EconomyController>().GetValue(GetComponent<Unit>().PlayerNumber).ToString();
 
@@ -79,6 +82,10 @@ namespace TbsFramework.Units
                     UnitSpawned.Invoke(unitGO, EventArgs.Empty);
                     SpawnedUnit.GetComponent<Unit>().SetState(new UnitStateMarkedAsFinished(SpawnedUnit.GetComponent<Unit>()));
                 }
+
+                SaveAbility.PlayerData toAdd = new SaveAbility.PlayerData();
+                toAdd.totalUnitsProduced = 1;
+                cellGrid.CurrentPlayer.GetComponent<SaveAbility>().UpdateValues(toAdd);
             }
 
             yield return base.Act(cellGrid, isNetworkInvoked);
@@ -162,7 +169,7 @@ namespace TbsFramework.Units
 
             var defenceCard = Instantiate(StatCard, StatCard.transform.parent);
             defenceCard.transform.GetChild(0).GetComponent<Image>().sprite = DefenceSprite;
-            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + unit.DefenceFactor.ToString();
+            defenceCard.transform.GetChild(1).GetComponent<Text>().text = "Defence: " + unit.DefenceFactor.ToString() + " %";
             defenceCard.SetActive(true);
             StatDisplays.Add(defenceCard);
 
