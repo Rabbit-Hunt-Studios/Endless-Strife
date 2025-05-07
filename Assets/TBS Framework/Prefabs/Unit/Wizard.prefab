@@ -3098,7 +3098,7 @@ MonoBehaviour:
   AttackRange: 2
   AttackFactor: 75
   DefenceFactor: 15
-  movementPoints: 2
+  movementPoints: 3
   MovementAnimationSpeed: 1
   actionPoints: 1
   PlayerNumber: 0
