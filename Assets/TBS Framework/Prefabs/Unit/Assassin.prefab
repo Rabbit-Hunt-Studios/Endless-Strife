@@ -3257,8 +3257,8 @@ MonoBehaviour:
   AttackRange: 1
   AttackFactor: 100
   DefenceFactor: 0
-  movementPoints: 4
-  MovementAnimationSpeed: 1
+  movementPoints: 5
+  MovementAnimationSpeed: 2
   actionPoints: 1
   PlayerNumber: 0
   Player1Sprite: {fileID: -5768801280392524164, guid: 297d5267c0e928f469f6e7b7977f0908,
